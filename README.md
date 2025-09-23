@@ -2,11 +2,12 @@
 ### Descripción: 
 Maestros de la cocina es una web con formato de catálogo de recetas.
 
-Integrantes 
+### Integrantes 
 - Miguel de Luis Ibáñez --- m.deluis.2024@alumnos.urjc.es --- mmddll8
-- Hugo García Palomo --- h.gracía.2024@alumnos.urjc.es --- Hugo-56
+- Hugo García Palomo --- h.garciap.2024@alumnos.urjc.es --- Hugo-56
 - Lucas Román Jiménez --- l.roman.2024@alumnos.urjc.es --- Lucas-Roman-Jimenea
-  
+
+# Funcionalidad
 ## Entidades
 Entidad principal: receta del plato a cocinar. 
 Atributos de la entidad principal:
