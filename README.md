@@ -5,7 +5,7 @@ Maestros de la cocina es una web con formato de catálogo de recetas.
 ### Integrantes 
 - Miguel de Luis Ibáñez --- m.deluis.2024@alumnos.urjc.es --- mmddll8
 - Hugo García Palomo --- h.garciap.2024@alumnos.urjc.es --- Hugo-56
-- Lucas Román Jiménez --- l.roman.2024@alumnos.urjc.es --- Lucas-Roman-Jimenea
+- Lucas Román Jiménez --- l.roman.2024@alumnos.urjc.es --- Lucas-Roman-Jimenez
 
 # Funcionalidad
 ## Entidades
