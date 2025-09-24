@@ -9,32 +9,31 @@ Maestros de la cocina es una web con formato de catálogo de recetas.
 
 # Funcionalidad
 ## Entidades
-Entidad principal: receta del plato a cocinar. 
+Entidad principal: receta del plato a cocinar. (Recipe)
 Atributos de la entidad principal:
-1. Nombre. (Ejemplo: "Tortilla de patatas")
-2. Tipo de plato. (Ejemplo: "Primer plato")
-3. Dificultad. (Ejemplo: "Fácil")
-4. Duración. (Ejemplo: "30 minutos")
-5. Descripción.
-6. Lista de ingredientes.
-7. Alérgenos.
-8. Pasos de la preparación.
-9. Imágenes del plato.
+1. Nombre. (Ejemplo: "Tortilla de patatas") (Name)
+2. Tipo de plato. (Ejemplo: "Primer plato") (Dish(Starter-Side-Main-Dessert))
+3. Dificultad. (Ejemplo: "Fácil") (Difficulty(Easy-Medium-Hard))
+4. Duración. (Ejemplo: "30 minutos") (Length)
+5. Descripción. (Description)
+6. Alérgenos. (Allergens)
+7. Pasos de la preparación. (Steps)
+8. Imágenes del plato. (Images)
 
-Entidad secundaria ligada a la principal: ingrediente. 
-Atributos de la entidad secundaria: 
-1. Nombre. (Ejemplo: "Patatas")
-2. Alérgenos.
-3. Precio aproximado del ingrediente.
-4. Descripción. 
-5. Imagen del ingrediente.
+Entidad secundaria ligada a la principal: ingrediente. (Ingredients) 
+Atributos de la entidad secundaria:
+1. Nombre. (Ejemplo: "Patatas") (Name)
+2. Alérgenos. (Allergens)
+3. Precio aproximado del ingrediente. (Price)
+4. Descripción. (Description)
+5. Imagen del ingrediente. (Image)
 
 La relación entre la entidad principal y la secundaria se da ya que es necesaria una lista de ingredientes para realizar una receta.
 
 ## Funcionalidades para el usuario
 El objetivo es incluir un buscador por nombre para encontrar recetas, además de filtros para buscar por tipo de plato, dificultad o duración. 
 
-Además, se pretende que el usuario pueda poner valoraciones a las recetas, guardar recetas favoritas y añadir sus propias recetas.
+Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 
 
