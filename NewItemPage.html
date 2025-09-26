@@ -14,66 +14,92 @@
         <h1> Página de nuevo elemento </h1>
 
         <form>
+            
+            <section>
+                <label for="Name"> Nombre </label> 
+                <input type="text" id="Name" placeholder="Nombre">
+            </section>
 
-            <label for="Name"> Nombre </label> 
-            <input type="text" id="Name" placeholder="Nombre"> <br>
-
+            <br>
 
            <section>
              <label for="Dish"> Plato </label>
-                <select name="Plato" id="Dish">
-                    <option value="1">Primer plato</option>
-                    <option value="2">Segundo plato</option>
-                    <option value="3">Guarnición</option>
-                    <option value="4">Postre</option>
+                <select id="Dish">
+                    <option value="1"> Primer plato </option>
+                    <option value="2"> Segundo plato </option>
+                    <option value="3"> Guarnición </option>
+                    <option value="4"> Postre </option>
                 </select>
            </section>
 
+           <br>
+
            <section>
-             <label for="Difficulty">Dificultad</label>
-                <select name="Dificultad" id="Difficulty">
-                    <option value="1">5 min</option>
-                    <option value="2">15 min</option>
-                    <option value="3">30 min</option>
-                    <option value="4">45 min</option>
-                    <option value="5">1 h</option>
-                    <option value="6">2 h</option>
-                    <option value="7">3 h</option>
-                    <option value="8">+3 h</option>
+             <label for="Difficulty"> Dificultad </label>
+                <select id="Difficulty">
+                    <option value="1"> Fácil </option>
+                    <option value="2"> Medio </option>
+                    <option value="3"> Difícil </option>
                 </select>
            </section>
+
+           <br>
+
+           <section>
+             <label for="Length"> Duración </label>
+                <select id="Lenght">
+                    <option value="1"> 5 min </option>
+                    <option value="2"> 15 min </option>
+                    <option value="3"> 30 min </option>
+                    <option value="4"> 45 min </option>
+                    <option value="5"> 1 h </option>
+                    <option value="6"> 2 h </option>
+                    <option value="7"> 3 h </option>
+                    <option value="8"> +3 h </option>
+                </select>
+           </section>
+
+           <br>
              
            <section>
-                <label for="Description">Descripción</label>
-                <textarea name="Descripción" id="Description" rows="3"></textarea>
+                <label for="Description"> Descripción </label>
+                <textarea id="Description" rows="3"> </textarea>
            </section>
 
-            <section>
-                <label for="Steps">Pasos de preparación</label>
-                <textarea name="Pasos de preparación" id="Steps" rows="3"></textarea>
-            </section>
+           <br>
 
             <section>
-             <label for="Allergens"> Alérgenos </label> <br>
-             <input type="checkbox" id="Allergens"> Lacteos <br>
-             <input type="checkbox" id="Allergens"> Marisco <br>
-             <input type="checkbox" id="Allergens"> Gluten <br>
-             <input type="checkbox" id="Allergens"> Huevo <br>
-             <input type="checkbox" id="Allergens"> Pescado <br>
-             <input type="checkbox" id="Allergens"> Cacahuetes<br>
-             <input type="checkbox" id="Allergens"> Soja <br>
-             <input type="checkbox" id="Allergens"> Frutos con cáscara <br>
-             <input type="checkbox" id="Allergens"> Apio <br>
-             <input type="checkbox" id="Allergens"> Mostaza <br>
-             <input type="checkbox" id="Allergens"> Sésamo <br>
-             <input type="checkbox" id="Allergens"> Sulfitos <br>
-             <input type="checkbox" id="Allergens"> Altramuces <br>
-             <input type="checkbox" id="Allergens"> Moluscos <br>
-             <input type="checkbox" id="Allergens"> Crustáceos <br>
+                <label for="Steps"> Pasos de preparación </label>
+                <textarea id="Steps" rows="3"></textarea>
             </section>
 
-            <button type="Guardar"> Guardar </button>
-            <button type="Cancelar"> Cancelar </button>
+            <br>
+
+            <section>
+                <label for="Allergens"> Alérgenos </label> <br>
+                <input type="checkbox" id="Allergens"> Lacteos <br>
+                <input type="checkbox" id="Allergens"> Marisco <br>
+                <input type="checkbox" id="Allergens"> Gluten <br>
+                <input type="checkbox" id="Allergens"> Huevo <br>
+                <input type="checkbox" id="Allergens"> Pescado <br>
+                <input type="checkbox" id="Allergens"> Cacahuetes<br>
+                <input type="checkbox" id="Allergens"> Soja <br>
+                <input type="checkbox" id="Allergens"> Frutos con cáscara <br>
+                <input type="checkbox" id="Allergens"> Apio <br>
+                <input type="checkbox" id="Allergens"> Mostaza <br>
+                <input type="checkbox" id="Allergens"> Sésamo <br>
+                <input type="checkbox" id="Allergens"> Sulfitos <br>
+                <input type="checkbox" id="Allergens"> Altramuces <br>
+                <input type="checkbox" id="Allergens"> Moluscos <br>
+                <input type="checkbox" id="Allergens"> Crustáceos <br>
+            </section>
+
+            <br>
+
+            <section>
+                <button type="Submit"> Guardar </button>
+                <a href="MainPage.html"> Cancelar </a>
+            </section>
             
         </form>
 
