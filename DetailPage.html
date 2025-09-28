@@ -3,99 +3,103 @@
 
 <head>
 
-    <title> Pagina de detalle </title>
+    <title> Página de detalle </title>
 
 </head> 
 
 <body>
 
     <section>
+
+        <h1> Página de detalle </h1>
         
-        <h1> Name </h1>
-        <p><strong>Dish: </strong></p>
-        <p><strong>Difficulty: </strong></p>
-        <p><strong>Length: </strong></p>
-        <p><strong>Description: </strong></p>
-        <p><strong>Allergens: </strong></p>
-        <p><strong>Steps: </strong></p>
-        <p><strong>Images: </strong></p>
-        <img src="image.jpg" alt="Image" width="">
+        <section>
+            <h2> Nombre de la receta </h2>
+            <p><strong> Plato: </strong></p>
+            <p><strong> Dificultad: </strong></p>
+            <p><strong> Duración: </strong></p>
+            <p><strong> Descripción: </strong></p>
+            <p><strong> Alérgenos: </strong></p>
+            <p><strong> Pasos: </strong></p>
+            <p><strong> Imagenes de la receta: </strong></p>
+            <!-- <img src="image.jpg" alt="Image" width=""> -->
+        </section>
+
+        <section>
+            <button> Borrar </button>
+            <button> Editar </button>
+            <a href="MainPage.html"> Volver </a>
+        </section>
 
     </section>
 
     <section>
-
-        <a href="MainPage.html"> Back </a>
-        <button>Edit</button>
-        <button>Delete</button>
-
+        <h3> Nombre del ingrediente </h3>
+        <p><strong> Alérgenos: </strong></p>
+        <p><strong> Precio: </strong></p>
+        <p><strong> Descripción: </strong></p>
+        <p><strong> Imagen del ingrediente: </strong></p>
+        <!-- <img src="image.jpg" alt="Image" width=""> -->
     </section>
 
     <section>
 
-        <h3>Ingredients</h3>
-        <p><strong>Name: </strong></p>
-        <p><strong>Allergens: </strong></p>
-        <p><strong>Price: </strong></p>
-        <p><strong>Description: </strong></p>
-        <p><strong>Images: </strong></p>
-        <img src="image.jpg" alt="Image" width="">
+        <br>
 
-    </section>
-
-    <section>
+        <h1> Nuevo Ingrediente </h1> 
         
-        <button>
-            <form>
+        <br>
+    
+        <form>
+        
+            <section>
+                <label for="Name"><strong> Nombre: </strong></label> 
+                <input type="text" id="Name" placeholder="Nombre">
+            </section>
+
+            <br>
+
+            <section>
+                <label for="Price"><strong> Precio: </strong></label>
+                <input type="text" id="Price" placeholder="Precio">
+            </section>
+
+            <br>
             
-                <section>
-                    <label for="Name"> Name </label> 
-                    <input type="text" id="Name" placeholder="Name">
-                </section>
+            <section>
+                <label for="IngDescription"><strong> Descripción: </strong></label>
+                <textarea id="IngDescription" rows="3"> </textarea>
+            </section>
 
-                <br>
+            <br>
 
-                <section>
-                    <label for="Difficulty"> Price </label>
-                    <input type="text" id="Price" placeholder="Name">
-                </section>
+            <section>
+                <label for="Allergens"><strong> Alérgenos: </strong></label> <br>
+                <input type="checkbox" id="Allergens"> Lacteos <br>
+                <input type="checkbox" id="Allergens"> Marisco <br>
+                <input type="checkbox" id="Allergens"> Gluten <br>
+                <input type="checkbox" id="Allergens"> Huevo <br>
+                <input type="checkbox" id="Allergens"> Pescado <br>
+                <input type="checkbox" id="Allergens"> Cacahuetes<br>
+                <input type="checkbox" id="Allergens"> Soja <br>
+                <input type="checkbox" id="Allergens"> Frutos con cáscara <br>
+                <input type="checkbox" id="Allergens"> Apio <br>
+                <input type="checkbox" id="Allergens"> Mostaza <br>
+                <input type="checkbox" id="Allergens"> Sésamo <br>
+                <input type="checkbox" id="Allergens"> Sulfitos <br>
+                <input type="checkbox" id="Allergens"> Altramuces <br>
+                <input type="checkbox" id="Allergens"> Moluscos <br>
+                <input type="checkbox" id="Allergens"> Crustáceos <br>
+            </section>
 
-                 <br>
-             
-                 <section>
-                     <label for="Description"> Description </label>
-                     <textarea id="Description" rows="3"> </textarea>
-                </section>
+            <br>
 
-                <br>
-
-                <section>
-                    <label for="Allergens"> Allergens </label> <br>
-                    <input type="checkbox" id="Allergens"> Dairy <br>
-                    <input type="checkbox" id="Allergens"> Crustacean <br>
-                    <input type="checkbox" id="Allergens"> Gluten <br>
-                    <input type="checkbox" id="Allergens"> Eggs <br>
-                    <input type="checkbox" id="Allergens"> Fish <br>
-                    <input type="checkbox" id="Allergens"> Peanuts<br>
-                    <input type="checkbox" id="Allergens"> Soya <br>
-                    <input type="checkbox" id="Allergens"> Nuts <br>
-                    <input type="checkbox" id="Allergens"> Celery <br>
-                    <input type="checkbox" id="Allergens"> Mustard <br>
-                    <input type="checkbox" id="Allergens"> Sesame <br>
-                    <input type="checkbox" id="Allergens"> Sulfites <br>
-                    <input type="checkbox" id="Allergens"> Lupin <br>
-                    <input type="checkbox" id="Allergens"> Mollusk <br>
-                </section>
-
-                <br>
-
-                <section>
-                    <button type="Submit"> Save </button>
-                    <a href="DetailsPage.html"> Cancel </a>
-                </section>
-            
-            </form>
-        </button>    
+            <section>
+                <button type="Submit"> Guardar </button>
+                <a href="DetailPage.html"> Cancelar </a>
+            </section>
+        
+        </form>
 
     </section>
     
