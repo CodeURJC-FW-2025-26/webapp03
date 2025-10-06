@@ -1,0 +1,35 @@
+.bg-primary {
+    background-color: #6D1B1B !important;
+}
+
+.bg-secondary {
+    background-color: #6D1B1B !important;
+}
+
+.btn-primary{
+    background-color: #4E342E !important;
+    border-color: #FFC107;
+    color: #FFC107;
+}
+
+.btn-secondary{
+    background-color: #4E342E !important;
+    border-color: #FFC107;
+    color: #FFC107;
+}
+
+.row{
+    background-color: #FFF3E0;
+}
+
+h1 {
+    color: #FFC107;
+}
+
+h2 {
+    color: #212121;
+}
+
+.col-xs-12.col-sm-6.col-md-6.col-lg-4.text-center{
+    margin-bottom:  1rem;
+}
