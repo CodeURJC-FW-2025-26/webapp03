@@ -1,40 +1,25 @@
-.container-fluid{
+.container-fluid {
+    color: #212121;
     background-color: #FFF3E0;
 }
 
 .bg-primary {
+    color: #FFC107 !important;
     background-color: #6D1B1B !important;
 }
 
-.bg-secondary {
+.bg-primary a {
+    color: #FFC107 !important;
     background-color: #6D1B1B !important;
 }
 
-.btn-primary{
+.btn-primary {
+    color: #FFC107;
     background-color: #6D1B1B !important;
-    border-color: #FFC107;
-    color: #FFC107;
+    border-color: #FFC107;   
 }
 
-.btn-secondary{
-    background-color: #4E342E !important;
-    border-color: #FFC107;
-    color: #FFC107;
-}
-
-.row{
-    background-color: #FFF3E0;
-}
-
-h1 {
-    color: #FFC107;
-}
-
-h2 {
-    color: #212121;
-}
-
-.col-xs-12.col-sm-6.col-md-6.col-lg-4{
+.col-xs-12.col-sm-6.col-md-6.col-lg-4 {
     margin-bottom:  1rem;
     text-align: center;
 }
