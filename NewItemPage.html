@@ -25,6 +25,8 @@
             <input type="name" class="form-control" id="name" placeholder="Nombre de la receta.">
             </div>
 
+            <br>
+
             <div class="form-group">
             <label for="dish"><strong> Plato: </strong></label>
             <select id="dish">
@@ -39,73 +41,28 @@
 
             </div>
 
+            <br>
+
             <div class="form-group">
             <label for="difficulty"><strong> Dificultad: </strong></label>
-            <select id="difficulty">
-
-                <option value="" disabled selected> Dificultad... </option>
-                <option value="1"> Facil </option>
-                <option value="2"> Medio </option>
-                <option value="3"> Dificil </option>
-
-            </select>        
+            <input type="radio" name="options-radios"
+            id="easy" value="option1" checked> Facil. </label>
+            <label>
+            <input type="radio" name="options-radios"
+            id="medium" value="option2"> Medio. </label>
+            <label>
+            <input type="radio" name="options-radios"
+            id="hard" value="option3"> Dificil. </label>        
 
             </div>
-        </form>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <form>
-
-            <section>
-                <label for="Difficulty"><strong> Dificultad: </strong></label>
-                <select id="Difficulty">
-                    <option value="1"> Fácil </option>
-                    <option value="2"> Medio </option>
-                    <option value="3"> Difícil </option>
-                </select>
-            </section>
 
             <br>
 
-            <section>
-                <label for="Length"><strong> Duración </strong></label>
-                <select id="Lenght">
+            <div class="form-group">
+            <label for="length"><strong> Duracion: </strong></laber>
+            <select id="Lenght">
+
+                    <option value="" disabled selected> Duracion... </option>
                     <option value="1"> 5 min </option>
                     <option value="2"> 15 min </option>
                     <option value="3"> 30 min </option>
@@ -114,52 +71,70 @@
                     <option value="6"> 2 h </option>
                     <option value="7"> 3 h </option>
                     <option value="8"> +3 h </option>
-                </select>
-            </section>
-
-            <br>
-             
-            <section>
-                <label for="Description"><strong> Descripción: </strong></label>
-                <textarea id="Description" rows="3"> </textarea>
-            </section>
-
-            <br>
-
-            <section>
-                <label for="Steps"><strong> Pasos de preparación: </strong></label>
-                <textarea id="Steps" rows="3"></textarea>
-            </section>
-
-            <br>
-
-            <section>
-                <label for="Allergens"><strong> Alérgenos: </strong></label> <br>
-                <input type="checkbox" id="Allergens"> Lacteos <br>
-                <input type="checkbox" id="Allergens"> Marisco <br>
-                <input type="checkbox" id="Allergens"> Gluten <br>
-                <input type="checkbox" id="Allergens"> Huevo <br>
-                <input type="checkbox" id="Allergens"> Pescado <br>
-                <input type="checkbox" id="Allergens"> Cacahuetes<br>
-                <input type="checkbox" id="Allergens"> Soja <br>
-                <input type="checkbox" id="Allergens"> Frutos con cáscara <br>
-                <input type="checkbox" id="Allergens"> Apio <br>
-                <input type="checkbox" id="Allergens"> Mostaza <br>
-                <input type="checkbox" id="Allergens"> Sésamo <br>
-                <input type="checkbox" id="Allergens"> Sulfitos <br>
-                <input type="checkbox" id="Allergens"> Altramuces <br>
-                <input type="checkbox" id="Allergens"> Moluscos <br>
-                <input type="checkbox" id="Allergens"> Crustáceos <br>
-            </section>
-
-            <br>
-
-            <section>
-                <button type="submit" class="btn btn-primary"> <i class="bi bi-floppy"></i> Guardar </button> 
-                <a href="MainPage.html" class="btn btn-warning" role="button"> <i class="bi bi-box-arrow-left"></i> Volver </a>
-            </section>
             
-        </form>
+            </select>
+
+            </div>
+
+            <br>
+
+            <div class="form-group">
+            <label for="description"><strong> Descripcion: </strong></label>
+            <textarea id="description" rows="3"></textarea>
+
+            </div>
+
+            <br>
+
+            <div class="form-group">
+            <label for="steps"><strong> Pasos de preparacion: </strong></label>
+            <textarea id="steps" rows="3"></textarea>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+                <label for="allergens"><strong> Alergenos: </strong></label>
+                
+                <div class="col">
+
+                    <input type="checkbox" id="Allergens"> Lacteos. <br>
+                    <input type="checkbox" id="Allergens"> Marisco. <br> 
+                    <input type="checkbox" id="Allergens"> Gluten. <br>
+                    <input type="checkbox" id="Allergens"> Huevo. <br>
+                    <input type="checkbox" id="Allergens"> Pescado. <br>
+                    <input type="checkbox" id="Allergens"> Cacahuetes. <br>
+                    <input type="checkbox" id="Allergens"> Soja. <br>
+
+                </div>
+                <div class="col">
+
+                    <input type="checkbox" id="Allergens"> Frutos con cáscara. <br>
+                    <input type="checkbox" id="Allergens"> Apio. <br>
+                    <input type="checkbox" id="Allergens"> Mostaza. <br>
+                    <input type="checkbox" id="Allergens"> Sésamo. <br>
+                    <input type="checkbox" id="Allergens"> Sulfitos. <br>
+                    <input type="checkbox" id="Allergens"> Altramuces. <br>
+                    <input type="checkbox" id="Allergens"> Moluscos. <br>
+                    <input type="checkbox" id="Allergens"> Crustáceos. <br>
+
+                </div>
+
+            </div>
+
+            <br>
+         </form>
+    </div>
+
+    <form>
+
+        <section>
+            <button type="submit" class="btn btn-primary"> <i class="bi bi-floppy"></i> Guardar </button> 
+            <a href="MainPage.html" class="btn btn-warning" role="button"> <i class="bi bi-box-arrow-left"></i> Volver </a>
+        </section>
+            
+    </form>
     
 </body>
 
