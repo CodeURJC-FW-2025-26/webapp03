@@ -19,14 +19,14 @@
         <form role="form">
             <div class="form-group">
                 <label for="name"><strong> Nombre: </strong></label>
-                <input type="name" class="form-control" id="name" placeholder="Nombre de la receta.">
+                <input type="name" class="form-control" id="name" placeholder="Nombre de la receta." required>
             </div>
 
             <br>
 
             <div class="form-group">
                 <label for="dish"><strong> Tipo de plato: </strong></label>
-                <select id="dish">
+                <select id="dish" required>
                     <option value="" disabled selected> Tipo de plato... </option>
                     <option value="1"> Primer plato. </option>
                     <option value="2"> Segundo plato. </option>
@@ -48,7 +48,7 @@
 
             <div class="form-group">
                 <label for="length"><strong> Duración: </strong></laber>
-                <select id="lenght">
+                <select id="lenght" required>
                         <option value="" disabled selected> Duración... </option>
                         <option value="1"> 5 min </option>
                         <option value="2"> 15 min </option>
@@ -72,7 +72,7 @@
 
             <div class="form-group">
                 <label for="steps"><strong> Pasos de preparacion: </strong></label>
-                <textarea id="steps" rows="3"></textarea>
+                <textarea id="steps" rows="3" required></textarea>
             </div>
 
             <br>
