@@ -18,6 +18,40 @@
     </header>
     
     <div class="container-fluid">
+        <div class="row p-3">
+            <form class="d-flex" role="search">
+                <input class="form-control" id="searchBar" type="search" placeholder="Buscar...">
+                <button class="form-group btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <form class="d-flex flex-wrap justify-content-center" role="search">
+                <select class="ourFilter" id="dishFilter">
+                    <option value="" disabled selected> Filtros tipo de plato </option>
+                    <option value="Starter"> Guarnicion. </option>
+                    <option value="Side"> Primer plato. </option>
+                    <option value="Main"> Segundo plato. </option>
+                    <option value="Dessert"> Postre. </option>
+                </select>
+                <select class="ourFilter" id="dificultyFilter">
+                    <option value="" disabled selected> Filtros dificultad </option>
+                    <option value="Easy"> Fácil. </option>
+                    <option value="Medium"> Medio. </option>
+                    <option value="Hard"> Difícil. </option>
+                </select>
+                <select class="ourFilter" id="lenghtFilter">
+                    <option value="" disabled selected> Filtros duración </option>
+                    <option value="5min"> 5 min </option>
+                    <option value="15min"> 15 min </option>
+                    <option value="30min"> 30 min </option>
+                    <option value="45min"> 45 min </option>
+                    <option value="1h"> 1 h </option>
+                    <option value="2h"> 2 h </option>
+                    <option value="3h"> 3 h </option>
+                    <option value="+3h"> +3 h </option>
+                </select>
+            </form>
+        </div>
+
         <div class="row-1 p-3 text-end">
             <a href="NewItemPage.html" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nuevo elemento </a>
         </div>
