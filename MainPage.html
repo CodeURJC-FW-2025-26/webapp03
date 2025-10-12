@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="bg-primary p-3 text-center"> 
-            <h1 class="fugaz-one-regular"> MAESTROS DE LA COCINA </h1>
+            <h1 class="headerFont"> MAESTROS DE LA COCINA </h1>
         </div>
     </header>
     
@@ -31,20 +31,22 @@
             </form>
 
             <form class="d-flex flex-wrap justify-content-center" role="search">
-                <select class="ourFilter" id="dishFilter">
+                <select class="form-select" id="dishFilter">
                     <option value="" disabled selected> Filtros tipo de plato </option>
                     <option value="Starter"> Guarnicion. </option>
                     <option value="Side"> Primer plato. </option>
                     <option value="Main"> Segundo plato. </option>
                     <option value="Dessert"> Postre. </option>
                 </select>
-                <select class="ourFilter" id="dificultyFilter">
+
+                <select class="form-select" id="dificultyFilter">
                     <option value="" disabled selected> Filtros dificultad </option>
                     <option value="Easy"> Fácil. </option>
                     <option value="Medium"> Medio. </option>
                     <option value="Hard"> Difícil. </option>
                 </select>
-                <select class="ourFilter" id="lenghtFilter">
+
+                <select class="form-select" id="lenghtFilter">
                     <option value="" disabled selected> Filtros duración </option>
                     <option value="5min"> 5 min </option>
                     <option value="15min"> 15 min </option>
@@ -55,11 +57,13 @@
                     <option value="3h"> 3 h </option>
                     <option value="+3h"> +3 h </option>
                 </select>
+
+                <button class="form-group btn btn-primary" type="submit"><i class="bi bi-filter"></i></button>
             </form>
         </div>
 
         <div class="row-1 p-3 text-end">
-            <a href="NewItemPage.html" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nuevo elemento </a>
+            <a href="NewItemPage.html" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nueva receta </a>
         </div>
 
         <div class="row p-3">
