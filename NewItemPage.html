@@ -19,24 +19,24 @@
 <body>
     <header>
         <div class="bg-primary p-3 text-center"> 
-            <h1 class="fugaz-one-regular"> MAESTROS DE LA COCINA </h1>
+            <h1 class="headerFont"> MAESTROS DE LA COCINA </h1>
         </div>
     </header>
 
     <div class="container-fluid text-center">
-        <div class="row-1 p-3 text-center">
+        <div class="row-1 p-3">
             <h1> Nueva receta </h1>
         </div>
 
         <form role="form">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="name" class="form-control" id="Name" placeholder="Nombre de la receta..." required>
+                <input type="text" class="form-control" id="Name" placeholder="Nombre de la receta..." required>
             </div>
 
-            <div class="form-group">
+            <div class="form-group row justify-content-center">
                 <label for="Dish"><strong> Tipo de plato: </strong></label>
-                <select id="Dish" required>
+                <select class="form-select justify-content-center" id="Dish" required>
                     <option value="" disabled selected> Tipo de plato... </option>
                     <option value="Starter"> Guarnicion. </option>
                     <option value="Side"> Primer plato. </option>
@@ -69,7 +69,7 @@
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
-                <textarea id="Description" rows="3"></textarea>
+                <textarea class="form-control" id="Description" rows="3"></textarea>
             </div>
 
             <div class="row">
@@ -98,12 +98,12 @@
 
             <div class="form-group">
                 <label for="Steps"><strong> Pasos de preparacion: </strong></label>
-                <textarea id="Steps" rows="3" required></textarea>
+                <textarea class="form-control" id="Steps" rows="3" required></textarea>
             </div>
 
             <div class="form-group">
                 <label for="Images"><strong> Imagen: </strong></label>
-                <input id="Images" type="file" accept="image/*" required>
+                <input class="form-control" id="Images" type="file" accept="image/*" required>
             </div>
 
             <div class="form-group mb-0">

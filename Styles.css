@@ -1,9 +1,4 @@
-.bg-primary {
-    color: #FFC107 !important;
-    background-color: #6D1B1B !important;
-}
-
-.bg-primary a {
+.bg-primary, .bg-primary a {
     color: #FFC107 !important;
     background-color: #6D1B1B !important;
 }
@@ -20,6 +15,7 @@
     border-width: 0.2em;
     border-color: #FFC107;
     margin-right: 0.2em;   
+    margin-bottom:  1rem;
 }
 
 .btn-primary:hover {
@@ -29,21 +25,14 @@
 }
 
 .col-xs-12.col-sm-6.col-md-6.col-lg-4 {
-    margin-bottom:  1rem;
+    margin-right: 0em;
     text-align: center;
 }
 
-.form-group {
+.form-group, .form-control, #searchBar {
     margin-bottom: 1rem;
-}
-
-.form-control {
     margin-right: 0.2em;
-    margin-bottom: 1rem;
-}
-
-#searchBar{
-    margin-right: 0.2em;
+    justify-content: center;
 }
 
 .form-select{
