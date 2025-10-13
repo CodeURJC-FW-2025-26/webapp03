@@ -40,5 +40,33 @@ El objetivo es incluir un buscador por nombre para encontrar recetas, además de
 
 Además, se pretende que el usuario pueda añadir sus propias recetas.
 
+## Participación de cada miembro
 
+1. Miguel
+
+- He trabajado en la primera versión de la Página de Detalle, añadí el grid de Bootstrap para el diseño responsive y el footer en la Página Principal, realicé los formularios de; 1) Nueva Receta (Página de Nuevo Elemento) 2) Nuevo Ingrediente (Página de Detalle) con Bootstrap para que sean ambos responsive. Solucioné errores en los botones delfooter de la Página de Detalle, posteriormente actualicé los formularios con especificaciones y añadí la opción de añadir imagenes y por último añadí las fuentes de las letras tanto como para el header como para el resto.
+
+- Los commits más importantes que he hecho son:
+
+1) Formulario de nuevo ingrediente  (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/58d87f89f3f2890d4958b738841a5ce0ab6d00bc)
+
+2) Formulario de nueva receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/737bb647b2104d6d09ada8e16896e4b3db8748e3)
+
+3) Primer modelo de la página de detalle (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/fb15179145e38c3c5eea7475623011505bd077a3)
+
+4) Grid y footer de la página principal (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/08b16050227faed5b7105703171e34a616f0a41e)
+
+5) Añadir imágenes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/de5bc34a86803f2980ce5f8c1e423d906e7504b4)
+
+- Los ficheros en los que más he trabajado son:
+
+1) Detail Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
+
+2) Main Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
+
+3) New Element (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
+
+4) Styles (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
+
+5) ReadMe (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
 
