@@ -41,9 +41,32 @@ El objetivo es incluir un buscador por nombre para encontrar recetas, además de
 Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 # Práctica 1
+## Capturas de pantalla
+### Página principal:
+![Captura página principal](Images/Screenshots/MainPageScreenshot.png)
+![Captura página principal 2](Images/Screenshots/MainPageScreenshot2.png)
+![Captura página principal 3](Images/Screenshots/FooterScreenshot.png)
+
+### Página de detalle: 
+![Captura página de detalle](Images/Screenshots/DetailPageScreenshot.png)
+![Captura página de detalle 2](Images/Screenshots/DetailPageScreenshot2.png)
+![Captura página de detalle 3](Images/Screenshots/DetailPageScreenshot3.png)
+![Captura página de detalle 4](Images/Screenshots/DetailPageScreenshot4.png)
+![Captura página de detalle 5](Images/Screenshots/DetailPageScreenshot5.png)
+![Captura página de detalle 6](Images/Screenshots/DetailPageScreenshot6.png)
+![Captura página de detalle 7](Images/Screenshots/DetailPageScreenshot7.png)
+![Captura página de detalle 8](Images/Screenshots/DetailPageScreenshot8.png)
+![Captura página de detalle 9](Images/Screenshots/DetailPageScreenshot9.png)
+![Captura página de detalle 10](Images/Screenshots/DetailPageScreenshot10.png)
+![Captura página de detalle 11](Images/Screenshots/FooterScreenshot.png)
+
+### Página de nuevo elemento:
+![Captura página de nuevo elemento](Images/Screenshots/NewItemPageScreenshot.png)
+![Captura página de nuevo elemento 2](Images/Screenshots/NewItemPageScreenshot2.png)
+![Captura página de nuevo elemento 3](Images/Screenshots/FooterScreenshot.png)
+
 ## Participación de cada miembro
 ### Miguel de Luis Ibáñez:
-
 - He trabajado en la primera versión de la página de detalle (`DetailPage`), añadí el grid de Bootstrap para el diseño responsive y el footer en la página principal (`MainPage`), realicé los formularios de: 1) Nueva Receta (`NewItemPage`) y 2) Nuevo Ingrediente (`DetailPage`) con Bootstrap para que sean ambos responsive. Solucioné errores en los botones del footer de la página de detalle, posteriormente actualicé los formularios con especificaciones y añadí la opción de añadir imagenes y por último añadí las fuentes de las letras tanto como para el header como para el resto.
 
 - Los commits más importantes que he hecho son:
@@ -71,7 +94,6 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 5) `README` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
 
 ### Lucas Román Jiménez:
-
 - Hice la primera versión del formulario de la página de nuevo elemento (`NewItemPage`) en html. También añadí los footers finales de las tres páginas (`NewItemPage`, `DetailPage` y `MainPage`). He realizado gran parte de los ejemplos de ingredientes, agregando imágenes y rellenando los campos de texto con la información de cada uno. Implementé el Bootstrap en parte de la página de detalle (`DetailPage`). Y por último corregí errores en la información que aparece en los ingredientes y recetas.
 
 - Los commits más importantes que he hecho son:
@@ -99,7 +121,6 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 5) `README` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
 
 ### Hugo García Palomo:
-
 - Me he encargado de gran parte de los estilos, mediante el archivo CSS correspondiente (`Styles`) y aplicando las clases y estilos de Bootstrap necesarios, así como revisar su correcta aplicación en cada página. También he diseñado los botones en general de todas las páginas y los elementos del grid, la barra de busqueda y los filtros de la página principal (`MainPage`). Finalmente me he encargado de la revisión y corrección de errores de mayor o menor importancia en cada uno de los archivos.
 
 - Los commits más importantes que he hecho son:
