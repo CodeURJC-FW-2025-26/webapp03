@@ -44,7 +44,7 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 1. Miguel
 
-- He trabajado en la primera versión de la Página de Detalle, añadí el grid de Bootstrap para el diseño responsive y el footer en la Página Principal, realicé los formularios de; 1) Nueva Receta (Página de Nuevo Elemento) 2) Nuevo Ingrediente (Página de Detalle) con Bootstrap para que sean ambos responsive. Solucioné errores en los botones delfooter de la Página de Detalle, posteriormente actualicé los formularios con especificaciones y añadí la opción de añadir imagenes y por último añadí las fuentes de las letras tanto como para el header como para el resto.
+- He trabajado en la primera versión de la Página de Detalle, añadí el grid de Bootstrap para el diseño responsive y el footer en la Página Principal, realicé los formularios de; 1) Nueva Receta (Página de Nuevo Elemento) 2) Nuevo Ingrediente (Página de Detalle) con Bootstrap para que sean ambos responsive. Solucioné errores en los botones del footer de la Página de Detalle, posteriormente actualicé los formularios con especificaciones y añadí la opción de añadir imagenes y por último añadí las fuentes de las letras tanto como para el header como para el resto.
 
 - Los commits más importantes que he hecho son:
 
@@ -69,4 +69,37 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 4) Styles (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
 
 5) ReadMe (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
+
+
+2. Lucas Román Jiménez
+
+- Hice la primera versión del formulario de la página NewItem en Html. También añadí los footers finales de las tres páginas: Nueva Receta, Nuevo Ingrediente y la Página Principal. He realizado gran parte de los ejemplos de ingredientes, agregando imágenes y rellenando los campos de texto con la información de cada uno. Implementé el Bootstrap en parte de la página de detalle. Y por último corregí errores en la información que aparece en los ingredientes y recetas.
+
+- Los commits más importantes que he hecho son:
+
+1) Footer definitivo de todas las páginas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/19558b0144c69fe7eb1a557b548b68e065246462)
+
+2) Primera versión del formulario de nueva receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/01a68c5a8da9e582447fd9c03bc78e145fceae49)
+
+3) Introducir en la página de detalle el Bootstrap (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/87944566dbfd9da0cd2d705a51dbcc520d764dbd)
+
+4) Añadir imagenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e2c093a7339551f41940f4e457b4795a329e6a6d)
+
+5) Arreglar errores en el texto de las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/8df4ab2bf57ff1f88d246a3f7c47020b762165cf)
+
+- Los ficheros en los que más he trabajado son:
+
+1) New element (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
+
+2) Detail Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
+
+3) Styles (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
+
+4) Main Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
+
+5) ReadMe (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
+
+
+
+
 
