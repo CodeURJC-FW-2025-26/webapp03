@@ -57,8 +57,7 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 ![Captura página de detalle 7](Images/Screenshots/DetailPageScreenshot7.png)
 ![Captura página de detalle 8](Images/Screenshots/DetailPageScreenshot8.png)
 ![Captura página de detalle 9](Images/Screenshots/DetailPageScreenshot9.png)
-![Captura página de detalle 10](Images/Screenshots/DetailPageScreenshot10.png)
-![Captura página de detalle 11](Images/Screenshots/FooterScreenshot.png)
+![Captura página de detalle 10](Images/Screenshots/FooterScreenshot.png)
 
 ### Página de nuevo elemento:
 ![Captura página de nuevo elemento](Images/Screenshots/NewItemPageScreenshot.png)
