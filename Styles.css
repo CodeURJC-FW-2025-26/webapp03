@@ -56,6 +56,11 @@ div > img {
     margin-right: 0.2em;
 }
 
+.list-group-item{
+    background-color: #FFCC99;
+    border-color: #FFC107;
+}
+
 /* Font styles */
 .headerFont {
   font-family: "Fugaz One", sans-serif;
@@ -66,9 +71,4 @@ div > img {
 body {
   font-family: "Questrial", sans-serif;
   font-style: normal;
-}
-
-.list-group-item{
-    background-color: #FFCC99;
-    border-color: #FFC107;
 }

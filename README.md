@@ -40,11 +40,11 @@ El objetivo es incluir un buscador por nombre para encontrar recetas, además de
 
 Además, se pretende que el usuario pueda añadir sus propias recetas.
 
+# Práctica 1
 ## Participación de cada miembro
+### Miguel de Luis Ibáñez:
 
-1. Miguel
-
-- He trabajado en la primera versión de la Página de Detalle, añadí el grid de Bootstrap para el diseño responsive y el footer en la Página Principal, realicé los formularios de; 1) Nueva Receta (Página de Nuevo Elemento) 2) Nuevo Ingrediente (Página de Detalle) con Bootstrap para que sean ambos responsive. Solucioné errores en los botones del footer de la Página de Detalle, posteriormente actualicé los formularios con especificaciones y añadí la opción de añadir imagenes y por último añadí las fuentes de las letras tanto como para el header como para el resto.
+- He trabajado en la primera versión de la página de detalle (`DetailPage`), añadí el grid de Bootstrap para el diseño responsive y el footer en la página principal (`MainPage`), realicé los formularios de: 1) Nueva Receta (`NewItemPage`) y 2) Nuevo Ingrediente (`DetailPage`) con Bootstrap para que sean ambos responsive. Solucioné errores en los botones del footer de la página de detalle, posteriormente actualicé los formularios con especificaciones y añadí la opción de añadir imagenes y por último añadí las fuentes de las letras tanto como para el header como para el resto.
 
 - Los commits más importantes que he hecho son:
 
@@ -60,20 +60,19 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 - Los ficheros en los que más he trabajado son:
 
-1) Detail Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
+1) `DetailPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
 
-2) Main Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
+2) `MainPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
 
-3) New Element (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
+3) `NewItemPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
 
-4) Styles (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
+4) `Styles` (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
 
-5) ReadMe (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
+5) `README` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
 
+### Lucas Román Jiménez:
 
-2. Lucas Román Jiménez
-
-- Hice la primera versión del formulario de la página NewItem en Html. También añadí los footers finales de las tres páginas: Nueva Receta, Nuevo Ingrediente y la Página Principal. He realizado gran parte de los ejemplos de ingredientes, agregando imágenes y rellenando los campos de texto con la información de cada uno. Implementé el Bootstrap en parte de la página de detalle. Y por último corregí errores en la información que aparece en los ingredientes y recetas.
+- Hice la primera versión del formulario de la página de nuevo elemento (`NewItemPage`) en html. También añadí los footers finales de las tres páginas (`NewItemPage`, `DetailPage` y `MainPage`). He realizado gran parte de los ejemplos de ingredientes, agregando imágenes y rellenando los campos de texto con la información de cada uno. Implementé el Bootstrap en parte de la página de detalle (`DetailPage`). Y por último corregí errores en la información que aparece en los ingredientes y recetas.
 
 - Los commits más importantes que he hecho son:
 
@@ -89,15 +88,43 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 - Los ficheros en los que más he trabajado son:
 
-1) New element (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
+1) `NewItemPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
 
-2) Detail Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
+2) `DetailPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
 
-3) Styles (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
+3) `Styles` (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
 
-4) Main Page (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
+4) `MainPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
 
-5) ReadMe (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
+5) `README` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
+
+### Hugo García Palomo:
+
+- Me he encargado de gran parte de los estilos, mediante el archivo CSS correspondiente (`Styles`) y aplicando las clases y estilos de Bootstrap necesarios, así como revisar su correcta aplicación en cada página. También he diseñado los botones en general de todas las páginas y los elementos del grid, la barra de busqueda y los filtros de la página principal (`MainPage`). Finalmente me he encargado de la revisión y corrección de errores de mayor o menor importancia en cada uno de los archivos.
+
+- Los commits más importantes que he hecho son:
+
+1) Añadir barra de búsqueda y selectores de filtros, además de corrección de errores (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e83014d4bb806092a3784b4a0c9f83b1276b17bf)
+
+2) Mejoras de estilos y del footer, además de la organización del código (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/aa66079143da89e6f5422cd3f07a2ebdbaf35830)
+
+3) Mejoras de los botones y los formularios para adaptarse a la descripción del README (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/1142a5cc0e714a9845bc0ba40990d51da8926496)
+
+4) Boton de crear nuevo elemento y botones con imagenes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/d0872a068ad584555f7fe862457f28c2a20dd2e2)
+
+5) Mejoras en el grid, pruebas de imagenes y correción de colores (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e3a497e95215755aa6de13425e9b24727073793f)
+
+- Los ficheros en los que más he trabajado son:
+
+1) `MainPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/MainPage.html)
+
+2) `Styles` (CSS) (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/Styles.css)
+
+3) `NewItemPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/NewItemPage.html)
+
+4) `DetailPage` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/DetailPage.html)
+
+5) `README` (https://github.com/CodeURJC-FW-2025-26/webapp03/blob/main/README.md)
 
 
 

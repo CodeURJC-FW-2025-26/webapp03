@@ -35,7 +35,7 @@
             <li class="list-group-item"> Pela y corta las patatas en rodajas finas. </li> 
             <li class="list-group-item"> Corta la cebolla (opcional) en trozos pequeños. </li> 
             <li class="list-group-item"> Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas. </li>
-            <li class="list-group-item"> Escurre el aceite y mezcla las patatas con los huevos batidos en un bol. </li>
+            <li class="list-group-item"> Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal. </li>
             <li class="list-group-item"> Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. </li>
             <li class="list-group-item"> Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado. </li>
             <li class="list-group-item"> Retira del fuego y deja reposar unos minutos antes de servir. </li>
@@ -53,8 +53,8 @@
     <div class="container-fluid">
         <h3><strong> Nombre del ingrediente: </strong> Patata. </h3>
         <p><strong> Alérgenos: </strong></p>
-        <p><strong> Precio: </strong> 0,65€ </p>
-        <p><strong> Descripción: </strong> Tubérculo de la familia de las solanáceas. </p>
+        <p><strong> Precio: </strong> 0,65 € </p>
+        <p><strong> Descripción: </strong> Tubérculo de la familia de las solanáceas. Usar 4. </p>
         <p><strong> Imagen del ingrediente: </strong></p>
         <img class="img-fluid rounded" src="/Images/Patatas.jpg" alt="Patatas">
         <div class="row p-3 justify-content-center">
@@ -67,7 +67,7 @@
         <h3><strong> Nombre del ingrediente: </strong> Huevo. </h3>
         <p><strong> Alérgenos: </strong> Huevo. </p>
         <p><strong> Precio: </strong> 0,96 € </p>
-        <p><strong> Descripción: </strong> Huevo. </p>
+        <p><strong> Descripción: </strong> Huevo de gallina. Usar 4. </p>
         <p><strong> Imagen del ingrediente: </strong></p>
         <img class="img-fluid rounded" src="/Images/Huevo.png" alt="Huevo">
         <div class="row p-3 justify-content-center">
@@ -80,7 +80,7 @@
         <h3><strong> Nombre del ingrediente: </strong> Cebolla. </h3>
         <p><strong> Alérgenos: </strong></p>
         <p><strong> Precio: </strong> 0,40 € </p>
-        <p><strong> Descripción: </strong> Cebolla. </p>
+        <p><strong> Descripción: </strong> Cebolla dulce. Usar 1. </p>
         <p><strong> Imagen del ingrediente: </strong></p>
         <img class="img-fluid rounded" src="/Images/Cebolla.png" alt="Cebolla">
         <div class="row p-3 justify-content-center">
@@ -93,7 +93,7 @@
         <h3><strong> Nombre del ingrediente: </strong> Aceite. </h3>
         <p><strong> Alérgenos: </strong></p>
         <p><strong> Precio: </strong> 1,90 € </p>
-        <p><strong> Descripción: </strong> Aceite de oliva. </p>
+        <p><strong> Descripción: </strong> Aceite de oliva. Usar la candidad necesaria para freir las patatas. </p>
         <p><strong> Imagen del ingrediente: </strong></p>
         <img class="img-fluid rounded" src="/Images/Aceite.png" alt="Aceite">
         <div class="row p-3 justify-content-center">
@@ -106,7 +106,7 @@
         <h3><strong> Nombre del ingrediente: </strong> Sal. </h3>
         <p><strong> Alérgenos: </strong></p>
         <p><strong> Precio: </strong> 0,05 € </p>
-        <p><strong> Descripción: </strong> Sal de mesa. </p>
+        <p><strong> Descripción: </strong> Sal de mesa. Añadir una pizca o al gusto. </p>
         <p><strong> Imagen del ingrediente: </strong></p>
         <img class="img-fluid rounded" src="/Images/Sal.png" alt="Sal">
         <div class="row p-3 justify-content-center">
@@ -151,7 +151,7 @@
 
             <div class="form-group">
                 <label for="Price"><strong> Precio: </strong></label>
-                <input type="text" class="form-control" id="Price" placeholder="Precio del ingrediente. (X,XX €)" required pattern="^\d{1,3},\d{2} €\.?$">
+                <input type="text" class="form-control" id="Price" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\d{1,3},\d{2} €\.?$">
             </div>  
 
             <div class="form-group">
@@ -161,11 +161,11 @@
 
             <div class="form-group">
                 <label for="Image"><strong> Imagen: </strong></label>
-                <input class="form-control" id="Image" type="file" accept="image/*" required>
+                <input type="file" class="form-control" id="Image" accept="image/*" required>
             </div>
 
             <div class="form-group mb-0">
-                <button type="submit" class="btn btn-primary"> <i class="bi bi-floppy"></i> Guardar </button>
+                <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> Crear </button>
             </div>
         </form>
     </div>
