@@ -43,26 +43,26 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 # Práctica 1
 ## Capturas de pantalla
 ### Página principal:
-![Captura página principal](Images/Screenshots/MainPageScreenshot.png)
-![Captura página principal 2](Images/Screenshots/MainPageScreenshot2.png)
-![Captura página principal 3](Images/Screenshots/FooterScreenshot.png)
+![Captura página principal](/Images/Screenshots/MainPageScreenshot.png)
+![Captura página principal 2](/Images/Screenshots/MainPageScreenshot2.png)
+![Captura página principal 3](/Images/Screenshots/FooterScreenshot.png)
 
 ### Página de detalle: 
-![Captura página de detalle](Images/Screenshots/DetailPageScreenshot.png)
-![Captura página de detalle 2](Images/Screenshots/DetailPageScreenshot2.png)
-![Captura página de detalle 3](Images/Screenshots/DetailPageScreenshot3.png)
-![Captura página de detalle 4](Images/Screenshots/DetailPageScreenshot4.png)
-![Captura página de detalle 5](Images/Screenshots/DetailPageScreenshot5.png)
-![Captura página de detalle 6](Images/Screenshots/DetailPageScreenshot6.png)
-![Captura página de detalle 7](Images/Screenshots/DetailPageScreenshot7.png)
-![Captura página de detalle 8](Images/Screenshots/DetailPageScreenshot8.png)
-![Captura página de detalle 9](Images/Screenshots/DetailPageScreenshot9.png)
-![Captura página de detalle 10](Images/Screenshots/FooterScreenshot.png)
+![Captura página de detalle](/Images/Screenshots/DetailPageScreenshot.png)
+![Captura página de detalle 2](/Images/Screenshots/DetailPageScreenshot2.png)
+![Captura página de detalle 3](/Images/Screenshots/DetailPageScreenshot3.png)
+![Captura página de detalle 4](/Images/Screenshots/DetailPageScreenshot4.png)
+![Captura página de detalle 5](/Images/Screenshots/DetailPageScreenshot5.png)
+![Captura página de detalle 6](/Images/Screenshots/DetailPageScreenshot6.png)
+![Captura página de detalle 7](/Images/Screenshots/DetailPageScreenshot7.png)
+![Captura página de detalle 8](/Images/Screenshots/DetailPageScreenshot8.png)
+![Captura página de detalle 9](/Images/Screenshots/DetailPageScreenshot9.png)
+![Captura página de detalle 10](/Images/Screenshots/FooterScreenshot.png)
 
 ### Página de nuevo elemento:
-![Captura página de nuevo elemento](Images/Screenshots/NewItemPageScreenshot.png)
-![Captura página de nuevo elemento 2](Images/Screenshots/NewItemPageScreenshot2.png)
-![Captura página de nuevo elemento 3](Images/Screenshots/FooterScreenshot.png)
+![Captura página de nuevo elemento](/Images/Screenshots/NewItemPageScreenshot.png)
+![Captura página de nuevo elemento 2](/Images/Screenshots/NewItemPageScreenshot2.png)
+![Captura página de nuevo elemento 3](/Images/Screenshots/FooterScreenshot.png)
 
 ## Participación de cada miembro
 ### Miguel de Luis Ibáñez:
