@@ -1,0 +1,74 @@
+/* Header and footer colors and alignment*/
+.bg-primary, .bg-primary a {
+    color: #FFC107 !important;
+    background-color: #6D1B1B !important;
+    text-align: center;
+}
+
+/* Page colors */
+.container-fluid {
+    color: #212121;
+    background-color: #FFF3E0;
+}
+
+/* Button styles */
+.btn-primary {
+    color: #FFC107;
+    background-color: #6D1B1B !important;
+    width: fit-content;
+    border-width: 0.2em;
+    border-color: #FFC107;
+    margin-right: 0.2em;   
+    margin-bottom:  1rem;
+}
+
+.btn-primary:hover {
+    color: #6D1B1B;
+    background-color: #FFC107 !important;
+    border-color: #6D1B1B;
+}
+
+/* Styles for bootstrap responsive grid columns */
+.col-xs-12.col-sm-6.col-md-6.col-lg-4 {
+    margin-right: 0em;
+    text-align: center;
+}
+
+/* Styles for images */
+div > img {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em;
+    height: 30em;
+}
+
+/* Form styles */
+.form-group, .form-control, .list-group, #searchBar {
+    margin-bottom: 1rem;
+    margin-right: 0.2em;
+    justify-content: center;
+}
+
+.form-select{
+    width: fit-content;
+    height: fit-content;
+    margin-right: 0.2em;
+}
+
+.list-group-item{
+    background-color: #FFCC99;
+    border-color: #FFC107;
+}
+
+/* Font styles */
+.headerFont {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Questrial", sans-serif;
+  font-style: normal;
+}
