@@ -10,14 +10,38 @@ export default router;
 const upload = multer({ dest: recipesDB.UPLOADS_FOLDER })
 
 router.get('/', async (req, res) => {
-    let recipes = await recipesDB.getRecipes();
-    res.render('MainPage', { recipes });
+    let recipes = await recipesDB.getRecipesOfPage(1);
+    let pages = await recipesDB.getRecipesPagination();
+    res.render('MainPage', { recipes, pages });
 });
 
-router.get('/MainPage.html', async (req, res) => {
-    let recipes = await recipesDB.getRecipes();
-    res.render('MainPage', { recipes });
+router.get('/MainPage.html/:numPage', async (req, res) => {
+    let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
+    let pages = await recipesDB.getRecipesPagination();
+    res.render('MainPage', { recipes, pages });
 });
+
+/*router.get('/MainPage.html/prev/:numPage', async (req, res) => {
+    let pages = await recipesDB.getRecipesPagination();
+    if(numPage > 1){
+        let recipes = await recipesDB.getRecipesOfPage(req.params.numPage - 1);
+        res.render('MainPage', { recipes, pages });
+    }else {
+        let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
+        res.render('MainPage', { recipes, pages });
+    }
+});
+
+router.get('/MainPage.html/next/:numPage', async (req, res) => {
+    let pages = await recipesDB.getRecipesPagination();
+    if(numPage < pages.length){
+        let recipes = await recipesDB.getRecipesOfPage(req.params.numPage + 1);
+        res.render('MainPage', { recipes, pages });
+    }else {
+        let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
+        res.render('MainPage', { recipes, pages });
+    }
+});*/
 
 router.get('/DetailPage.html', async (req, res) => {
     res.render('DetailPage');

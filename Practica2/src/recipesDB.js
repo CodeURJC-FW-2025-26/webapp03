@@ -8,6 +8,7 @@ const client = new MongoClient('mongodb://localhost:27017');
 
 const db = client.db('recipesDB');
 const recipes = db.collection('recipes');
+const pageSize = 6;
 
 export const UPLOADS_FOLDER = './uploads';
 
@@ -25,6 +26,20 @@ export async function deleteRecipes(){
 
 export async function getRecipes(){
     return await recipes.find().toArray();
+}
+
+export async function getRecipesOfPage(numPage){
+    return await recipes.find().skip((numPage - 1) * pageSize).limit(pageSize).toArray();
+}
+
+export async function getRecipesPagination(){
+    let totalRecipes = await recipes.countDocuments();
+    let pages = Math.ceil(totalRecipes / pageSize);
+    let pagesArray = [];
+    for(let i = 1; i <= pages; i++){
+        pagesArray.push(i);
+    }
+    return pagesArray;
 }
 
 export async function getRecipe(id){
