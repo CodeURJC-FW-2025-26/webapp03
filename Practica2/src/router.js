@@ -58,3 +58,34 @@ router.get('/recipe/:id/image', async (req, res) => {
     res.download(recipesDB.UPLOADS_FOLDER + '/' + recipe.images);
 
 });
+
+router.post('/SearchBarMainPage', async (req, res) => {
+
+    //funciones para buscar en la base de datos
+
+
+
+});
+
+router.post('/FiltersMainPage', async (req, res) => {
+
+    //funciones para buscar en la base de datos
+
+
+
+});
+
+router.post('/NewIngredient', async (req, res) => {
+
+    //funcioes
+
+
+})
+
+router.post('/NewItem', async (req, res) => {
+
+
+    //funciones
+
+
+})
