@@ -45,4 +45,3 @@ export async function getRecipesPagination(){
 export async function getRecipe(id){
     return await recipes.findOne({ _id: new ObjectId(id) });
 }
-

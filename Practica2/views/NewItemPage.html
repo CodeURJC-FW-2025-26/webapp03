@@ -28,15 +28,15 @@
             <h1> Nueva receta </h1>
         </div>
 
-        <form role="form" method="post" action="NewItem">
+        <form role="form" method="post" action="NewItem" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" id="Name" placeholder="Nombre de la receta..." required>
+                <input type="text" name="name" class="form-control" id="Name" placeholder="Nombre de la receta..." required>
             </div>
 
             <div class="form-group row justify-content-center">
                 <label for="Dish"><strong> Tipo de plato: </strong></label>
-                <select class="form-select justify-content-center" id="Dish" required>
+                <select class="form-select justify-content-center" name="dish" id="Dish" required>
                     <option value="" disabled selected> Tipo de plato... </option>
                     <option value="Starter"> Guarnicion. </option>
                     <option value="Side"> Primer plato. </option>
@@ -47,14 +47,14 @@
 
             <div class="form-group">
                 <label for="Difficulty"><strong> Dificultad: </strong></label>
-                <label><input type="radio" id="Difficulty" name="DifficultyRadio" value="Easy" required> Fácil. </label>
-                <label><input type="radio" id="Difficulty" name="DifficultyRadio" value="Medium"> Medio. </label>
-                <label><input type="radio" id="Difficulty" name="DifficultyRadio" value="Hard"> Difícil. </label>        
+                <label><input type="radio" id="Difficulty" name="difficulty" value="Easy" required> Fácil. </label>
+                <label><input type="radio" id="Difficulty" name="difficulty" value="Medium"> Medio. </label>
+                <label><input type="radio" id="Difficulty" name="difficulty" value="Hard"> Difícil. </label>
             </div>
 
             <div class="form-group">
                 <label for="Length"><strong> Duración: </strong></laber>
-                <select class="form-select justify-content-center" id="Lenght" required>
+                <select class="form-select justify-content-center" name="lenght" id="Lenght" required>
                         <option value="" disabled selected> Duración... </option>
                         <option value="5min"> 5 min </option>
                         <option value="15min"> 15 min </option>
@@ -69,40 +69,40 @@
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
-                <textarea class="form-control" id="Description" rows="3"></textarea>
+                <textarea class="form-control" name="description" id="Description" rows="3"></textarea>
             </div>
 
             <div class="row">
                 <label for="Allergens"><strong> Alérgenos: </strong></label>
                 <div class="col">
-                    <label><input type="checkbox" name="Allergens" value="Gluten"> Gluten. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Crustacean"> Crustáceos. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Eggs"> Huevo. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Fish"> Pescado. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Peanuts"> Cacahuetes. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Soya"> Soja. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Dairy"> Lacteos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Gluten"> Gluten. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Crustacean"> Crustáceos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Eggs"> Huevo. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Fish"> Pescado. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Peanuts"> Cacahuetes. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Soya"> Soja. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Dairy"> Lacteos. </label><br>
                 </div>
 
                 <div class="col">
-                    <label><input type="checkbox" name="Allergens" value="Nuts"> Frutos con cáscara. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Celery"> Apio. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Mustard"> Mostaza. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Sesame"> Sésamo. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Sulfites"> Sulfitos. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Lupin"> Altramuces. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Mollusk"> Moluscos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Nuts"> Frutos con cáscara. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Celery"> Apio. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Mustard"> Mostaza. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Sesame"> Sésamo. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Sulfites"> Sulfitos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Lupin"> Altramuces. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Mollusk"> Moluscos. </label><br>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Steps"><strong> Pasos de preparacion: </strong></label>
-                <textarea class="form-control" id="Steps" rows="3" required></textarea>
+                <textarea class="form-control" name="steps" id="Steps" rows="3" required></textarea>
             </div>
 
             <div class="form-group">
                 <label for="Images"><strong> Imagen: </strong></label>
-                <input class="form-control" id="Images" type="file" accept="image/*" required>
+                <input class="form-control" name="image" id="Images" type="file" accept="image/*" required>
             </div>
 
             <div class="form-group mb-0">

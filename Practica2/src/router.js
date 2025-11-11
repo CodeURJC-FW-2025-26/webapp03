@@ -59,33 +59,30 @@ router.get('/recipe/:id/image', async (req, res) => {
 
 });
 
-router.post('/SearchBarMainPage', async (req, res) => {
-
-    //funciones para buscar en la base de datos
-
-
-
-});
-
-router.post('/FiltersMainPage', async (req, res) => {
-
-    //funciones para buscar en la base de datos
-
-
-
-});
-
 router.post('/NewIngredient', async (req, res) => {
-
-    //funcioes
-
-
-})
-
-router.post('/NewItem', async (req, res) => {
-
 
     //funciones
 
 
-})
+});
+
+router.post('/NewItem', upload.single('image'), async (req, res) => {
+
+let recipe = {
+    name: req.body.name,
+    dish: req.body.dish,
+    difficulty: req.body.difficulty,
+    length: req.body.lenght,
+    description: req.body.description,
+    allergens: req.body.allergens,
+    steps: req.body.steps,
+    images: req.file?.filename
+};
+
+await recipesDB.addRecipe(recipe);
+
+let recipes = await recipesDB.getRecipesOfPage(1);
+let pages = await recipesDB.getRecipesPagination();
+res.render('MainPage', {recipes, pages});
+
+});
