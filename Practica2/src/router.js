@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get('/MainPage.html/:numPage', async (req, res) => {
     let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
-    let pages = await recipesDB.getRecipesPagination();
+    let pages = await recipesDB.getRecipesPagination(req.params.numPage)
     res.render('MainPage', { recipes, pages });
 });
 
@@ -67,7 +67,6 @@ router.post('/NewIngredient', async (req, res) => {
 });
 
 router.post('/NewItem', upload.single('image'), async (req, res) => {
-
 let recipe = {
     name: req.body.name,
     dish: req.body.dish,
@@ -80,9 +79,7 @@ let recipe = {
 };
 
 await recipesDB.addRecipe(recipe);
-
 let recipes = await recipesDB.getRecipesOfPage(1);
 let pages = await recipesDB.getRecipesPagination();
 res.render('MainPage', {recipes, pages});
-
 });

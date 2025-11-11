@@ -79,11 +79,16 @@
 
         <nav>
             <ul class="pagination">
-                <li class="page-item"><a href="/MainPage.html/prev/{{.}}" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="/MainPage.html/prev/{{num}}" class="page-link">Previous</a></li>
                 {{#pages}}
-                    <li class="page-item"><a href="/MainPage.html/{{.}}" class="page-link"> {{.}} </a></li>
+                    {{#actual}}
+                        <li class="page-item active"><a href="/MainPage.html/{{num}}" class="page-link"> {{num}} </a></li>
+                    {{/actual}}
+                    {{^actual}}
+                        <li class="page-item"><a href="/MainPage.html/{{num}}" class="page-link"> {{num}} </a></li>
+                    {{/actual}}
                 {{/pages}}
-                <li class="page-item"><a href="/MainPage.html/next/{{.}}" class="page-link"> Next </a></li>
+                <li class="page-item"><a href="/MainPage.html/next/{{num}}" class="page-link"> Next </a></li>
             </ul>
         </nav>
     </div>
