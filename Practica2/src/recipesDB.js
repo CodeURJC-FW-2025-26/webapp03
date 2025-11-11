@@ -32,6 +32,12 @@ export async function getRecipesOfPage(numPage){
     return await recipes.find().skip((numPage - 1) * pageSize).limit(pageSize).toArray();
 }
 
+export async function countPages(){
+    let totalRecipes = await recipes.countDocuments();
+    let pages = Math.ceil(totalRecipes / pageSize);
+    return pages;
+}
+
 export async function getRecipesPagination(actualPage){
     let totalRecipes = await recipes.countDocuments();
     let pages = Math.ceil(totalRecipes / pageSize);
@@ -39,7 +45,7 @@ export async function getRecipesPagination(actualPage){
     for(let i = 1; i <= pages; i++){
         let elem = {
             num: i,
-            actual: i === actualPage
+            actual: i === Number(actualPage)
         };
         pagesArray.push(elem);
     }
