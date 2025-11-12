@@ -13,10 +13,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas2",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -29,10 +29,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas3",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -45,10 +45,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas4",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -61,10 +61,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas5",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -77,10 +77,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas6",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -93,10 +93,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas7",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -109,10 +109,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas8",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -125,10 +125,10 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tortilla de patatas9",
         "dish": "Primer plato",
         "difficulty": "Media",
         "length": "1 hora",
@@ -141,6 +141,6 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "images": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg"
     }
 ]

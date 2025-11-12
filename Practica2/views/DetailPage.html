@@ -24,24 +24,20 @@
     </header>
 
     <div class="container-fluid p-3">
-        <h2><strong> Nombre de la receta: </strong> Tortilla de patatas. </h2>
-        <p><strong> Tipo de plato: </strong> Primer plato. </p>
-        <p><strong> Dificultad: </strong> Media. </p>
-        <p><strong> Duración: </strong> 1h. </p>
-        <p><strong> Descripción: </strong> La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo. </p>
-        <p><strong> Alérgenos: </strong> Huevo. </p>
+        <h2><strong> Nombre de la receta: </strong> {{recipe.name}} </h2>
+        <p><strong> Tipo de plato: </strong> {{recipe.dish}} </p>
+        <p><strong> Dificultad: </strong> {{recipe.difficulty}} </p>
+        <p><strong> Duración: </strong> {{recipe.length}} </p>
+        <p><strong> Descripción: </strong> {{recipe.description}} </p>
+        <p><strong> Alérgenos: </strong> {{recipe.allergens}} </p>
         <p><strong> Pasos: </strong></p>
         <ol class="list-group list-group-numbered">
-            <li class="list-group-item"> Pela y corta las patatas en rodajas finas. </li> 
-            <li class="list-group-item"> Corta la cebolla (opcional) en trozos pequeños. </li> 
-            <li class="list-group-item"> Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas. </li>
-            <li class="list-group-item"> Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal. </li>
-            <li class="list-group-item"> Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. </li>
-            <li class="list-group-item"> Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado. </li>
-            <li class="list-group-item"> Retira del fuego y deja reposar unos minutos antes de servir. </li>
+            <li class="list-group-item"> {{recipe.steps}} </li> 
         </ol>  
         <p><strong> Imágenes de la receta: </strong></p>
-        <img class="img-fluid rounded" src="Images/TortillaDePatatas.jpg" alt="Tortilla de patatas">
+        {{#recipe.image}}
+        <img class="img-fluid rounded" src="/recipe/{{recipe._id}}/image" alt="{{recipe.name}}">
+        {{/recipe.image}}
 
         <div class="row p-3 justify-content-center">
             <button type="button" class="btn btn-primary"> <i class="bi bi-trash"></i> Borrar </button>

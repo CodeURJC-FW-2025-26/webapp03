@@ -60,11 +60,11 @@ router.get('/NewItemPage.html', async (req, res) => {
     res.render('NewItemPage');
 });
 
-router.get('/recipe/:id/image', async (req, res) => {
+router.get('/recipe/:_id/image', async (req, res) => {
 
-    let recipe = await recipesDB.getRecipe(req.params.id);
+    let recipe = await recipesDB.getRecipe(req.params._id);
 
-    res.download(recipesDB.UPLOADS_FOLDER + '/' + recipe.images);
+    res.download(recipesDB.UPLOADS_FOLDER + '/' + recipe.image);
 
 });
 
@@ -85,7 +85,7 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         description: req.body.description,
         allergens: req.body.allergens,
         steps: req.body.steps,
-        images: req.file?.filename
+        image: req.file?.filename
     };
 
     await recipesDB.addRecipe(recipe);
@@ -96,3 +96,10 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
 
 //let recipes = await recipesDB.getRecipesOfPage(1);
 //let pages = await recipesDB.getRecipesPagination();
+
+router.get('/DetailPage.html/:_id', async (req, res) => {
+
+    let recipe = await recipesDB.getRecipe(req.params._id);
+
+    res.render('DetailPage', { recipe });
+});
