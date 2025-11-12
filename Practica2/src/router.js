@@ -56,6 +56,12 @@ router.get('/DetailPage.html', async (req, res) => {
     res.render('DetailPage');
 });
 
+router.get('/DetailPage.html/:_id', async (req, res) => {
+
+    let recipe = await recipesDB.getRecipe(req.params._id);
+    res.render('DetailPage', {recipe});
+});
+
 router.get('/NewItemPage.html', async (req, res) => {
     res.render('NewItemPage');
 });
@@ -85,14 +91,15 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         description: req.body.description,
         allergens: req.body.allergens,
         steps: req.body.steps,
-        image: req.file?.filename
+        image: req.file?.filename,
+        ingredients: []
     };
 
     //ccomprobaciones
 
     await recipesDB.addRecipe(recipe);
 
-    res.render('RecipeConfirmation');
+    res.render('RecipeConfirmation', {recipe});
 
 });
 
