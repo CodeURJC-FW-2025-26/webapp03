@@ -88,6 +88,8 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         image: req.file?.filename
     };
 
+    //ccomprobaciones
+
     await recipesDB.addRecipe(recipe);
 
     res.render('RecipeConfirmation');
