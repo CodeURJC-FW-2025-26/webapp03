@@ -12,8 +12,11 @@ const pageSize = 6;
 
 export const UPLOADS_FOLDER = './uploads';
 
-export async function addRecipe(post) {
-    return await recipes.insertOne(post);
+export async function addRecipe(recipe) {
+    for(let ingredient of recipe.ingredients){
+        ingredient._id = new ObjectId();
+    }
+    return await recipes.insertOne(recipe);
 }
 
 export async function deleteRecipe(id){

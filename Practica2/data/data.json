@@ -13,7 +13,45 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Huevo.jpg"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Cebolla.jpg"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Aceite.jpg"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Sal.jpg"
+            }
+        ]
     },
     {
         "name": "Tortilla de patatas2",
@@ -29,7 +67,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas3",
@@ -45,7 +84,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas4",
@@ -61,7 +101,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas5",
@@ -77,7 +118,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas6",
@@ -93,7 +135,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas7",
@@ -109,7 +152,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas8",
@@ -125,7 +169,8 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": []
     },
     {
         "name": "Tortilla de patatas9",
@@ -141,6 +186,7 @@
                 "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
                 "Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.",
                 "Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg"
+        "image": "TortillaDePatatas.jpg", 
+        "ingredients": []
     }
 ]
