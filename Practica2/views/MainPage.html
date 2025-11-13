@@ -77,20 +77,26 @@
             {{/recipes}}
         </div>
 
-        <nav>
-            <ul class="pagination">
-                <li class="page-item"><a href="/MainPage.html/prev/{{numPage}}" class="page-link"> Previous </a></li>
-                {{#pages}}
-                    {{#actual}}
-                        <li class="page-item active"><a href="/MainPage.html/{{num}}" class="page-link"> {{num}} </a></li>
-                    {{/actual}}
-                    {{^actual}}
-                        <li class="page-item"><a href="/MainPage.html/{{num}}" class="page-link"> {{num}} </a></li>
-                    {{/actual}}
-                {{/pages}}
-                <li class="page-item"><a href="/MainPage.html/next/{{numPage}}" class="page-link"> Next </a></li>
-            </ul>
-        </nav>
+        <div class="container-fluid">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {{^first}}
+                        <li class="page-item"><a href="/MainPage.html/prev/{{numPage}}" class="page-link"> Anterior </a></li>
+                    {{/first}}
+                    {{#pages}}
+                        {{#actual}}
+                            <li class="page-item"><a href="/MainPage.html/{{num}}" class="page-link active"> {{num}} </a></li>
+                        {{/actual}}
+                        {{^actual}}
+                            <li class="page-item"><a href="/MainPage.html/{{num}}" class="page-link"> {{num}} </a></li>
+                        {{/actual}}
+                    {{/pages}}
+                    {{^last}}
+                        <li class="page-item"><a href="/MainPage.html/next/{{numPage}}" class="page-link"> Siguiente </a></li>
+                    {{/last}}
+                </ul>
+            </nav>
+        </div>
     </div>
 
     <footer>

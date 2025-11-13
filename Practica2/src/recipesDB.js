@@ -38,7 +38,7 @@ export async function getRecipesOfPage(numPage){
 export async function countPages(){
     let totalRecipes = await recipes.countDocuments();
     let pages = Math.ceil(totalRecipes / pageSize);
-    return pages;
+    return Number(pages);
 }
 
 export async function getRecipesPagination(actualPage){
