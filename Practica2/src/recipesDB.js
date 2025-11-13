@@ -58,3 +58,12 @@ export async function getRecipesPagination(actualPage){
 export async function getRecipe(id){
     return await recipes.findOne({ _id: new ObjectId(id) });
 }
+
+export async function getIngredientImage(recipeId, ingredientId){
+    let recipe = await recipes.findOne(
+        { _id: new ObjectId(recipeId)},
+        { projection: { ingredients: { $elemMatch: { _id: new ObjectId(ingredientId) }}}}
+    );
+    let ingredient = recipe.ingredients[0];
+    return ingredient;
+}

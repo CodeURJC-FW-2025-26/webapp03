@@ -28,28 +28,28 @@
                 "allegerns": [],
                 "price": "0,65 €",
                 "description": "Tubérculo",
-                "image": "Huevo.jpg"
+                "image": "Huevo.png"
             },
             {
                 "name": "Cebolla",
                 "allegerns": [],
                 "price": "0,65 €",
                 "description": "Tubérculo",
-                "image": "Cebolla.jpg"
+                "image": "Cebolla.png"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "0,65 €",
                 "description": "Tubérculo",
-                "image": "Aceite.jpg"
+                "image": "Aceite.png"
             },
             {
                 "name": "Sal",
                 "allegerns": [],
                 "price": "0,65 €",
                 "description": "Tubérculo",
-                "image": "Sal.jpg"
+                "image": "Sal.png"
             }
         ]
     },

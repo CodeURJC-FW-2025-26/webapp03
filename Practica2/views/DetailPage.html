@@ -54,7 +54,7 @@
             <p><strong> Descripción: </strong> {{description}} </p>
             <p><strong> Imagen del ingrediente: </strong></p>
             {{#image}}
-                <img class="img-fluid rounded" src="/recipe/{{_id}}/image" alt="{{name}}">
+                <img class="img-fluid rounded" src="/ingredient/{{recipe._id}}/{{_id}}/image" alt="{{name}}">
             {{/image}}
             <div class="row p-3 justify-content-center">
                 <button type="button" class="btn btn-primary"> <i class="bi bi-trash"></i> Borrar </button>
