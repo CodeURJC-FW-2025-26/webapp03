@@ -67,6 +67,17 @@ router.get('/MainPage.html/next/:numPage', async (req, res) => {
     }
 });
 
+router.get('/searchBar', async (req, res) => {
+    let searchQuery = req.query.searchQuery;
+    let recipes = await recipesDB.searchRecipes(searchQuery);
+    let elem = {num: 1, actual: true};
+    let pages = [elem];
+    let numPage = 1;
+    let first = true;
+    let last = true; 
+    res.render('MainPage', { recipes, pages, numPage, first, last });
+});
+
 router.get('/DetailPage.html', async (req, res) => {
     res.render('DetailPage');
 });

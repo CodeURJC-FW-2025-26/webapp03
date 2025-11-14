@@ -25,8 +25,8 @@
     
     <div class="container-fluid">
         <div class="row p-3">
-            <form class="d-flex" role="search">
-                <input class="form-control" id="searchBar" type="search" placeholder="Buscar...">
+            <form class="d-flex" role="search" method="get" action="/searchBar">
+                <input class="form-control" name="searchQuery" type="search" placeholder="Buscar..." required>
                 <button class="form-group btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </form>
 

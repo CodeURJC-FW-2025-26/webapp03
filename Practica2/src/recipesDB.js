@@ -8,6 +8,7 @@ const client = new MongoClient('mongodb://localhost:27017');
 
 const db = client.db('recipesDB');
 const recipes = db.collection('recipes');
+await recipes.createIndex({ name: 'text' });
 const pageSize = 6;
 
 export const UPLOADS_FOLDER = './uploads';
@@ -66,4 +67,9 @@ export async function getIngredientImage(recipeId, ingredientId){
     );
     let ingredient = recipe.ingredients[0];
     return ingredient;
+}
+
+export async function searchRecipes(searchQuery){
+    let resultRecipes = await recipes.find({ $text: { $search: searchQuery }}).toArray();
+    return resultRecipes;
 }
