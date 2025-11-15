@@ -83,7 +83,6 @@ router.get('/DetailPage.html', async (req, res) => {
 });
 
 router.get('/DetailPage.html/:_id', async (req, res) => {
-
     let recipe = await recipesDB.getRecipe(req.params._id);
     res.render('DetailPage', {recipe});
 });
@@ -105,9 +104,7 @@ router.get('/ingredient/:recipe_id/:_id/image', async (req, res) => {
 //Funciones de creacion de objetos
 
 router.post('/NewIngredient', upload.single('image_i'), async (req, res) => {
-
     let recipeId = req.body.recipe_id;
-
     let ingredient = {
         name: req.body.name_i,
         allergens: req.body.allergens_i,
@@ -119,11 +116,9 @@ router.post('/NewIngredient', upload.single('image_i'), async (req, res) => {
     await recipesDB.addIngredient(recipeId, ingredient);
     let recipe = await recipesDB.getRecipe(recipeId);
     res.render('DetailPage', {recipe});
-
 });
 
 router.post('/NewItem', upload.single('image'), async (req, res) => {
-
     let recipe = {
         name: req.body.name,
         dish: req.body.dish,
@@ -141,15 +136,4 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
     await recipesDB.addRecipe(recipe);
 
     res.render('RecipeConfirmation', {recipe});
-
-});
-
-//let recipes = await recipesDB.getRecipesOfPage(1);
-//let pages = await recipesDB.getRecipesPagination();
-
-router.get('/DetailPage.html/:_id', async (req, res) => {
-
-    let recipe = await recipesDB.getRecipe(req.params._id);
-
-    res.render('DetailPage', { recipe });
 });

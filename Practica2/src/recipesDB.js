@@ -75,6 +75,7 @@ export async function searchRecipes(searchQuery){
 }
 
 export async function addIngredient(recipeId, ingredient) {
+    ingredient._id = new ObjectId();
     return await recipes.updateOne(
         { _id: new ObjectId(recipeId) },
         { $push: { ingredients: ingredient } }
