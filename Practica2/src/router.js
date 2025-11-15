@@ -78,6 +78,17 @@ router.get('/searchBar', async (req, res) => {
     res.render('MainPage', { recipes, pages, numPage, first, last });
 });
 
+router.get('/searchSection', async (req, res) => {
+    let section = req.query.section;
+    let recipes = await recipesDB.searchSection(section);
+    let elem = {num: 1, actual: true};
+    let pages = [elem];
+    let numPage = 1;
+    let first = true;
+    let last = true; 
+    res.render('MainPage', { recipes, pages, numPage, first, last });
+});
+
 router.get('/DetailPage.html', async (req, res) => {
     res.render('DetailPage');
 });

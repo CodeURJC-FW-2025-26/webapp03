@@ -55,7 +55,7 @@
     },
     {
         "name": "Bacalao al pil pil",
-        "dish": "Primer plato",
+        "dish": "Segundo plato",
         "difficulty": "Media",
         "length": "1 hora",
         "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
@@ -72,7 +72,7 @@
     },
     {
         "name": "Cachopo asturiano",
-        "dish": "Primer plato",
+        "dish": "Segundo plato",
         "difficulty": "Media",
         "length": "1 hora",
         "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
@@ -106,7 +106,7 @@
     },
     {
         "name": "Crema catalana",
-        "dish": "Primer plato",
+        "dish": "Postre",
         "difficulty": "Media",
         "length": "1 hora",
         "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
@@ -123,7 +123,7 @@
     },
     {
         "name": "Croquetas de jamón",
-        "dish": "Primer plato",
+        "dish": "Guarnición",
         "difficulty": "Media",
         "length": "1 hora",
         "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
@@ -157,7 +157,7 @@
     },
     {
         "name": "Patatas bravas",
-        "dish": "Primer plato",
+        "dish": "Guarnición",
         "difficulty": "Media",
         "length": "1 hora",
         "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
@@ -174,7 +174,7 @@
     },
     {
         "name": "Tarta de queso",
-        "dish": "Primer plato",
+        "dish": "Postre",
         "difficulty": "Media",
         "length": "1 hora",
         "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",

@@ -30,35 +30,11 @@
                 <button class="form-group btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
-            <form class="d-flex flex-wrap justify-content-center">
-                <select class="form-select" id="dishFilter">
-                    <option value="" disabled selected> Filtros tipo de plato </option>
-                    <option value="Starter"> Guarnicion. </option>
-                    <option value="Side"> Primer plato. </option>
-                    <option value="Main"> Segundo plato. </option>
-                    <option value="Dessert"> Postre. </option>
-                </select>
-
-                <select class="form-select" id="dificultyFilter">
-                    <option value="" disabled selected> Filtros dificultad </option>
-                    <option value="Easy"> Fácil. </option>
-                    <option value="Medium"> Medio. </option>
-                    <option value="Hard"> Difícil. </option>
-                </select>
-
-                <select class="form-select" id="lenghtFilter">
-                    <option value="" disabled selected> Filtros duración </option>
-                    <option value="5min"> 5 min </option>
-                    <option value="15min"> 15 min </option>
-                    <option value="30min"> 30 min </option>
-                    <option value="45min"> 45 min </option>
-                    <option value="1h"> 1 h </option>
-                    <option value="2h"> 2 h </option>
-                    <option value="3h"> 3 h </option>
-                    <option value="+3h"> +3 h </option>
-                </select>
-
-                <button class="form-group btn btn-primary" type="submit"><i class="bi bi-filter"></i></button>
+            <form class="d-flex flex-wrap justify-content-center" role="search" method="get" action="/searchSection">
+                <button class="form-group btn btn-primary" type="submit" name="section" value="Guarnición"><i class="bi bi-search"> Guarnición </i></button>
+                <button class="form-group btn btn-primary" type="submit" name="section" value="Primer"><i class="bi bi-search"> Primer plato </i></button>
+                <button class="form-group btn btn-primary" type="submit" name="section" value="Segundo"><i class="bi bi-search"> Segundo Plato </i></button>
+                <button class="form-group btn btn-primary" type="submit" name="section" value="Postre"><i class="bi bi-search"> Postre </i></button>
             </form>
         </div>
 
