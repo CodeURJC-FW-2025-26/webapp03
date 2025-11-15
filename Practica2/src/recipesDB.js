@@ -67,3 +67,10 @@ export async function getIngredientImage(recipeId, ingredientId){
     let ingredient = recipe.ingredients[0];
     return ingredient;
 }
+
+export async function addIngredient(recipeId, ingredient) {
+    return await recipes.updateOne(
+        { _id: new ObjectId(recipeId) },
+        { $push: { ingredients: ingredient } }
+    );
+}

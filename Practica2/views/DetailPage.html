@@ -68,51 +68,52 @@
             <h1> Nuevo ingrediente </h1>
         </div>
 
-        <form role="form" method="post" action="/NewIngredient">
+        <form role="form" method="post" action="/NewIngredient" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" id="Name" placeholder="Nombre del ingrediente." required>
+                <input type="text" class="form-control" name="name_i" id="Name" placeholder="Nombre del ingrediente..." required>
             </div>  
 
             <div class="row">
                 <label for="Allergens"><strong> Alérgenos: </strong></label>
                 <div class="col">
-                    <label><input type="checkbox" name="Allergens" value="Gluten"> Gluten. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Crustacean"> Crustáceos. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Eggs"> Huevo. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Fish"> Pescado. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Peanuts"> Cacahuetes. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Soya"> Soja. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Dairy"> Lacteos. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Gluten"> Gluten. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Crustacean"> Crustáceos. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Eggs"> Huevo. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Fish"> Pescado. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Peanuts"> Cacahuetes. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Soya"> Soja. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Dairy"> Lacteos. </label><br>
                 </div>
 
                 <div class="col">
-                    <label><input type="checkbox" name="Allergens" value="Nuts"> Frutos con cáscara. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Celery"> Apio. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Mustard"> Mostaza. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Sesame"> Sésamo. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Sulfites"> Sulfitos. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Lupin"> Altramuces. </label><br>
-                    <label><input type="checkbox" name="Allergens" value="Mollusk"> Moluscos. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Nuts"> Frutos con cáscara. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Celery"> Apio. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Mustard"> Mostaza. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Sesame"> Sésamo. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Sulfites"> Sulfitos. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Lupin"> Altramuces. </label><br>
+                    <label><input type="checkbox" name="allergens_i" value="Mollusk"> Moluscos. </label><br>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Price"><strong> Precio: </strong></label>
-                <input type="text" class="form-control" id="Price" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\d{1,3},\d{2} €\.?$">
+                <input type="text" class="form-control" id="Price" name="price_i" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\d{1,3},\d{2} €\.?$">
             </div>  
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
-                <textarea class="form-control" id="Description" rows="3"></textarea>
+                <textarea class="form-control" name="description_i" id="Description" rows="3"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="Image"><strong> Imagen: </strong></label>
-                <input type="file" class="form-control" id="Image" accept="image/*" required>
+                <input type="file" class="form-control" name="image_i" id="Image" accept="image/*" required>
             </div>
 
             <div class="form-group mb-0">
+                <input type="hidden" name="recipe_id" value="{{recipe._id}}">
                 <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> Crear </button>
             </div>
         </form>

@@ -91,10 +91,23 @@ router.get('/ingredient/:recipe_id/:_id/image', async (req, res) => {
     res.download(recipesDB.UPLOADS_FOLDER + '/' + ingredient.image);
 });
 
-router.post('/NewIngredient', async (req, res) => {
+//Funciones de creacion de objetos
 
-    //funciones
+router.post('/NewIngredient', upload.single('image_i'), async (req, res) => {
 
+    let recipeId = req.body.recipe_id;
+
+    let ingredient = {
+        name: req.body.name_i,
+        allergens: req.body.allergens_i,
+        price: req.body.price_i,
+        description: req.body.description_i,
+        image: req.file?.filename,
+    };
+
+    await recipesDB.addIngredient(recipeId, ingredient);
+    let recipe = await recipesDB.getRecipe(recipeId);
+    res.render('DetailPage', {recipe});
 
 });
 
