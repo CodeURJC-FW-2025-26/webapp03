@@ -86,3 +86,10 @@ export async function addIngredient(recipeId, ingredient) {
         { $push: { ingredients: ingredient } }
     );
 }
+
+export async function deleteIngredient(recipeId, ingredientId) {
+  return await recipes.updateOne(
+    { _id: new ObjectId(recipeId) },
+    { $pull: { ingredients: { _id: new ObjectId(ingredientId) } } }
+  );
+}

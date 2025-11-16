@@ -148,3 +148,16 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
 
     res.render('RecipeConfirmation', {recipe});
 });
+
+
+//borrado
+
+router.post('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
+  const recipeId = req.params.recipe_id;
+  const ingredientId = req.params.ingredient_id;
+
+  await recipesDB.deleteIngredient(recipeId, ingredientId);
+
+  const recipe = await recipesDB.getRecipe(recipeId);
+  res.render('DetailPage', { recipe });
+});
