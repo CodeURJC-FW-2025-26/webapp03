@@ -93,3 +93,4 @@ export async function deleteIngredient(recipeId, ingredientId) {
     { $pull: { ingredients: { _id: new ObjectId(ingredientId) } } }
   );
 }
+
