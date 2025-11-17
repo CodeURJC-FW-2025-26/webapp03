@@ -124,48 +124,27 @@ router.post('/NewIngredient', upload.single('image_i'), async (req, res) => {
         image: req.file?.filename,
     };
 
-    try {
+    let errors = [];
 
-        if (!ingredient.name || !ingredient.price || !ingredient.description || !ingredient.image){
-            console.log(' Campos obligatorios vacíos');
-            return res.render('ErrorFormulary', {
-                error: 'Campos obligatorios vacíos'
-            })
-        }
+    if (!ingredient.name) errors.push("El nombre del ingrediente es obligatorio");
+    if (!ingredient.price) errors.push("El precio es obligatorio");
+    if (!ingredient.description) errors.push("La descripción es obligatoria");
+    if (!ingredient.image) errors.push("La imagen es obligatoria");
 
-        if (!/^[A-ZÁÉÍÓÚÑ]/.test(ingredient.name)) {
-            console.log('El nombre no empieza por mayúscula');
-            return res.render('ErrorFormulary', {
-                error: 'El nombre debe comenzar por mayúscula'
-            });
-        }
+    const exists = await recipesDB.findIngredientByName(recipeId, ingredient.name);
+    if (exists) errors.push("Ese ingrediente ya existe en esta receta");
 
-        const existe = await recipesDB.findIngredientsByName(recipeId,ingredient.name);
-        if (existe) {
-            console.log('Ingrediente ya existente');
-              return res.render('ErrorFormulary', {
-                error: 'Ese nombre ya existe'
-            });
-        }
-
-        if (ingredient.description.length < 10 || ingredient.description.length > 200) {
-            console.log('La descripción no cumple el rango (10-200)');
-            return res.render('ErrorFormulary', {
-                error: 'La descripción debe tener entre 10 y 200 caracteres'
-            });
-        }
-
-    }
-
-    catch (err) {
-        console.log("Error en validaciones:", err);
-        return res.render('ErrorFormulary');
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
     }
 
     await recipesDB.addIngredient(recipeId, ingredient);
+    
     let recipe = await recipesDB.getRecipe(recipeId);
     res.render('DetailPage', {recipe});
 });
+
 
 router.post('/NewItem', upload.single('image'), async (req, res) => {
     let recipe = {
@@ -180,56 +159,26 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         ingredients: []
     };
 
-    try {
+    let errors = [];
 
-        if (!recipe.name || !recipe.description || !recipe.dish) {
-            console.log('❌ Campos obligatorios vacíos');
-            return res.render('ErrorFormulary', {
-                error: 'Campos obligatorios vacíos'
-            });
-        }
+    if (!recipe.name) errors.push("El nombre es obligatorio");
+    if (!recipe.type) errors.push("El tipo es obligatorio");
+    if (!recipe.difficulty) errors.push("La dificultad es obligatoria");
+    if (!recipe.description) errors.push("La descripción es obligatoria");
+    if (!recipe.image) errors.push("La imagen es obligatoria");
 
-        if (!/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) {
-            console.log('❌ El nombre no empieza por mayúscula');
-            return res.render('ErrorFormulary', {
-                error: 'El nombre debe comenzar por mayúscula'
-            });
-        }
+    const existe = await recipesDB.findRecipeByName(recipe.name);
+    if (existe) errors.push("Ya existe una receta con ese nombre");
 
-        const existe = await recipesDB.findRecipeByName(recipe.name);
-        if (existe) {
-            console.log('❌ Ese nombre ya existe');
-            return res.render('ErrorFormulary', {
-                error: 'Ese nombre ya existe'
-            });
-        }
-
-        if (recipe.description.length < 10 || recipe.description.length > 200) {
-            console.log('❌ La descripción no cumple el rango (10-200)');
-            return res.render('ErrorFormulary', {
-                error: 'La descripción debe tener entre 10 y 200 caracteres'
-            });
-        }
-
-        if (recipe.steps.length < 10 || recipe.steps.length > 2000) {
-            console.log('❌ Los pasos no cumplen el rango (10-2000)');
-            return res.render('ErrorFormulary', {
-                error: 'Los pasos deben tener entre 10 y 2000 caracteres'
-            });
-        }
-    } 
-    
-    catch (err) {
-        console.log("❌ Error en validaciones:", err);
-        return res.render('ErrorFormulary');
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
     }
-
 
     await recipesDB.addRecipe(recipe);
 
     res.render('RecipeConfirmation', {recipe});
 });
-
 
 //borrado
 
