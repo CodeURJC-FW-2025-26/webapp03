@@ -142,7 +142,41 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         ingredients: []
     };
 
-    //ccomprobaciones
+    try {
+
+        if (!recipe.name || !recipe.description || !recipe.dish) {
+            console.log(' ❌ Campos obligatorios vacíos');
+            return res.render('ErrorFormulary');
+        }
+
+        if (!/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) {
+            console.log(' ❌ El nombre no empieza por mayúscula');
+            return res.render('ErrorFormulary');
+        }
+
+        const existe = await recipesDB.findRecipeByName(recipe.name);
+        if (existe) {
+            console.log(' ❌ Ese nombre ya existe');
+            return res.render('ErrorFormulary');
+        }
+
+        if (recipe.description.length < 10 || recipe.description.length > 200) {
+            console.log(' ❌ Descripción fuera del rango permitido');
+            return res.render('ErrorFormulary');
+        }
+
+        if (recipe.steps.length < 10 || recipe.steps.length > 2000) {
+         console.log(' ❌ Los pasos están fuera del rango permitido');
+            return res.render('ErrorFormulary');
+        }
+
+    } 
+    
+    catch (error) {
+        console.log("❌ Error en validaciones:", error);
+        return res.render('ErrorFormulary');
+    }
+
 
     await recipesDB.addRecipe(recipe);
 

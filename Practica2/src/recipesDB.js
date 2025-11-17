@@ -94,3 +94,6 @@ export async function deleteIngredient(recipeId, ingredientId) {
   );
 }
 
+export async function findRecipeByName(name) {
+  return await recipes.findOne({ name: name });
+}
