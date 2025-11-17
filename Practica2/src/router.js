@@ -145,35 +145,44 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
     try {
 
         if (!recipe.name || !recipe.description || !recipe.dish) {
-            console.log(' ❌ Campos obligatorios vacíos');
-            return res.render('ErrorFormulary');
+            console.log('❌ Campos obligatorios vacíos');
+            return res.render('ErrorFormulary', {
+                error: 'Campos obligatorios vacíos'
+            });
         }
 
         if (!/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) {
-            console.log(' ❌ El nombre no empieza por mayúscula');
-            return res.render('ErrorFormulary');
+            console.log('❌ El nombre no empieza por mayúscula');
+            return res.render('ErrorFormulary', {
+                error: 'El nombre debe comenzar por mayúscula'
+            });
         }
 
         const existe = await recipesDB.findRecipeByName(recipe.name);
         if (existe) {
-            console.log(' ❌ Ese nombre ya existe');
-            return res.render('ErrorFormulary');
+            console.log('❌ Ese nombre ya existe');
+            return res.render('ErrorFormulary', {
+                error: 'Ese nombre ya existe'
+            });
         }
 
         if (recipe.description.length < 10 || recipe.description.length > 200) {
-            console.log(' ❌ Descripción fuera del rango permitido');
-            return res.render('ErrorFormulary');
+            console.log('❌ La descripción no cumple el rango (10-200)');
+            return res.render('ErrorFormulary', {
+                error: 'La descripción debe tener entre 10 y 200 caracteres'
+            });
         }
 
         if (recipe.steps.length < 10 || recipe.steps.length > 2000) {
-         console.log(' ❌ Los pasos están fuera del rango permitido');
-            return res.render('ErrorFormulary');
+            console.log('❌ Los pasos no cumplen el rango (10-2000)');
+            return res.render('ErrorFormulary', {
+                error: 'Los pasos deben tener entre 10 y 2000 caracteres'
+            });
         }
-
     } 
     
-    catch (error) {
-        console.log("❌ Error en validaciones:", error);
+    catch (err) {
+        console.log("❌ Error en validaciones:", err);
         return res.render('ErrorFormulary');
     }
 
