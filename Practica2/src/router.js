@@ -198,24 +198,12 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
 router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
   const recipeId = req.params.recipe_id;
   const ingredientId = req.params.ingredient_id;
-
   await recipesDB.deleteIngredient(recipeId, ingredientId);
-
-  const recipe = await recipesDB.getRecipe(recipeId);
-  res.render('DetailPage', { recipe });
+  res.redirect('/DetailPage.html/' + recipeId);
 });
 
 router.get('/recipe/:_id/delete', async (req, res) => {
   const recipeId = req.params._id;
-
   await recipesDB.deleteRecipe(recipeId);
-
-  let recipes = await recipesDB.getRecipesOfPage(1);
-  let pages = await recipesDB.getRecipesPagination(1);
-  let numPage = 1;
-  let maxPage = await recipesDB.countPages();
-  let first = true;
-  let last = maxPage === 1;
-
-  res.render('MainPage', { recipes, pages, numPage, first, last });
+  res.redirect('/MainPage.html/1');
 });
