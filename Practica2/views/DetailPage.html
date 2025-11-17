@@ -40,10 +40,8 @@
         {{/recipe.image}}
 
         <div class="row p-3 justify-content-center">
-            <form method="post" action="/recipe/{{recipe._id}}/delete">
-                <button type="submit" class="btn btn-primary"> <i class="bi bi-trash"></i> Borrar </button>
-            </form>
-            <button type="button" class="btn btn-primary"> <i class="bi bi-pencil-square"></i> Editar </button>
+            <a href="/recipe/{{recipe._id}}/delete" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </a>
+            <a href="/recipe/{{recipe._id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
             <a href="/MainPage.html/1" class="btn btn-primary" role="button"> <i class="bi bi-box-arrow-left"></i> Volver </a>
         </div>
     </div>
@@ -59,10 +57,8 @@
                 <img class="img-fluid rounded" src="/ingredient/{{recipe._id}}/{{_id}}/image" alt="{{name}}">
             {{/image}}
             <div class="row p-3 justify-content-center">
-                <form method="post" action="/ingredient/{{recipe._id}}/{{_id}}/delete">
-                    <button type="submit" class="btn btn-primary"> <i class="bi bi-trash"></i> Borrar </button>
-                </form>
-                    <button type="button" class="btn btn-primary"> <i class="bi bi-pencil-square"></i> Editar </button>
+                <a href="/ingredient/{{recipe._id}}/{{_id}}/delete" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </a>
+                <a href="/ingredient/{{recipe._id}}/{{_id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
             </div>
         </div>
     {{/recipe.ingredients}}

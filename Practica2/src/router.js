@@ -195,7 +195,7 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
 
 //borrado
 
-router.post('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
+router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
   const recipeId = req.params.recipe_id;
   const ingredientId = req.params.ingredient_id;
 
@@ -205,7 +205,7 @@ router.post('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => 
   res.render('DetailPage', { recipe });
 });
 
-router.post('/recipe/:_id/delete', async (req, res) => {
+router.get('/recipe/:_id/delete', async (req, res) => {
   const recipeId = req.params._id;
 
   await recipesDB.deleteRecipe(recipeId);
