@@ -124,6 +124,44 @@ router.post('/NewIngredient', upload.single('image_i'), async (req, res) => {
         image: req.file?.filename,
     };
 
+    try {
+
+        if (!ingredient.name || !ingredient.price || !ingredient.description || !ingredient.image){
+            console.log(' Campos obligatorios vacíos');
+            return res.render('ErrorFormulary', {
+                error: 'Campos obligatorios vacíos'
+            })
+        }
+
+        if (!/^[A-ZÁÉÍÓÚÑ]/.test(ingredient.name)) {
+            console.log('El nombre no empieza por mayúscula');
+            return res.render('ErrorFormulary', {
+                error: 'El nombre debe comenzar por mayúscula'
+            });
+        }
+
+        const existe = await recipesDB.findIngredientsByName(recipeId,ingredient.name);
+        if (existe) {
+            console.log('Ingrediente ya existente');
+              return res.render('ErrorFormulary', {
+                error: 'Ese nombre ya existe'
+            });
+        }
+
+        if (ingredient.description.length < 10 || ingredient.description.length > 200) {
+            console.log('La descripción no cumple el rango (10-200)');
+            return res.render('ErrorFormulary', {
+                error: 'La descripción debe tener entre 10 y 200 caracteres'
+            });
+        }
+
+    }
+
+    catch (err) {
+        console.log("Error en validaciones:", err);
+        return res.render('ErrorFormulary');
+    }
+
     await recipesDB.addIngredient(recipeId, ingredient);
     let recipe = await recipesDB.getRecipe(recipeId);
     res.render('DetailPage', {recipe});

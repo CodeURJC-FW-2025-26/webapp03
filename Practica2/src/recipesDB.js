@@ -97,3 +97,10 @@ export async function deleteIngredient(recipeId, ingredientId) {
 export async function findRecipeByName(name) {
   return await recipes.findOne({ name: name });
 }
+
+export async function findIngredientByName(name) {
+    return await recipes.findOne(
+        { "ingredients.name": name },
+        { projection: { "ingredients.$": 1 } }
+    );
+}
