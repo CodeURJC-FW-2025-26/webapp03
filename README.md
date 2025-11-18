@@ -183,6 +183,31 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 ### Lucas Román Jiménez
 
+- He creado la paginas de ErrorFormulary implementando el mostrado de errores, e implementado los botones de la página para que al volver, el usuario llegue al formulario en el que dió error. También he implementado la validación de la base de datos para las entidades principales y las secundarias. Para esto último, también cree dos funciones en el recipesDB. Hice también los botones provisionales de la RecipeConfirmation. 
+
+-Los commits más importantes que he hecho son:
+
+1) Validación de las recetas en MongoDB (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ac4468026e8094c544785d481754fd83c70f6a61)
+
+2) Validación de los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/98a7821eecb0716d3dd30c8d2c4f0c4f1e20066e)
+
+3) Arreglar errores en las validaciones y el ErrorFormulary (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/22d2b2ef5dc11eb5dfcdae9800c7a1de6d863d77)
+
+4) Cambio de formato de los errores en las validaciones (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/9578d93e3926b8e437bfded5eab9fbe3029c9e1c)
+
+5) Botones provisionales de RecipeConfirmation (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ec161bb51cba10eeb6db805311db7fdcf92197b8)
+
+-Los ficheros en los que más he trabajado son: 
+
+1) `Router`
+
+2) `RecipesDB`
+
+3) `Error Formulary`
+
+4) `Recipe Confirmation`
+
+5) `README`
 
 
 ### Miguel de Luis Ibáñez
