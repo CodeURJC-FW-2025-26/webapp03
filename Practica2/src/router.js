@@ -108,19 +108,19 @@ router.get('/recipe/:_id/image', async (req, res) => {
 });
 
 router.get('/ingredient/:recipe_id/:_id/image', async (req, res) => {
-    let ingredient = await recipesDB.getIngredientImage(req.params.recipe_id, req.params._id);
+    let ingredient = await recipesDB.getIngredient(req.params.recipe_id, req.params._id);
     res.download(recipesDB.UPLOADS_FOLDER + '/' + ingredient.image);
 });
 
 //Funciones de creacion de objetos
 
-router.post('/NewIngredient', upload.single('image_i'), async (req, res) => {
+router.post('/NewIngredient', upload.single('image'), async (req, res) => {
     let recipeId = req.body.recipe_id;
     let ingredient = {
-        name: req.body.name_i,
-        allergens: req.body.allergens_i,
-        price: req.body.price_i,
-        description: req.body.description_i,
+        name: req.body.name,
+        allergens: req.body.allergens,
+        price: req.body.price,
+        description: req.body.description,
         image: req.file?.filename,
     };
 
@@ -183,17 +183,19 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
 //borrado
 
 router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
-  const recipeId = req.params.recipe_id;
-  const ingredientId = req.params.ingredient_id;
+  let recipeId = req.params.recipe_id;
+  let ingredientId = req.params.ingredient_id;
   await recipesDB.deleteIngredient(recipeId, ingredientId);
   res.redirect('/DetailPage.html/' + recipeId);
 });
 
 router.get('/recipe/:_id/delete', async (req, res) => {
-  const recipeId = req.params._id;
+  let recipeId = req.params._id;
   await recipesDB.deleteRecipe(recipeId);
   res.redirect('/MainPage.html/1');
 });
+
+//edit functions
 
 router.get('/recipe/:_id/edit', async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
@@ -213,26 +215,51 @@ router.get('/recipe/:_id/edit', async (req, res) => {
     let is2h = recipe.length === "2 h";
     let is3h = recipe.length === "3 h";
     let isMore3h = recipe.length === "+3 h";
-    let gluten = recipe.allergens.includes("Gluten");
-    let crustacean = recipe.allergens.includes("Crustáceos");
-    let eggs = recipe.allergens.includes("Huevo");
-    let fish = recipe.allergens.includes("Pescado");
-    let peanuts = recipe.allergens.includes("Cacahuetes");
-    let soya = recipe.allergens.includes("Soja");
-    let dairy = recipe.allergens.includes("Lacteos");
-    let nuts = recipe.allergens.includes("Frutos con cáscara");
-    let celery = recipe.allergens.includes("Apio");
-    let mustard = recipe.allergens.includes("Mostaza");
-    let sesame = recipe.allergens.includes("Sésamo");
-    let sulfites = recipe.allergens.includes("Sulfitos");
-    let lupin = recipe.allergens.includes("Altramuces");
-    let mollusk = recipe.allergens.includes("Moluscos");
+    let gluten = recipe.allergens?.includes("Gluten");
+    let crustacean = recipe.allergens?.includes("Crustáceos");
+    let eggs = recipe.allergens?.includes("Huevo");
+    let fish = recipe.allergens?.includes("Pescado");
+    let peanuts = recipe.allergens?.includes("Cacahuetes");
+    let soya = recipe.allergens?.includes("Soja");
+    let dairy = recipe.allergens?.includes("Lacteos");
+    let nuts = recipe.allergens?.includes("Frutos con cáscara");
+    let celery = recipe.allergens?.includes("Apio");
+    let mustard = recipe.allergens?.includes("Mostaza");
+    let sesame = recipe.allergens?.includes("Sésamo");
+    let sulfites = recipe.allergens?.includes("Sulfitos");
+    let lupin = recipe.allergens?.includes("Altramuces");
+    let mollusk = recipe.allergens?.includes("Moluscos");
     res.render('NewItemPage', { recipe, 
                                 isStarter, isSide, isMain, isDessert, 
                                 isEasy, isMedium, isHard, 
                                 is5min, is15min, is30min, is45min, is1h, is2h, is3h, isMore3h,
                                 gluten, crustacean, eggs, fish, peanuts, soya, dairy, nuts, celery, mustard, sesame, sulfites, lupin, mollusk,
-                                isEdit} );
+                                isEdit });
+});
+
+router.get('/ingredient/:recipe_id/:ingredient_id/edit', async (req, res) => {
+    let recipeId = req.params.recipe_id;
+    let ingredientId = req.params.ingredient_id;
+    let recipe = await recipesDB.getRecipe(recipeId);
+    let ingredient = await recipesDB.getIngredient(recipeId, ingredientId);
+    let isEdit = true;
+    let gluten = ingredient.allergens?.includes("Gluten");
+    let crustacean = ingredient.allergens?.includes("Crustáceos");
+    let eggs = ingredient.allergens?.includes("Huevo");
+    let fish = ingredient.allergens?.includes("Pescado");
+    let peanuts = ingredient.allergens?.includes("Cacahuetes");
+    let soya = ingredient.allergens?.includes("Soja");
+    let dairy = ingredient.allergens?.includes("Lacteos");
+    let nuts = ingredient.allergens?.includes("Frutos con cáscara");
+    let celery = ingredient.allergens?.includes("Apio");
+    let mustard = ingredient.allergens?.includes("Mostaza");
+    let sesame = ingredient.allergens?.includes("Sésamo");
+    let sulfites = ingredient.allergens?.includes("Sulfitos");
+    let lupin = ingredient.allergens?.includes("Altramuces");
+    let mollusk = ingredient.allergens?.includes("Moluscos");
+    res.render('DetailPage', {  recipe, ingredient,
+                                gluten, crustacean, eggs, fish, peanuts, soya, dairy, nuts, celery, mustard, sesame, sulfites, lupin, mollusk,
+                                isEdit });
 });
 
 router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
@@ -269,4 +296,38 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     await recipesDB.editRecipe(editRecipe);
     recipe = editRecipe;
     res.render('RecipeConfirmation', { recipe });
+});
+
+router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'), async (req, res) => {
+    let recipeId = req.params.recipe_id;
+    let ingredientId = req.params.ingredient_id;
+    let recipe = await recipesDB.getRecipe(recipeId);
+    let ingredient = await recipesDB.getIngredient(recipeId, ingredientId);
+    let editIngredient = {
+        _id: ingredientId,
+        name: req.body.name,
+        allergens: req.body.allergens,
+        price: req.body.price,
+        description: req.body.description,
+        image: req.file ? req.file.filename : ingredient.image
+    };
+
+    let errors = [];
+
+    if (!editIngredient.name) errors.push("El nombre es obligatorio");
+    if (!editIngredient.price) errors.push("El precio es obligatorio");
+    if (!editIngredient.description) errors.push("La descripción es obligatoria");
+    if (!editIngredient.image) errors.push("La imagen es obligatoria");
+
+    const exists = await recipesDB.findIngredientByName(recipeId, editIngredient.name);
+    if (exists && ingredient.name !== editIngredient.name) errors.push("Ese ingrediente ya existe en esta receta");
+
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
+    }
+
+    await recipesDB.editIngredient(recipe, editIngredient);
+    recipe = await recipesDB.getRecipe(recipeId);
+    res.render('DetailPage', { recipe });
 });

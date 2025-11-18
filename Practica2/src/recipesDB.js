@@ -60,7 +60,7 @@ export async function getRecipe(id){
     return await recipes.findOne({ _id: new ObjectId(id) });
 }
 
-export async function getIngredientImage(recipeId, ingredientId){
+export async function getIngredient(recipeId, ingredientId){
     let recipe = await recipes.findOne(
         { _id: new ObjectId(recipeId)},
         { projection: { ingredients: { $elemMatch: { _id: new ObjectId(ingredientId) }}}}
@@ -118,5 +118,15 @@ export async function editRecipe(recipe){
             steps: recipe.steps,
             image: recipe.image
         }}
+    );
+}
+
+export async function editIngredient(recipe, ingredient){
+    ingredient._id = new ObjectId(ingredient._id);
+    return await recipes.updateOne(
+        { _id: new ObjectId(recipe._id),
+          "ingredients._id": new ObjectId(ingredient._id) 
+        },
+        { $set: { "ingredients.$": ingredient } }
     );
 }
