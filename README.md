@@ -149,4 +149,69 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 
 
+# Práctica 2
+
+## Instrucciones de ejecución
+
+## Descripción de ficheros
+
+- data.json : Fichero json en el que se encuentran los datos necesarios para la demo de la práctica.
+
+- Style.css : Fichero para implementar el estilo al html.
+
+- app.js : Fichero JavaScript necesario para inicializar correctamente la aplicación e importar las librerias necesarias.
+
+- load_data.js : Fichero JavaScript con el que se cargan los datos de la demo que se encuentran en la base de datos de MongoDB
+
+- recipesDB.js : Fichero en el que se encuentran las funciones necesarias para interactuar con la base de datos.
+
+- router.js : Fichero en el que se almacena las funciones a realizar con sus respectivas rutas a las vistas.
+
+- DetailPage.html : Fichero con la vista de la DetailPage.
+
+- ErrorFormulary.html : Fichero con la vista de la ErrorFormulary.
+
+- MainPage.html : Fichero con la vista de la MainPage.
+
+- NewItemPage.html : Fichero con la vista de la NewItemPage.
+
+-RecipeConfirmation.html: Fichero con la vista de la RecipeConfirmation.
+
+## Videos Demostrativos
+
+## Participación de los miembros
+
+### Lucas Román Jiménez
+
+
+
+### Miguel de Luis Ibáñez
+
+- He trabajado en añadir la correcta funcionalidad de los formularios de la entidad principal y entidad secundaria, he trabajado sobre los "form" y "method" de la Main Page, he implementado los botones de la pagina Recipe Confirmation, la forma en la que se muestra la entidad principal en su pagina de detalle (que sea dinamica respecto a la receta que se quiera ver), los botones de delete de las entidades principal como secundaria entre otras cosas.
+
+-Los commits más importantes que he hecho son:
+
+1) Añadir la funcionalidad antes mencionado en la Detail Page (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/338747130564798f9f1a1152c72565ecbfae89fc)
+
+2) Añadir los botones de la Recipe Confirmation (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/f09f0916b0a6e92792e1769deac3962eeee2cc1a)
+
+3) Formulario de la entidad principal (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/9c86c2e5409165905143c637c4e8b53b20fe98c4)
+
+4) Formulario de nueva entidad secundaria (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e141835fdfcf1aa0e060129edf60f6c9e3d06163)
+
+5) Boton borrar entidad principal (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/bf0701721b23afa71667f94804be86b7b438e49a)
+
+- Los ficheros en lo que más he trabajado son:
+
+1) `Detail Page`
+
+2) `New Recipe Page`
+
+3) `Confirmation Page`
+
+4) `Main Page`
+
+5) `RecipesDB`
+
+### Hugo García Palomo
 
