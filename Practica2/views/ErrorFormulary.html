@@ -32,6 +32,41 @@
             {{/errors}}
         </ul>
     </div>
+    
+    <div class="row"> 
+        <div class="col-md-12 text-center"> 
+            <div class="mt-3 text-center"> 
+
+                {{#isNewIngredient}} 
+                    <a href="/NewIngredient/{{recipeId}}" class="btn btn-primary">
+                        Volver al formulario de nuevo ingrediente
+                    </a> 
+                {{/isNewIngredient}} 
+
+                {{#isEditIngredient}} 
+                    <a href="/EditIngredient/{{recipeId}}/{{ingredientName}}" class="btn btn-primary">
+                        Volver a editar ingrediente
+                    </a> 
+                {{/isEditIngredient}} 
+
+                {{^isNewIngredient}} 
+                    {{^isEditIngredient}} 
+                        {{#isRecipe}} 
+                            <a href="/NewItemPage" class="btn btn-primary">
+                                Volver al formulario de nueva receta
+                            </a>
+                        {{/isRecipe}}
+                        {{^isRecipe}}
+                            <a href="/Detail/{{recipeId}}" class="btn btn-primary">
+                                Volver a la página de detalle de la receta
+                            </a>
+                        {{/isRecipe}}
+                    {{/isEditIngredient}} 
+                {{/isNewIngredient}} 
+
+            </div> 
+        </div> 
+    </div>
 
     <footer>
         <div class="bg-primary p-3">
