@@ -130,3 +130,60 @@ export async function editIngredient(recipe, ingredient){
         { $set: { "ingredients.$": ingredient } }
     );
 }
+
+export async function validateRecipe(recipe, nameOriginalRecipe){
+    let errors = [];
+    if (!recipe.name) errors.push("El nombre de la receta es obligatorio"); 
+    if (!recipe.dish) errors.push("El tipo es obligatorio"); 
+    if (!recipe.difficulty) errors.push("La dificultad es obligatoria"); 
+    if (!recipe.length) errors.push("La duración es obligatoria"); 
+    if (!recipe.description) errors.push("La descripción es obligatoria"); 
+    if (!recipe.steps) errors.push("Los pasos son obligatorios"); 
+    if (!recipe.image) errors.push("La imagen es obligatoria"); 
+    if (recipe.name && !/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) { 
+        errors.push("El nombre de la receta debe comenzar por mayúscula"); 
+    } 
+    if (recipe.description && (recipe.description.length < 10 || recipe.description.length > 500)) { 
+        errors.push("La descripción debe tener entre 10 y 500 caracteres"); 
+    } 
+    if (recipe.steps && (recipe.steps.length < 10 || recipe.steps.length > 2000)) { 
+        errors.push("Los pasos deben tener entre 10 y 2000 caracteres"); 
+    } 
+
+    const exists = await findRecipeByName(recipe.name);
+    if(nameOriginalRecipe === undefined){
+        if (exists) errors.push("Ya existe una receta con ese nombre");
+    }else {
+        if (exists && nameOriginalRecipe !== recipe.name) errors.push("Ya existe una receta con ese nombre");
+    }
+    
+    return errors;
+}
+
+export async function validateIngredient(recipeId, ingredient, nameOriginalIngredient){
+    let errors = [];
+
+    if (!ingredient.name) errors.push("El nombre del ingrediente es obligatorio"); 
+    if (!ingredient.price) errors.push("El precio es obligatorio"); 
+    if (!ingredient.description) errors.push("La descripción es obligatoria"); 
+    if (!ingredient.image) errors.push("La imagen es obligatoria"); 
+    if (ingredient.name && !/^[A-ZÁÉÍÓÚÑ]/.test(ingredient.name)) { 
+        errors.push("El nombre del ingrediente debe comenzar por mayúscula"); 
+    } 
+    if (ingredient.description && (ingredient.description.length < 10 || ingredient.description.length > 500)) { 
+        errors.push("La descripción debe tener entre 10 y 500 caracteres"); 
+    } 
+    const priceRegex = /^\d{1,3},\d{2} €\.?$/;
+    if (ingredient.price && !priceRegex.test(ingredient.price)) {
+        errors.push("El precio debe tener el formato X,XX € (ej: 1,65 €)");
+    }
+
+    const exists = await findIngredientByName(recipeId, ingredient.name);
+    if(nameOriginalIngredient === undefined){
+        if (exists) errors.push("Ese ingrediente ya existe en esta receta");
+    }else {
+        if (exists && nameOriginalIngredient !== ingredient.name) errors.push("Ese ingrediente ya existe en esta receta");
+    }
+
+    return errors; 
+}

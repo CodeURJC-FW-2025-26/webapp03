@@ -25,12 +25,15 @@
 
     <div class="container-fluid  d-flex flex-column ">
         <div class="row p-3">
-            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center"><p>La receta se ha guardado correctamente.</p></div>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center"><p> Los cambios se han guardado correctamente.</p></div>
         </div>
 
         <div class="row">
             <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">
-                <a href="/DetailPage.html/{{recipe._id}}" class="btn btn-primary" role="button">Ver la receta </a> <a href="/MainPage.html/1" class="btn btn-primary" role="button"> Volver a la página principal </a>    
+                {{#recipe}}
+                    <a href="/DetailPage.html/{{recipe._id}}" class="btn btn-primary" role="button"> Ver la receta </a> 
+                {{/recipe}}
+                <a href="/MainPage.html/1" class="btn btn-primary" role="button"> Volver </a>    
             </div>
         </div>
     </div>

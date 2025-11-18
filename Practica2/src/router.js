@@ -89,10 +89,6 @@ router.get('/searchSection', async (req, res) => {
     res.render('MainPage', { recipes, pages, numPage, first, last });
 });
 
-router.get('/DetailPage.html', async (req, res) => {
-    res.render('DetailPage');
-});
-
 router.get('/DetailPage.html/:_id', async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
     res.render('DetailPage', {recipe});
@@ -112,51 +108,7 @@ router.get('/ingredient/:recipe_id/:_id/image', async (req, res) => {
     res.download(recipesDB.UPLOADS_FOLDER + '/' + ingredient.image);
 });
 
-//Funciones de creacion de objetos
-
-router.post('/NewIngredient', upload.single('image'), async (req, res) => {
-    let recipeId = req.body.recipe_id;
-    let ingredient = {
-        name: req.body.name,
-        allergens: req.body.allergens,
-        price: req.body.price,
-        description: req.body.description,
-        image: req.file?.filename,
-    };
-    let isNewIngredient = true; 
- 
-    let errors = []; 
- 
-    if (!ingredient.name) errors.push("El nombre del ingrediente es obligatorio"); 
-    if (!ingredient.price) errors.push("El precio es obligatorio"); 
-    if (!ingredient.description) errors.push("La descripción es obligatoria"); 
-    if (!ingredient.image) errors.push("La imagen es obligatoria"); 
-    if (ingredient.name && !/^[A-ZÁÉÍÓÚÑ]/.test(ingredient.name)) { 
-        errors.push("El nombre del ingrediente debe comenzar por mayúscula"); 
-    } 
-    if (ingredient.description && (ingredient.description.length < 10 || ingredient.description.length > 500)) { 
-        errors.push("La descripción debe tener entre 10 y 200 caracteres"); 
-    } 
-    const priceRegex = /^\d{1,3},\d{2} €\.?$/;
-    if (ingredient.price && !priceRegex.test(ingredient.price)) {
-        errors.push("El precio debe tener el formato X,XX € (ej: 1,65 €)");
-    }
-    
-    
-    const exists = await recipesDB.findIngredientByName(recipeId, ingredient.name); 
-    if (exists) errors.push("Ese ingrediente ya existe en esta receta"); 
-    
-    if (errors.length > 0) { 
-        console.log("❌ Errores:", errors); 
-        return res.render('ErrorFormulary', { errors, isNewIngredient ,recipeId}); 
-    } 
-    await recipesDB.addIngredient(recipeId, ingredient);
-    
-    let recipe = await recipesDB.getRecipe(recipeId);
-    res.render('DetailPage', {recipe});
-});
-
-
+//Functions for recipes and ingredients creation
 router.post('/NewItem', upload.single('image'), async (req, res) => {
     let recipe = {
         name: req.body.name,
@@ -170,58 +122,55 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         ingredients: []
     };
 
-    let isRecipe = true; 
-    
-    let errors = []; 
-    
-    if (!recipe.name) errors.push("El nombre es obligatorio"); 
-    if (!recipe.dish) errors.push("El tipo es obligatorio"); 
-    if (!recipe.difficulty) errors.push("La dificultad es obligatoria"); 
-    if (!recipe.length) errors.push("La duración es obligatoria"); 
-    if (!recipe.description) errors.push("La descripción es obligatoria"); 
-    if (!recipe.steps) errors.push("Los pasos son obligatorios"); 
-    if (!recipe.image) errors.push("La imagen es obligatoria"); 
-    if (recipe.name && !/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) { 
-        errors.push("El nombre del ingrediente debe comenzar por mayúscula"); 
-    } 
-    if (recipe.description && (recipe.description.length < 10 || recipe.description.length > 500)) { 
-        errors.push("La descripción debe tener entre 10 y 200 caracteres"); 
-    } 
-    if (recipe.steps && (recipe.steps.length < 10 || recipe.steps.length > 2000)) { 
-        errors.push("Los pasos debe tener entre 10 y 200 caracteres"); 
-    } 
-
-    const exists = await recipesDB.findRecipeByName(recipe.name); 
-    if (exists) errors.push("Ya existe una receta con ese nombre"); 
-    
-    if (errors.length > 0) { 
-        console.log("❌ Errores:", errors); 
-        return res.render('ErrorFormulary', { errors, isRecipe}); 
-    } 
- 
+    let errors = await recipesDB.validateRecipe(recipe);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
+    }
 
     await recipesDB.addRecipe(recipe);
 
-    res.render('RecipeConfirmation', {recipe});
+    res.render('RecipeConfirmation', { recipe });
 });
 
-//borrado
+router.post('/NewIngredient', upload.single('image'), async (req, res) => {
+    let recipeId = req.body.recipe_id;
+    let ingredient = {
+        name: req.body.name,
+        allergens: req.body.allergens,
+        price: req.body.price,
+        description: req.body.description,
+        image: req.file?.filename,
+    };
+
+    let errors = await recipesDB.validateIngredient(recipeId, ingredient);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
+    }
+
+    await recipesDB.addIngredient(recipeId, ingredient);
+    
+    let recipe = await recipesDB.getRecipe(recipeId);
+    res.render('RecipeConfirmation', { recipe });
+});
+
+//Delete functions for recipes and ingredients
+router.get('/recipe/:_id/delete', async (req, res) => {
+    let recipeId = req.params._id;
+    await recipesDB.deleteRecipe(recipeId);
+    let recipe = false;
+    res.render('RecipeConfirmation', { recipe });
+});
 
 router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
-  let recipeId = req.params.recipe_id;
-  let ingredientId = req.params.ingredient_id;
-  await recipesDB.deleteIngredient(recipeId, ingredientId);
-  res.redirect('/DetailPage.html/' + recipeId);
+    let recipeId = req.params.recipe_id;
+    let ingredientId = req.params.ingredient_id;
+    await recipesDB.deleteIngredient(recipeId, ingredientId);
+    res.render('RecipeConfirmation', { recipe });
 });
 
-router.get('/recipe/:_id/delete', async (req, res) => {
-  let recipeId = req.params._id;
-  await recipesDB.deleteRecipe(recipeId);
-  res.redirect('/MainPage.html/1');
-});
-
-//edit functions
-
+//Edit functions for recipes and ingredients
 router.get('/recipe/:_id/edit', async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
     let isEdit = true;
@@ -259,7 +208,7 @@ router.get('/recipe/:_id/edit', async (req, res) => {
                                 isEasy, isMedium, isHard, 
                                 is5min, is15min, is30min, is45min, is1h, is2h, is3h, isMore3h,
                                 gluten, crustacean, eggs, fish, peanuts, soya, dairy, nuts, celery, mustard, sesame, sulfites, lupin, mollusk,
-                                isEdit});
+                                isEdit });
 });
 
 router.get('/ingredient/:recipe_id/:ingredient_id/edit', async (req, res) => {
@@ -302,35 +251,12 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
         ingredients: recipe.ingredients
     };
 
-    let isEdit = true; 
-    
-    let errors = []; 
-    
-    if (!recipe.name) errors.push("El nombre es obligatorio"); 
-    if (!recipe.dish) errors.push("El tipo es obligatorio"); 
-    if (!recipe.difficulty) errors.push("La dificultad es obligatoria"); 
-    if (!recipe.length) errors.push("La duración es obligatoria"); 
-    if (!recipe.description) errors.push("La descripción es obligatoria"); 
-    if (!recipe.steps) errors.push("Los pasos son obligatorios"); 
-    if (!recipe.image) errors.push("La imagen es obligatoria"); 
-    if (recipe.name && !/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) { 
-        errors.push("El nombre del ingrediente debe comenzar por mayúscula"); 
-    } 
-    if (recipe.description && (recipe.description.length < 10 || recipe.description.length > 500)) { 
-        errors.push("La descripción debe tener entre 10 y 200 caracteres"); 
-    } 
-    if (recipe.steps && (recipe.steps.length < 10 || recipe.steps.length > 2000)) { 
-        errors.push("Los pasos debe tener entre 10 y 200 caracteres"); 
-    } 
+    let errors = await recipesDB.validateRecipe(editRecipe, recipe.name);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
+    }
 
-    const exists = await recipesDB.findRecipeByName(recipe.name); 
-    if (exists) errors.push("Ya existe una receta con ese nombre"); 
-    
-    if (errors.length > 0) { 
-        console.log("❌ Errores:", errors); 
-        return res.render('ErrorFormulary', { errors, isEdit,recipeId}); 
-    } 
- 
     await recipesDB.editRecipe(editRecipe);
     recipe = editRecipe;
     res.render('RecipeConfirmation', { recipe });
@@ -350,33 +276,13 @@ router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'),
         image: req.file ? req.file.filename : ingredient.image
     };
 
-    let isEditIngredient = true; 
-    
-    let errors = []; 
-    
-    if (!ingredient.name) errors.push("El nombre del ingrediente es obligatorio"); 
-    if (!ingredient.price) errors.push("El precio es obligatorio"); 
-    if (!ingredient.description) errors.push("La descripción es obligatoria"); 
-    if (!ingredient.image) errors.push("La imagen es obligatoria"); 
-    if (ingredient.name && !/^[A-ZÁÉÍÓÚÑ]/.test(ingredient.name)) { 
-        errors.push("El nombre del ingrediente debe comenzar por mayúscula"); 
-    } 
-    if (ingredient.description && (ingredient.description.length < 10 || ingredient.description.length > 500)) { 
-        errors.push("La descripción debe tener entre 10 y 200 caracteres"); 
-    } 
-    const priceRegex = /^\d{1,3},\d{2} €\.?$/;
-    if (ingredient.price && !priceRegex.test(ingredient.price)) {
-        errors.push("El precio debe tener el formato X,XX € (ej: 1,65 €)");
+    let errors = await recipesDB.validateIngredient(recipeId, editIngredient, ingredient.name);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
     }
-    
-    const exists = await recipesDB.findIngredientByName(recipeId, ingredient.name); 
-    if (exists) errors.push("Ese ingrediente ya existe en esta receta"); 
-    
-    if (errors.length > 0) { 
-        console.log("❌ Errores:", errors); 
-        return res.render('ErrorFormulary', { errors, isEditIngredient, recipeId, ingredientName:ingredient.name }); 
-    } 
+
     await recipesDB.editIngredient(recipe, editIngredient);
     recipe = await recipesDB.getRecipe(recipeId);
-    res.render('DetailPage', { recipe });
+    res.render('RecipeConfirmation', { recipe });
 });
