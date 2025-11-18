@@ -151,7 +151,7 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
         name: req.body.name,
         dish: req.body.dish,
         difficulty: req.body.difficulty,
-        length: req.body.lenght,
+        length: req.body.length,
         description: req.body.description,
         allergens: req.body.allergens,
         steps: req.body.steps,
@@ -162,13 +162,13 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
     let errors = [];
 
     if (!recipe.name) errors.push("El nombre es obligatorio");
-    if (!recipe.type) errors.push("El tipo es obligatorio");
+    if (!recipe.dish) errors.push("El tipo es obligatorio");
     if (!recipe.difficulty) errors.push("La dificultad es obligatoria");
     if (!recipe.description) errors.push("La descripción es obligatoria");
     if (!recipe.image) errors.push("La imagen es obligatoria");
 
-    const existe = await recipesDB.findRecipeByName(recipe.name);
-    if (existe) errors.push("Ya existe una receta con ese nombre");
+    const exists = await recipesDB.findRecipeByName(recipe.name);
+    if (exists) errors.push("Ya existe una receta con ese nombre");
 
     if (errors.length > 0) {
         console.log("❌ Errores:", errors);
@@ -193,4 +193,80 @@ router.get('/recipe/:_id/delete', async (req, res) => {
   const recipeId = req.params._id;
   await recipesDB.deleteRecipe(recipeId);
   res.redirect('/MainPage.html/1');
+});
+
+router.get('/recipe/:_id/edit', async (req, res) => {
+    let recipe = await recipesDB.getRecipe(req.params._id);
+    let isEdit = true;
+    let isStarter = recipe.dish === "Guarnición";
+    let isSide = recipe.dish === "Primer plato";
+    let isMain = recipe.dish === "Segundo plato";
+    let isDessert = recipe.dish === "Postre";
+    let isEasy = recipe.difficulty === "Fácil";
+    let isMedium = recipe.difficulty === "Media";
+    let isHard = recipe.difficulty === "Difícil";
+    let is5min = recipe.length === "5 min";
+    let is15min = recipe.length === "15 min";
+    let is30min = recipe.length === "30 min";
+    let is45min = recipe.length === "45 min";
+    let is1h = recipe.length === "1 h";
+    let is2h = recipe.length === "2 h";
+    let is3h = recipe.length === "3 h";
+    let isMore3h = recipe.length === "+3 h";
+    let gluten = recipe.allergens.includes("Gluten");
+    let crustacean = recipe.allergens.includes("Crustáceos");
+    let eggs = recipe.allergens.includes("Huevo");
+    let fish = recipe.allergens.includes("Pescado");
+    let peanuts = recipe.allergens.includes("Cacahuetes");
+    let soya = recipe.allergens.includes("Soja");
+    let dairy = recipe.allergens.includes("Lacteos");
+    let nuts = recipe.allergens.includes("Frutos con cáscara");
+    let celery = recipe.allergens.includes("Apio");
+    let mustard = recipe.allergens.includes("Mostaza");
+    let sesame = recipe.allergens.includes("Sésamo");
+    let sulfites = recipe.allergens.includes("Sulfitos");
+    let lupin = recipe.allergens.includes("Altramuces");
+    let mollusk = recipe.allergens.includes("Moluscos");
+    res.render('NewItemPage', { recipe, 
+                                isStarter, isSide, isMain, isDessert, 
+                                isEasy, isMedium, isHard, 
+                                is5min, is15min, is30min, is45min, is1h, is2h, is3h, isMore3h,
+                                gluten, crustacean, eggs, fish, peanuts, soya, dairy, nuts, celery, mustard, sesame, sulfites, lupin, mollusk,
+                                isEdit} );
+});
+
+router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
+    let recipe = await recipesDB.getRecipe(req.params._id);
+    let editRecipe = {
+        _id: recipe._id,
+        name: req.body.name,
+        dish: req.body.dish,
+        difficulty: req.body.difficulty,
+        length: req.body.length,
+        description: req.body.description,
+        allergens: req.body.allergens,
+        steps: req.body.steps,
+        image: req.file ? req.file.filename : recipe.image,
+        ingredients: recipe.ingredients
+    };
+
+    let errors = [];
+
+    if (!recipe.name) errors.push("El nombre es obligatorio");
+    if (!recipe.dish) errors.push("El tipo es obligatorio");
+    if (!recipe.difficulty) errors.push("La dificultad es obligatoria");
+    if (!recipe.description) errors.push("La descripción es obligatoria");
+    if (!recipe.image) errors.push("La imagen es obligatoria");
+
+    const exists = await recipesDB.findRecipeByName(recipe.name);
+    if (exists && recipe.name !== editRecipe.name) errors.push("Ya existe una receta con ese nombre");
+
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.render('ErrorFormulary', { errors });
+    }
+
+    await recipesDB.editRecipe(editRecipe);
+    recipe = editRecipe;
+    res.render('RecipeConfirmation', { recipe });
 });
