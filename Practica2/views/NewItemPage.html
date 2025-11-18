@@ -28,81 +28,81 @@
             <h1> Nueva receta </h1>
         </div>
 
-        <form role="form" method="post" action="NewItem" enctype="multipart/form-data">
+        <form role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" name="name" class="form-control" id="Name" placeholder="Nombre de la receta..." required>
+                <input type="text" name="name" class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
             </div>
 
             <div class="form-group row justify-content-center">
                 <label for="Dish"><strong> Tipo de plato: </strong></label>
                 <select class="form-select justify-content-center" name="dish" id="Dish" required>
                     <option value="" disabled selected> Tipo de plato... </option>
-                    <option value="Guarnición"> Guarnición. </option>
-                    <option value="Primer plato"> Primer plato. </option>
-                    <option value="Segundo plato"> Segundo plato. </option>
-                    <option value="Postre"> Postre. </option>
+                    <option value="Guarnición" {{#isStarter}}selected{{/isStarter}}> Guarnición. </option>
+                    <option value="Primer plato" {{#isSide}}selected{{/isSide}}> Primer plato. </option>
+                    <option value="Segundo plato" {{#isMain}}selected{{/isMain}}> Segundo plato. </option>
+                    <option value="Postre" {{#isDessert}}selected{{/isDessert}}> Postre. </option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="Difficulty"><strong> Dificultad: </strong></label>
-                <label><input type="radio" id="Difficulty" name="difficulty" value="Fácil" required> Fácil. </label>
-                <label><input type="radio" id="Difficulty" name="difficulty" value="Medio"> Medio. </label>
-                <label><input type="radio" id="Difficulty" name="difficulty" value="Difícil"> Difícil. </label>
+                <label><input type="radio" id="Difficulty" name="difficulty" value="Fácil" required {{#isEasy}}checked{{/isEasy}}> Fácil. </label>
+                <label><input type="radio" id="Difficulty" name="difficulty" value="Media" {{#isMedium}}checked{{/isMedium}}> Media. </label>
+                <label><input type="radio" id="Difficulty" name="difficulty" value="Difícil" {{#isHard}}checked{{/isHard}}> Difícil. </label>
             </div>
 
             <div class="form-group">
                 <label for="Length"><strong> Duración: </strong></laber>
-                <select class="form-select justify-content-center" name="lenght" id="Lenght" required>
+                <select class="form-select justify-content-center" name="length" id="Length" required>
                         <option value="" disabled selected> Duración... </option>
-                        <option value="5min"> 5 min </option>
-                        <option value="15min"> 15 min </option>
-                        <option value="30min"> 30 min </option>
-                        <option value="45min"> 45 min </option>
-                        <option value="1h"> 1 h </option>
-                        <option value="2h"> 2 h </option>
-                        <option value="3h"> 3 h </option>
-                        <option value="+3h"> +3 h </option>
+                        <option value="5 min" {{#is5min}}selected{{/is5min}}> 5 min </option>
+                        <option value="15 min" {{#is15min}}selected{{/is15min}}> 15 min </option>
+                        <option value="30 min" {{#is30min}}selected{{/is30min}}> 30 min </option>
+                        <option value="45 min" {{#is45min}}selected{{/is45min}}> 45 min </option>
+                        <option value="1 h" {{#is1h}}selected{{/is1h}}> 1 h </option>
+                        <option value="2 h" {{#is2h}}selected{{/is2h}}> 2 h </option>
+                        <option value="3 h" {{#is3h}}selected{{/is3h}}> 3 h </option>
+                        <option value="+3 h" {{#isMore3h}}selected{{/isMore3h}}> +3 h </option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
-                <textarea class="form-control" name="description" id="Description" rows="3"></textarea>
+                <textarea class="form-control" name="description" id="Description" rows="3"> {{recipe.description}} </textarea>
             </div>
 
             <div class="row">
                 <label for="Allergens"><strong> Alérgenos: </strong></label>
                 <div class="col">
-                    <label><input type="checkbox" name="allergens" value="Gluten"> Gluten. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Crustacean"> Crustáceos. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Eggs"> Huevo. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Fish"> Pescado. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Peanuts"> Cacahuetes. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Soya"> Soja. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Dairy"> Lacteos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Gluten" {{#gluten}}checked{{/gluten}}> Gluten. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Crustáceos" {{#crustacean}}checked{{/crustacean}}> Crustáceos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Huevo" {{#eggs}}checked{{/eggs}}> Huevo. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Pescado" {{#fish}}checked{{/fish}}> Pescado. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Cacahuetes" {{#peanuts}}checked{{/peanuts}}> Cacahuetes. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Soja" {{#soya}}checked{{/soya}}> Soja. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Lacteos" {{#dairy}}checked{{/dairy}}> Lacteos. </label><br>
                 </div>
 
                 <div class="col">
-                    <label><input type="checkbox" name="allergens" value="Nuts"> Frutos con cáscara. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Celery"> Apio. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Mustard"> Mostaza. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Sesame"> Sésamo. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Sulfites"> Sulfitos. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Lupin"> Altramuces. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Mollusk"> Moluscos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Frutos con cáscara" {{#nuts}}checked{{/nuts}}> Frutos con cáscara. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Apio" {{#celery}}checked{{/celery}}> Apio. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Mostaza" {{#mustard}}checked{{/mustard}}> Mostaza. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Sésamo" {{#sesame}}checked{{/sesame}}> Sésamo. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Sulfitos" {{#sulfites}}checked{{/sulfites}}> Sulfitos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Altramuces" {{#lupin}}checked{{/lupin}}> Altramuces. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Moluscos" {{#mollusk}}checked{{/mollusk}}> Moluscos. </label><br>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Steps"><strong> Pasos de preparacion: </strong></label>
-                <textarea class="form-control" name="steps" id="Steps" rows="3" required></textarea>
+                <textarea class="form-control" name="steps" id="Steps" rows="3"required> {{recipe.steps}} </textarea>
             </div>
 
             <div class="form-group">
-                <label for="Image"><strong> Imagen: </strong></label>
-                <input class="form-control" name="image" id="Image" type="file" accept="image/*" required>
+                <label for="Image"><strong> Imagen: {{#isEdit}} (opcional, si no se incluye se mantendrá la anterior) {{/isEdit}} </strong></label>
+                <input class="form-control" name="image" id="Image" type="file" accept="image/*" {{^isEdit}}required{{/isEdit}}>
             </div>
 
             <div class="form-group mb-0">

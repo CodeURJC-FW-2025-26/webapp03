@@ -104,3 +104,19 @@ export async function findIngredientByName(name) {
         { projection: { "ingredients.$": 1 } }
     );
 }
+
+export async function editRecipe(recipe){
+    return await recipes.updateOne(
+        { _id: new ObjectId(recipe._id) },
+        { $set: {
+            name: recipe.name,
+            dish: recipe.dish,
+            difficulty: recipe.difficulty,
+            length: recipe.length,
+            description: recipe.description,
+            allergens: recipe.allergens,
+            steps: recipe.steps,
+            image: recipe.image
+        }}
+    );
+}
