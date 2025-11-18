@@ -164,7 +164,9 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
     if (!recipe.name) errors.push("El nombre es obligatorio");
     if (!recipe.dish) errors.push("El tipo es obligatorio");
     if (!recipe.difficulty) errors.push("La dificultad es obligatoria");
+    if (!recipe.length) errors.push("La duración es obligatoria");
     if (!recipe.description) errors.push("La descripción es obligatoria");
+    if (!recipe.steps) errors.push("Los pasos son obligatorios");
     if (!recipe.image) errors.push("La imagen es obligatoria");
 
     const exists = await recipesDB.findRecipeByName(recipe.name);
@@ -235,38 +237,3 @@ router.get('/recipe/:_id/edit', async (req, res) => {
                                 isEdit} );
 });
 
-router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
-    let recipe = await recipesDB.getRecipe(req.params._id);
-    let editRecipe = {
-        _id: recipe._id,
-        name: req.body.name,
-        dish: req.body.dish,
-        difficulty: req.body.difficulty,
-        length: req.body.length,
-        description: req.body.description,
-        allergens: req.body.allergens,
-        steps: req.body.steps,
-        image: req.file ? req.file.filename : recipe.image,
-        ingredients: recipe.ingredients
-    };
-
-    let errors = [];
-
-    if (!recipe.name) errors.push("El nombre es obligatorio");
-    if (!recipe.dish) errors.push("El tipo es obligatorio");
-    if (!recipe.difficulty) errors.push("La dificultad es obligatoria");
-    if (!recipe.description) errors.push("La descripción es obligatoria");
-    if (!recipe.image) errors.push("La imagen es obligatoria");
-
-    const exists = await recipesDB.findRecipeByName(recipe.name);
-    if (exists && recipe.name !== editRecipe.name) errors.push("Ya existe una receta con ese nombre");
-
-    if (errors.length > 0) {
-        console.log("❌ Errores:", errors);
-        return res.render('ErrorFormulary', { errors });
-    }
-
-    await recipesDB.editRecipe(editRecipe);
-    recipe = editRecipe;
-    res.render('RecipeConfirmation', { recipe });
-});
