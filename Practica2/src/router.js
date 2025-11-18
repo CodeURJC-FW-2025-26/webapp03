@@ -164,7 +164,9 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
     if (!recipe.name) errors.push("El nombre es obligatorio");
     if (!recipe.dish) errors.push("El tipo es obligatorio");
     if (!recipe.difficulty) errors.push("La dificultad es obligatoria");
+    if (!recipe.length) errors.push("La duración es obligatoria");
     if (!recipe.description) errors.push("La descripción es obligatoria");
+    if (!recipe.steps) errors.push("Los pasos son obligatorios");
     if (!recipe.image) errors.push("La imagen es obligatoria");
 
     const exists = await recipesDB.findRecipeByName(recipe.name);
