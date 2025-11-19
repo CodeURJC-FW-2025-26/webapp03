@@ -28,9 +28,9 @@
         <p><strong> Descripción: </strong> {{recipe.description}} </p>
         <p><strong> Alérgenos: </strong> {{recipe.allergens}} </p>
         <p><strong> Pasos: </strong></p>
-        <ol class="list-group list-group-numbered">
-            <li class="list-group-item"> {{recipe.steps}} </li> 
-        </ol>   
+        <ul class="list-group">
+            <li class="list-group-item" style="white-space: pre-line;"> {{recipe.steps}} </li> 
+        </ul>   
         <p><strong> Imágenes de la receta: </strong></p>
         {{#recipe.image}}
             <img class="img-fluid rounded" src="/recipe/{{recipe._id}}/image" alt="{{recipe.name}}">
@@ -65,7 +65,7 @@
             <h1> Nuevo ingrediente </h1>
         </div>
 
-        <form role="form" method="post" action="{{#isEdit}}/EditIngredient/{{recipe._id}}/{{ingredient._id}}{{/isEdit}}{{^isEdit}}NewIngredient{{/isEdit}}" enctype="multipart/form-data">
+        <form role="form" method="post" action="{{#isEdit}}/EditIngredient/{{recipe._id}}/{{ingredient._id}}{{/isEdit}}{{^isEdit}}/NewIngredient{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
                 <input type="text" class="form-control" name="name" id="Name" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..." required> 

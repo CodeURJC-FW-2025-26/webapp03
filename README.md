@@ -43,26 +43,26 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 # Práctica 1
 ## Capturas de pantalla
 ### Página principal:
-![Captura página principal](Images/Screenshots/MainPageScreenshot.png)
-![Captura página principal 2](Images/Screenshots/MainPageScreenshot2.png)
-![Captura página principal 3](Images/Screenshots/FooterScreenshot.png)
+![Captura página principal](Practica1/Images/Screenshots/MainPageScreenshot.png)
+![Captura página principal 2](Practica1/Images/Screenshots/MainPageScreenshot2.png)
+![Captura página principal 3](Practica1/Images/Screenshots/FooterScreenshot.png)
 
 ### Página de detalle: 
-![Captura página de detalle](Images/Screenshots/DetailPageScreenshot.png)
-![Captura página de detalle 2](Images/Screenshots/DetailPageScreenshot2.png)
-![Captura página de detalle 3](Images/Screenshots/DetailPageScreenshot3.png)
-![Captura página de detalle 4](Images/Screenshots/DetailPageScreenshot4.png)
-![Captura página de detalle 5](Images/Screenshots/DetailPageScreenshot5.png)
-![Captura página de detalle 6](Images/Screenshots/DetailPageScreenshot6.png)
-![Captura página de detalle 7](Images/Screenshots/DetailPageScreenshot7.png)
-![Captura página de detalle 8](Images/Screenshots/DetailPageScreenshot8.png)
-![Captura página de detalle 9](Images/Screenshots/DetailPageScreenshot9.png)
-![Captura página de detalle 10](Images/Screenshots/FooterScreenshot.png)
+![Captura página de detalle](Practica1/Images/Screenshots/DetailPageScreenshot.png)
+![Captura página de detalle 2](Practica1/Images/Screenshots/DetailPageScreenshot2.png)
+![Captura página de detalle 3](Practica1/Images/Screenshots/DetailPageScreenshot3.png)
+![Captura página de detalle 4](Practica1/Images/Screenshots/DetailPageScreenshot4.png)
+![Captura página de detalle 5](Practica1/Images/Screenshots/DetailPageScreenshot5.png)
+![Captura página de detalle 6](Practica1/Images/Screenshots/DetailPageScreenshot6.png)
+![Captura página de detalle 7](Practica1/Images/Screenshots/DetailPageScreenshot7.png)
+![Captura página de detalle 8](Practica1/Images/Screenshots/DetailPageScreenshot8.png)
+![Captura página de detalle 9](Practica1/Images/Screenshots/DetailPageScreenshot9.png)
+![Captura página de detalle 10](Practica1/Images/Screenshots/FooterScreenshot.png)
 
 ### Página de nuevo elemento:
-![Captura página de nuevo elemento](Images/Screenshots/NewItemPageScreenshot.png)
-![Captura página de nuevo elemento 2](Images/Screenshots/NewItemPageScreenshot2.png)
-![Captura página de nuevo elemento 3](Images/Screenshots/FooterScreenshot.png)
+![Captura página de nuevo elemento](Practica1/Images/Screenshots/NewItemPageScreenshot.png)
+![Captura página de nuevo elemento 2](Practica1/Images/Screenshots/NewItemPageScreenshot2.png)
+![Captura página de nuevo elemento 3](Practica1/Images/Screenshots/FooterScreenshot.png)
 
 ## Participación de cada miembro
 ### Miguel de Luis Ibáñez:
@@ -151,33 +151,51 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 # Práctica 2
 
-## Instrucciones de ejecución
+## Instrucciones de ejecución:
+Una vez descargada la Practica2, desde un terminal hay que acceder a su directorio. Una vez en él, es necesario ejecutar `npm install` para descargar las bibliotecas necesarias. Para iniciar la aplicación se puede usar directamente el comando `node src/app.js` o si se prefiere el equivalente `npm run start` o `npm run watch` para usar nodemon si se quieren probar cambios de forma más cómoda. 
+Los requisitos son:
+- Node: v22.21.0
+- Mongo: ^6.20.0
+- Express: 5.1.0,
+- Multer: 2.0.2,
+- Mustache-express: 1.3.2
 
-## Descripción de ficheros
+## Descripción de ficheros:
+Carpeta data:
+- Images: carpeta con imagenes de ejemplo que se cargan al inicar.
 
-- data.json : Fichero json en el que se encuentran los datos necesarios para la demo de la práctica.
+- data.json : fichero json en el que se encuentran los datos que se cargar al inicar la aplicación para la demo de la práctica.
 
-- Style.css : Fichero para implementar el estilo al html.
+Carpeta public:
+- Style.css : fichero para implementar estilos al html.
 
-- app.js : Fichero JavaScript necesario para inicializar correctamente la aplicación e importar las librerias necesarias.
+Carpeta src:
+- app.js : fichero JavaScript necesario para inicializar correctamente la aplicación e importar las librerias necesarias.
 
-- load_data.js : Fichero JavaScript con el que se cargan los datos de la demo que se encuentran en la base de datos de MongoDB
+- load_data.js : fichero JavaScript con el que se cargan los datos de la demo que se encuentran en la base de datos de MongoDB
 
-- recipesDB.js : Fichero en el que se encuentran las funciones necesarias para interactuar con la base de datos.
+- recipesDB.js : fichero en el que se encuentran las funciones necesarias para interactuar con la base de datos.
 
-- router.js : Fichero en el que se almacena las funciones a realizar con sus respectivas rutas a las vistas.
+- router.js : fichero en el que se almacena las funciones a realizar con sus respectivas rutas a las vistas.
 
-- DetailPage.html : Fichero con la vista de la DetailPage.
+Carpeta views: 
+- DetailPage.html : fichero con la vista de la DetailPage.
 
-- ErrorFormulary.html : Fichero con la vista de la ErrorFormulary.
+- ErrorFormulary.html : fichero con la vista de la ErrorFormulary.
 
-- MainPage.html : Fichero con la vista de la MainPage.
+- Footer.html: fichero con la plantilla del footer.
 
-- NewItemPage.html : Fichero con la vista de la NewItemPage.
+- Header.html: fichero con la plantilla del header.
 
--RecipeConfirmation.html: Fichero con la vista de la RecipeConfirmation.
+- MainPage.html : fichero con la vista de la MainPage.
 
-## Videos Demostrativos
+- NewItemPage.html : fichero con la vista de la NewItemPage.
+
+- RecipeConfirmation.html: fichero con la vista de la RecipeConfirmation.
+
+## Vídeo demostrativo
+
+Enlace a youtube con el vídeo demostrativo: https://youtu.be/1RXj2QLhdmg.
 
 ## Participación de los miembros
 
@@ -185,7 +203,7 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 - He creado la paginas de ErrorFormulary implementando el mostrado de errores, e implementado los botones de la página para que al volver, el usuario llegue al formulario en el que dió error. También he implementado la validación de la base de datos para las entidades principales y las secundarias. Para esto último, también cree dos funciones en el recipesDB. Hice también los botones provisionales de la RecipeConfirmation. 
 
--Los commits más importantes que he hecho son:
+- Los commits más importantes que he hecho son:
 
 1) Validación de las recetas en MongoDB (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ac4468026e8094c544785d481754fd83c70f6a61)
 
@@ -197,7 +215,7 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 5) Botones provisionales de RecipeConfirmation (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ec161bb51cba10eeb6db805311db7fdcf92197b8)
 
--Los ficheros en los que más he trabajado son: 
+- Los ficheros en los que más he trabajado son: 
 
 1) `Router`
 
@@ -214,7 +232,7 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 
 - He trabajado en añadir la correcta funcionalidad de los formularios de la entidad principal y entidad secundaria, he trabajado sobre los "form" y "method" de la Main Page, he implementado los botones de la pagina Recipe Confirmation, la forma en la que se muestra la entidad principal en su pagina de detalle (que sea dinamica respecto a la receta que se quiera ver), los botones de delete de las entidades principal como secundaria entre otras cosas.
 
--Los commits más importantes que he hecho son:
+- Los commits más importantes que he hecho son:
 
 1) Añadir la funcionalidad antes mencionado en la Detail Page (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/338747130564798f9f1a1152c72565ecbfae89fc)
 
@@ -239,4 +257,30 @@ Además, se pretende que el usuario pueda añadir sus propias recetas.
 5) `RecipesDB`
 
 ### Hugo García Palomo
+
+- He trabajado en implementar las funciones de la página principal, como el buscador y los botones de secciones. Además de la paginación y que se muestren las recetas correctamente y se pueda acceder a sus secciones. También he implementado las funciones de editar receta e ingredientes. He programado diversas funciones para interactuar con la base de datos como mostrar imagenes dinámicas según la receta. Además de corregir diversos errores y bugs.
+
+- Los commits más importantes que he hecho son: 
+
+1) Función de editar ingrediente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ffe5632a7f789b4425b7d17f11c509f1f60b6d18)
+
+2) Función de editar receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/7c1aa94cb6c040718cb693c41886b1a0fe5fb7ce)
+
+3) Buscador por secciones (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/02badd301c5bdab26392f4741846e8c746777807)
+
+4) Barra de busqueda (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/cba549139c0eeb78c682b76f14edfdf63bc0547d)
+
+5) Paginación (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/722fa87e33887a5d76c831eb4370b7fde80cc665)
+
+- Los ficheros en los que más he trabajado son:
+
+1) `router.js`
+
+2) `recipesDB.js`
+
+3) `MainPage.html`
+
+4) `DetailPage`
+
+5) `data.json`
 

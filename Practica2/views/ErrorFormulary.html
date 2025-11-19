@@ -20,14 +20,14 @@
     
     {{>Header}}
 
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-center p-5">
         <h2><strong> Se han encontrado errores: </strong></h2>
         
         {{#errors}}
-            <li>{{.}}</li>
+            <p>{{.}}</p>
         {{/errors}}
 
-        <a href="javascript:history.back()" class="btn btn-primary"> Volver </a> 
+        <a href="javascript:history.back()" class="btn btn-primary my-5 mb-5"> Volver </a> 
     </div>
 
     {{>Footer}}

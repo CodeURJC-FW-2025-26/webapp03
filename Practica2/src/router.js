@@ -70,7 +70,7 @@ router.get('/MainPage.html/next/:numPage', async (req, res) => {
 router.get('/searchBar', async (req, res) => {
     let searchQuery = req.query.searchQuery;
     let recipes = await recipesDB.searchRecipes(searchQuery);
-    let elem = {num: 1, actual: true};
+    let elem = {num: 1, actual: false};
     let pages = [elem];
     let numPage = 1;
     let first = true;
@@ -81,7 +81,7 @@ router.get('/searchBar', async (req, res) => {
 router.get('/searchSection', async (req, res) => {
     let section = req.query.section;
     let recipes = await recipesDB.searchSection(section);
-    let elem = {num: "Volver", actual: false};
+    let elem = {num: 1, actual: false};
     let pages = [elem];
     let numPage = 1;
     let first = true;
@@ -171,6 +171,7 @@ router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
     let recipeId = req.params.recipe_id;
     let ingredientId = req.params.ingredient_id;
     await recipesDB.deleteIngredient(recipeId, ingredientId);
+    let recipe = await recipesDB.getRecipe(recipeId);
     res.render('RecipeConfirmation', { recipe });
 });
 
