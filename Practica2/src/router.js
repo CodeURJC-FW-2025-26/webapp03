@@ -81,12 +81,16 @@ router.get('/searchBar', async (req, res) => {
 router.get('/searchSection', async (req, res) => {
     let section = req.query.section;
     let recipes = await recipesDB.searchSection(section);
-    let elem = {num: 1, actual: true};
+    let elem = {num: "Volver", actual: false};
     let pages = [elem];
     let numPage = 1;
     let first = true;
     let last = true; 
-    res.render('MainPage', { recipes, pages, numPage, first, last });
+    let starter = section === "Guarnición";
+    let side = section === "Primer";
+    let main = section === "Segundo";
+    let dessert = section === "Postre";
+    res.render('MainPage', { recipes, pages, numPage, first, last, starter, side, main, dessert });
 });
 
 router.get('/DetailPage.html/:_id', async (req, res) => {

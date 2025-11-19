@@ -28,10 +28,10 @@
             </form>
 
             <form class="d-flex flex-wrap justify-content-center" role="search" method="get" action="/searchSection">
-                <button class="form-group btn btn-primary" type="submit" name="section" value="Guarnición"><i class="bi bi-search"> Guarnición </i></button>
-                <button class="form-group btn btn-primary" type="submit" name="section" value="Primer"><i class="bi bi-search"> Primer plato </i></button>
-                <button class="form-group btn btn-primary" type="submit" name="section" value="Segundo"><i class="bi bi-search"> Segundo Plato </i></button>
-                <button class="form-group btn btn-primary" type="submit" name="section" value="Postre"><i class="bi bi-search"> Postre </i></button>
+                <button class="form-group btn btn-primary {{#starter}}active{{/starter}}" type="submit" name="section" value="Guarnición"><i class="bi bi-search"> Guarnición </i></button>
+                <button class="form-group btn btn-primary {{#side}}active{{/side}}" type="submit" name="section" value="Primer"><i class="bi bi-search"> Primer plato </i></button>
+                <button class="form-group btn btn-primary {{#main}}active{{/main}}" type="submit" name="section" value="Segundo"><i class="bi bi-search"> Segundo Plato </i></button>
+                <button class="form-group btn btn-primary {{#dessert}}active{{/dessert}}" type="submit" name="section" value="Postre"><i class="bi bi-search"> Postre </i></button>
             </form>
         </div>
 
