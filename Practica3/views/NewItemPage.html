@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Questrial&display=swap" rel="stylesheet">
+    <!--Public app.js-->
+    <script src="/app.js"></script>
 </head> 
 
 <body>
@@ -28,8 +30,8 @@
         <form role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" name="name" class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
-                <div class="invalid-feedback" id="NameError">Nombre inválido.</div> <!--estilo bootstrap a la noti de error-->
+                <input type="text" name="name" oninput="checkRecipeAvailability()" class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
+                <div class="invalid-feedback" id="NameError"></div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group row justify-content-center">

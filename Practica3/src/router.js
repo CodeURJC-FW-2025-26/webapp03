@@ -291,3 +291,19 @@ router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'),
     recipe = await recipesDB.getRecipe(recipeId);
     res.render('RecipeConfirmation', { recipe });
 });
+
+router.get("/availableRecipe", async (req, res) => {
+  let recipeName = req.query.recipe;
+
+  if (!recipeName) {
+    return res.json({ available: false }); // si esta vacio no deja
+  }
+
+  // busca en mongo si hay una receta con ese nombre
+  const existingRecipe = await Recipe.findOne({ name: recipeName });
+
+  // si no hay receta esta ok
+  let availableRecipe = !existingRecipe;
+
+  res.json({ available: availableRecipe });
+});
