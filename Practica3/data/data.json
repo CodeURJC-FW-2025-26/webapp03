@@ -1,0 +1,477 @@
+[
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Bacalao al pil pil",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "El bacalao al pil-pil es un plato tradicional de la cocina vasca elaborado con lomos de bacalao cocinados lentamente en aceite de oliva, ajos y guindilla. Durante la cocción, el bacalao libera su gelatina natural, que al emulsionarse con el aceite forma la característica salsa pil-pil, de textura suave y cremosa. Es una receta sencilla en ingredientes pero técnicamente delicada, muy apreciada por su sabor intenso y su elaboración artesanal.",
+        "allergens": ["Pescado"],
+        "steps": ["Confitar ajos y guindillas.\n Cocinar el bacalao.\n Formar el pil-pil.\n Incorporar el bacalao"], 
+        "image": "BacalaoPilpil.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Bacalao",
+                "allegerns": ["Pescado"],
+                "price": "7,00 €",
+                "description": "Origen animal",
+                "image": "Bacalao.jpg"
+            },
+            {
+                "name": "Guindillas",
+                "allegerns": [],
+                "price": "0,75 €",
+                "description": "Fruta",
+                "image": "Guindilla.jpg"
+            },
+            {
+                "name": "Ajo",
+                "allegerns": [],
+                "price": "0,55 €",
+                "description": "Hortaliza",
+                "image": "Ajo.jpg"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            }
+        ]
+    },
+    {
+        "name": "Cachopo asturiano",
+        "dish": "Segundo plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "Dos filetes de ternera rellenos de jamón y queso, empanados y fritos, formando una pieza grande, jugosa y crujiente típica de la cocina asturiana.",
+        "allergens": ["Huevo", "Leche", "Gluten"],
+        "steps": ["Rellenar dos filetes de ternera con jamón y queso.\n Empanarlos con harina, huevo y pan rallado.\n Freírlos hasta que queden dorados y crujientes."], 
+        "image": "CachopoAsturiano.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Ternera",
+                "allegerns": [],
+                "price": "6,65 €",
+                "description": "Origen animal",
+                "image": "Ternera.jpg"
+            },
+            {
+                "name": "Jamon",
+                "allegerns": [],
+                "price": "8,65 €",
+                "description": "Origen animal",
+                "image": "Jamon.jpg"
+            },
+            {
+                "name": "Queso",
+                "allegerns": ["Leche"],
+                "price": "2,65 €",
+                "description": "Origen animal",
+                "image": "Queso.jpg"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Harina",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Harina.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Pan Rallado",
+                "allegerns": ["Gluten"],
+                "price": "0,45 €",
+                "description": "Condimento",
+                "image": "PanRallado.jpg"
+            }
+
+        ]
+    },
+    {
+        "name": "Cocido madrileño",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "2 h",
+        "description": "Guiso emblemático de Madrid elaborado con garbanzos, distintas carnes, embutidos y verduras, cocinado lentamente para obtener una sopa rica y unas viandas tiernas y sabrosas.",
+        "allergens": ["Gluten", "Sulfitos"],
+        "steps": ["Cocer garbanzos con carnes, huesos y verduras a fuego lento separando caldo, sopa y viandas para servirlas en sus “vuelcos” tradicionales."],
+        "image": "CocidoMadrileño.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Garbanzos",
+                "allegerns": [],
+                "price": "1,65 €",
+                "description": "Legumbre",
+                "image": "Garbanzos.jpg"
+            },
+            {
+                "name": "Pollo",
+                "allegerns": [],
+                "price": "1,40 €",
+                "description": "Origen animal",
+                "image": "Pollo.jpg"
+            },
+            {
+                "name": "Chorizo",
+                "allegerns": ["Gluten"],
+                "price": "1,95 €",
+                "description": "Origen animal",
+                "image": "Chorizo.jpg"
+            },
+            {
+                "name": "Hueso de jamon",
+                "allegerns": ["Sulfitos"],
+                "price": "2,65 €",
+                "description": "Origen animal",
+                "image": "HuesoJamon.jpg"
+            },
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "1,65 €",
+                "description": "Tuberculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Zanahoria",
+                "allegerns": [],
+                "price": "0,90 €",
+                "description": "Verdura",
+                "image": "Zanahoria.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Crema catalana",
+        "dish": "Postre",
+        "difficulty": "Fácil",
+        "length": "30 min",
+        "description": "Postre tradicional catalán a base de una crema suave de leche, yema y azúcar",
+        "allergens": ["Huevo", "Leche"],
+        "steps": ["Calentar leche aromatizada con cítricos y canela.\n Espesarla con yema, azúcar y maicena.\n Dejarla enfriar en cazuelitas y caramelizar azúcar por encima."], 
+        "image": "CremaCatalana.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Leche",
+                "allegerns": ["Leche"],
+                "price": "0,85 €",
+                "description": "Origen animal",
+                "image": "Leche.jpg"
+            },
+            {
+                "name": "Yemas de huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,75 €",
+                "description": "Origen animal",
+                "image": "YemasHuevo.jpg"
+            },
+            {
+                "name": "Maicena",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Maicena.jpg"
+            },
+            {
+                "name": "Piel de limon",
+                "allegerns": [],
+                "price": "0,30 €",
+                "description": "Fruta",
+                "image": "PielLimon.jpg"
+            },
+            {
+                "name": "Canela",
+                "allegerns": [],
+                "price": "1,20 €",
+                "description": "Condimento",
+                "image": "Canela.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Croquetas de jamón",
+        "dish": "Guarnición",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "Bocados cremosos elaborados con una bechamel suave mezclada con jamón serrano, recubiertos con un empanado crujiente y fritos hasta obtener textura dorada y ligera.",
+        "allergens": ["Huevo", "Leche", "Gluten"],
+        "steps": ["Preparar una bechamel con leche, harina, mantequilla y jamón.\n Enfriar la masa.\n Formar las croquetas, empanarlas en harina, huevo y pan rallado.\n Freírlas hasta dorar."], 
+        "image": "CroquetasJamon.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Leche",
+                "allegerns": ["Leche"],
+                "price": "0,95 €",
+                "description": "Origen animal",
+                "image": "Leche.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Harina",
+                "allegerns": [],
+                "price": "0,85 €",
+                "description": "Condimento",
+                "image": "Harina.jpg"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            },
+            {
+                "name": "Jamon",
+                "allegerns": [],
+                "price": "5,50 €",
+                "description": "Origen animal",
+                "image": "Jamon.jpg"
+            },
+            {
+                "name": "Pan Rallado",
+                "allegerns": ["Gluten"],
+                "price": "0,45 €",
+                "description": "Condimento",
+                "image": "PanRallado.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Gazpacho andaluz",
+        "dish": "Primer plato",
+        "difficulty": "Fácil",
+        "length": "15 min",
+        "description": "Sopa fría típica de Andalucía hecha a base de verduras frescas trituradas, pan y aceite de oliva, refrescante y ligera, perfecta para el verano.",
+        "allergens": [],
+        "steps": ["Triturar tomates, pimiento, pepino, cebolla y ajo con pan, aceite, vinagre y sal.\n Servir frío."], 
+        "image": "GazpachoAndaluz.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Tomates",
+                "allegerns": [],
+                "price": "0,75 €",
+                "description": "Fruta",
+                "image": "Tomate.jpg"
+            },
+            {
+                "name": "Pimiento",
+                "allegerns": [],
+                "price": "0,60 €",
+                "description": "Verdura",
+                "image": "Pimiento.jpg"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            },
+            {
+                "name": "Ajo",
+                "allegerns": [],
+                "price": "0,35 €",
+                "description": "Hortaliza",
+                "image": "Ajo.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Patatas bravas",
+        "dish": "Guarnición",
+        "difficulty": "Fácil",
+        "length": "15 min",
+        "description": "Patatas fritas crujientes acompañadas de una salsa roja picante, emblemáticas de la cocina española como tapa clásica y sabrosa.",
+        "allergens": [],
+        "steps": ["Cortar las patatas en trozos.\n Freírlas hasta dorar.\n Servir con salsa brava picante por encima."], 
+        "image": "PatatasBravas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Pimenton",
+                "allegerns": [],
+                "price": "0,50 €",
+                "description": "Condimento",
+                "image": "Pimenton.jpg"
+            },
+            {
+                "name": "Tomate",
+                "allegerns": [],
+                "price": "0,75 €",
+                "description": "Verdura",
+                "image": "Tomate.jpg"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tarta de queso",
+        "dish": "Postre",
+        "difficulty": "Media",
+        "length": "45 min",
+        "description": "Postre cremoso y suave con base crujiente de galleta y relleno de queso, dulce y aterciopelado, muy popular en la repostería española.",
+        "allergens": ["Huevo", "Leche", "Gluten"],
+        "steps": ["Mezclar queso, huevos, azúcar y nata.\n Verter sobre base de galleta.\n Hornear hasta cuajar.\n Enfriar antes de servir."], 
+        "image": "TartaQueso.jpg", 
+        "ingredients": 
+        [
+            {
+                "name": "Queso crema",
+                "allegerns": ["Leche"],
+                "price": "3,45 €",
+                "description": "Queso",
+                "image": "QuesoCrema.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Azúcar",
+                "allegerns": [],
+                "price": "0,30 €",
+                "description": "Condimento",
+                "image": "Azucar.jpg"
+            },
+            {
+                "name": "Nata",
+                "allegerns": ["Leche"],
+                "price": "0,85 €",
+                "description": "Leche",
+                "image": "Nata.jpg"
+            },
+            {
+                "name": "Galletas",
+                "allegerns": ["Gluten"],
+                "price": "1,90 €",
+                "description": "Dulce",
+                "image": "Galleta.jpg"
+            },
+            {
+                "name": "Mantequilla",
+                "allegerns": [],
+                "price": "0,90 €",
+                "description": "Condimento",
+                "image": "Mantequilla.jpg"
+            }
+        ]
+    }
+]
