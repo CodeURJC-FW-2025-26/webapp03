@@ -44,7 +44,7 @@
                 <div class="invalid-feedback" id="DishError"></div> <!--estilo bootstrap a la noti de error-->
             </div>
 
-            <div class="form-group">
+            <div class="form-group row justify-content-center">
                 <label for="Difficulty"><strong> Dificultad: </strong></label>
                 <div class="form-group" id="DifficultyGroup">
                     <label><input type="radio" id="Difficulty" name="difficulty" value="Fácil" required {{#isEasy}}checked{{/isEasy}}> Fácil. </label>
@@ -54,7 +54,7 @@
                 <div class="invalid-feedback" id="DifficultyError"></div> <!--estilo bootstrap a la noti de error-->
             </div>
 
-            <div class="form-group">
+            <div class="form-group row justify-content-center">
                 <label for="Length"><strong> Duración: </strong></label>
                 <select class="form-select justify-content-center" name="length" id="Length" required>
                         <option value="" disabled selected> Duración... </option>
@@ -118,6 +118,8 @@
             </div>
          </form>
     </div>
+
+    <script src="/src/validations.js"></script> 
 
     {{>Footer}}
 
