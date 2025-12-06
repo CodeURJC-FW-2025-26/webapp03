@@ -3,15 +3,10 @@ async function checkRecipeAvailability() {
   let recipeName = recipeInput.value;
 
   const response = await fetch(`/availableRecipe?recipe=${recipeName}`);
-  const responseObj = await response.json();
+  const availableRecipe = await response.json();
 
-  const messageDiv = document.getElementById("NameError");
+  let message = availableRecipe ? "<p>Disponible</p>" : "<p>No disponible</p>";
 
-  if (responseObj.available) {
-    recipeInput.classList.remove("is-invalid"); 
-    messageDiv.textContent = "Disponible";
-  } else {
-    recipeInput.classList.add("is-invalid");
-    messageDiv.textContent = "Ya existe una receta con este nombre";
-  }  //if else para q utilice la implementacion de bootstrap
+  const errorDiv = document.getElementById("NameError");
+  errorDiv.innerHTML = message;
 }

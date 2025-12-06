@@ -30,8 +30,8 @@
         <form role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" name="name" oninput="checkRecipeAvailability()" class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
-                <div class="invalid-feedback" id="NameError"></div> <!--estilo bootstrap a la noti de error-->
+                <input type="text" name="name" oninput='checkRecipeAvailability()' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
+                <div id="NameError"></div> <!--error notification-->
             </div>
 
             <div class="form-group row justify-content-center">
@@ -119,8 +119,6 @@
             </div>
          </form>
     </div>
-
-    <script src="/src/validations.js"></script> 
 
     {{>Footer}}
 
