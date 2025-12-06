@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
                 <input type="text" name="name" class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
-                <div class="invalid-feedback" id="NameError"></div> <!--estilo bootstrap a la noti de error-->
+                <div class="invalid-feedback" id="NameError">Nombre inválido.</div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group row justify-content-center">
@@ -41,7 +41,7 @@
                     <option value="Segundo plato" {{#isMain}}selected{{/isMain}}> Segundo plato. </option>
                     <option value="Postre" {{#isDessert}}selected{{/isDessert}}> Postre. </option>
                 </select>
-                <div class="invalid-feedback" id="DishError"></div> <!--estilo bootstrap a la noti de error-->
+                <div class="invalid-feedback" id="DishError">Seleccione un tipo de plato.</div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group row justify-content-center">
@@ -51,7 +51,7 @@
                     <label><input type="radio" id="Difficulty" name="difficulty" value="Media" {{#isMedium}}checked{{/isMedium}}> Media. </label>
                     <label><input type="radio" id="Difficulty" name="difficulty" value="Difícil" {{#isHard}}checked{{/isHard}}> Difícil. </label>
                 </div>
-                <div class="invalid-feedback" id="DifficultyError"></div> <!--estilo bootstrap a la noti de error-->
+                <div class="invalid-feedback" id="DifficultyError">Seleccione una dificultad.</div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group row justify-content-center">
@@ -67,13 +67,13 @@
                         <option value="3 h" {{#is3h}}selected{{/is3h}}> 3 h </option>
                         <option value="+3 h" {{#isMore3h}}selected{{/isMore3h}}> +3 h </option>
                 </select>
-                <div class="invalid-feedback" id="LengthError"></div> <!--estilo bootstrap a la noti de error-->   
+                <div class="invalid-feedback" id="LengthError">Seleccione una duración.</div> <!--estilo bootstrap a la noti de error-->   
             </div>
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
                 <textarea class="form-control" name="description" id="Description" rows="3"> {{recipe.description}} </textarea>
-                <div class="invalid-feedback" id="DescriptionError"></div> <!--estilo bootstrap a la noti de error-->
+                <div class="invalid-feedback" id="DescriptionError">Descripción inválida.</div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="row">
@@ -97,19 +97,18 @@
                     <label><input type="checkbox" name="allergens" value="Altramuces" {{#lupin}}checked{{/lupin}}> Altramuces. </label><br>
                     <label><input type="checkbox" name="allergens" value="Moluscos" {{#mollusk}}checked{{/mollusk}}> Moluscos. </label><br>
                 </div>
-                <div class="invalid-feedback" id="AllergensError"></div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group">
                 <label for="Steps"><strong> Pasos de preparacion: </strong></label>
                 <textarea class="form-control" name="steps" id="Steps" rows="3"required> {{recipe.steps}} </textarea>
-                <div class="invalid-feedback" id="StepsError"></div> <!--estilo bootstrap a la noti de error-->
+                <div class="invalid-feedback" id="StepsError">Pasos inválidos.</div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group">
                 <label for="Image"><strong> Imagen: {{#isEdit}} (opcional, si no se incluye se mantendrá la anterior) {{/isEdit}} </strong></label>
                 <input class="form-control" name="image" id="Image" type="file" accept="image/*" {{^isEdit}}required{{/isEdit}}>
-                <div class="invalid-feedback" id="ImageError"></div> <!--estilo bootstrap a la noti de error-->
+                <div class="invalid-feedback" id="ImageError">Incluya una imagen.</div> <!--estilo bootstrap a la noti de error-->
             </div>
 
             <div class="form-group mb-0">
