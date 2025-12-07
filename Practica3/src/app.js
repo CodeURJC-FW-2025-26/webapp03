@@ -14,6 +14,7 @@ app.engine('html', mustacheExpress(), ".html");
 app.set('views', './views');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use('/', router);
 

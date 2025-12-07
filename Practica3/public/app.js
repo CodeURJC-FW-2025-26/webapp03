@@ -1,5 +1,9 @@
 let numPage = 1;
+let isLoading = false;
 async function loadMore() {
+    if(isLoading) return;
+    isLoading = true;
+
     numPage++;
     const response = await fetch(`/loadRecipes?numPage=${numPage}`);
     const loadedRecipes = await response.json();
@@ -18,7 +22,29 @@ async function loadMore() {
 
         recipesDiv.appendChild(recipeButton);
     });
+
+    isLoading = false;
+};
+
+async function initInfiniteScroll(){
+    window.addEventListener("scroll", () => {
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+
+        if ((scrollTop + windowHeight >= documentHeight - 50)) {
+            loadMore();
+        }
+    });
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+    const pageVars = document.getElementById("page-vars");
+    const isSearch = pageVars.dataset.search === "true";
+    if(!isSearch) {
+        initInfiniteScroll();
+    }
+});
 
 async function checkRecipeAvailability() {
     let recipeInput = document.getElementById("Name");

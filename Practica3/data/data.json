@@ -473,5 +473,437 @@
                 "image": "Mantequilla.jpg"
             }
         ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
+    },
+    {
+        "name": "Tortilla de patatas",
+        "dish": "Primer plato",
+        "difficulty": "Media",
+        "length": "1 h",
+        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
+        "allergens": ["Huevo"],
+        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
+        "image": "TortillaDePatatas.jpg",
+        "ingredients": 
+        [
+            {
+                "name": "Patata",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Tubérculo",
+                "image": "Patatas.jpg"
+            },
+            {
+                "name": "Huevo",
+                "allegerns": ["Huevo"],
+                "price": "0,65 €",
+                "description": "Origen animal",
+                "image": "Huevo.png"
+            },
+            {
+                "name": "Cebolla",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Hortaliza",
+                "image": "Cebolla.png"
+            },
+            {
+                "name": "Aceite",
+                "allegerns": [],
+                "price": "2,65 €",
+                "description": "Aceite",
+                "image": "Aceite.png"
+            },
+            {
+                "name": "Sal",
+                "allegerns": [],
+                "price": "0,65 €",
+                "description": "Condimento",
+                "image": "Sal.png"
+            }
+        ]
     }
 ]

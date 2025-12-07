@@ -16,7 +16,8 @@ router.get('/', async (req, res) => {
     let maxPage = await recipesDB.countPages();
     let first = true;
     let last = maxPage === 1;
-    res.render('MainPage', { recipes, pages, numPage, first, last });
+    let search = false;
+    res.render('MainPage', { recipes, pages, numPage, first, last, search });
 });
 
 router.get('/MainPage.html/:numPage', async (req, res) => {
@@ -26,7 +27,8 @@ router.get('/MainPage.html/:numPage', async (req, res) => {
     let maxPage = await recipesDB.countPages();
     let first = numPage === 1;
     let last = numPage === maxPage;
-    res.render('MainPage', { recipes, pages, numPage, first, last });
+    let search = false;
+    res.render('MainPage', { recipes, pages, numPage, first, last, search });
 });
 /*
 router.get('/MainPage.html/prev/:numPage', async (req, res) => {
@@ -80,7 +82,8 @@ router.get('/searchBar', async (req, res) => {
     let numPage = 1;
     let first = true;
     let last = true; 
-    res.render('MainPage', { recipes, pages, numPage, first, last });
+    let search = true;
+    res.render('MainPage', { recipes, pages, numPage, first, last, search });
 });
 
 router.get('/searchSection', async (req, res) => {
@@ -91,11 +94,12 @@ router.get('/searchSection', async (req, res) => {
     let numPage = 1;
     let first = true;
     let last = true; 
+    let search = true;
     let starter = section === "Guarnición";
     let side = section === "Primer";
     let main = section === "Segundo";
     let dessert = section === "Postre";
-    res.render('MainPage', { recipes, pages, numPage, first, last, starter, side, main, dessert });
+    res.render('MainPage', { recipes, pages, numPage, first, last, search, starter, side, main, dessert });
 });
 
 router.get('/DetailPage.html/:_id', async (req, res) => {
