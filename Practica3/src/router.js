@@ -28,7 +28,7 @@ router.get('/MainPage.html/:numPage', async (req, res) => {
     let last = numPage === maxPage;
     res.render('MainPage', { recipes, pages, numPage, first, last });
 });
-
+/*
 router.get('/MainPage.html/prev/:numPage', async (req, res) => {
     let maxPage = await recipesDB.countPages();
     if(Number(req.params.numPage) > 1){
@@ -65,6 +65,11 @@ router.get('/MainPage.html/next/:numPage', async (req, res) => {
         let last = numPage === maxPage;
         res.render('MainPage', { recipes, pages, numPage, first, last });
     }
+});*/
+
+router.get("/loadRecipes", async (req, res) => {
+    let loadedRecipes = await recipesDB.getRecipesOfPage(req.query.numPage);
+    res.json(loadedRecipes);
 });
 
 router.get('/searchBar', async (req, res) => {

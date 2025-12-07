@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Questrial&display=swap" rel="stylesheet">
+    <!--Public app.js-->
+    <script src="/app.js"></script>
 </head> 
 
 <body>
@@ -39,7 +41,7 @@
             <a href="/NewItemPage.html" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nueva receta </a>
         </div>
 
-        <div class="row p-3">
+        <div class="row p-3" id="recipesGrid">
             {{#recipes}}
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <a href="/DetailPage.html/{{_id}}" class="btn btn-primary" role="button">
@@ -50,6 +52,9 @@
             {{/recipes}}
         </div>
 
+        <button onclick='loadMore()'>Load more</button>
+
+        <!--
         <div class="container-fluid">
             <nav>
                 <ul class="pagination justify-content-center">
@@ -69,7 +74,7 @@
                     {{/last}}
                 </ul>
             </nav>
-        </div>
+        </div> -->
     </div>
 
     {{>Footer}}
