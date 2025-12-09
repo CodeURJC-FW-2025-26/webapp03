@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Questrial&display=swap" rel="stylesheet">
+    <!--Public app.js-->
+    <script src="/app.js"></script>
 </head> 
 
 <body>
@@ -44,7 +46,7 @@
     </div>
 
     {{#recipe.ingredients}}
-        <div class="container-fluid">
+        <div class="container-fluid" id="ingredient-{{_id}}">
             <h3><strong> Nombre del ingrediente: </strong> {{name}}. </h3>
             <p><strong> Alérgenos: </strong> {{allergens}} </p>
             <p><strong> Precio: </strong> {{price}} </p>
@@ -56,6 +58,7 @@
             <div class="row p-3 justify-content-center">
                 <a href="/ingredient/{{recipe._id}}/{{_id}}/delete" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </a>
                 <a href="/ingredient/{{recipe._id}}/{{_id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
+                <button onclick="editIngredient('{{_id}}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
             </div>
         </div>
     {{/recipe.ingredients}}
