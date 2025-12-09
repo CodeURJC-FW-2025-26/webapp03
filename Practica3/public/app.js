@@ -136,7 +136,7 @@ async function checkRecipeAvailability() {
     const errorDiv = document.getElementById("NameError");
     errorDiv.innerHTML = message;
 }
-
+//quitar ajax de aqui 
 async function upperLetter() {
     let nameInput = document.getElementById("Name");
     let name = nameInput.value;
@@ -160,13 +160,56 @@ async function upperLetter() {
 
 }
 
+async function lettersDescription() {
+    let descriptionInput = document.getElementById("Description");
+    let description = descriptionInput.value;
+    let descriptionError = document.getElementById("DescriptionError");
+
+    if (!description) { 
+        descriptionError.innerHTML = "<p>La descripcion es obligatoria</p>";
+        descriptionInput.classList.remove("is-valid");
+        descriptionInput.classList.add("is-invalid");
+        return false;
+    }   else if(description && (description.length < 10 || description.length > 500)){
+        descriptionError.innerHTML = "<p>La descripcion debe tener entre 10 y 500 caracteres</p>";
+        descriptionInput.classList.remove("is-valid");
+        descriptionInput.classList.add("is-invalid");
+        return false
+    }   else if(description && (description.length >= 10 || description-length <= 500)){
+        descriptionError.innerHTML = "<p>La descripcion es correcta</p>";
+        descriptionInput.classList.remove("is-invalid");
+        descriptionInput.classList.add("is-valid");
+        return true;
+    }
+
+}
+
+
+
+
+
+
 //Formulary validation!!!!
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("recipeForm").addEventListener("submit", async function(event) {
+//variables
+let nameInput = document.getElementById("Name") 
+let descriptionInput = document.getElementById("Description")
+
+//needs (blur)
+nameInput.addEventListener("blur", async () => {
+    await upperLetter();
+});
+
+descriptionInput.addEventListener("blur", async () => {
+    await lettersDescription();
+});
+
+//final validation  
+document.getElementById("recipeForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    let ok = await upperLetter();
+    let ok = await upperLetter() && lettersDescription();
 
     if (ok) {
       event.target.submit();

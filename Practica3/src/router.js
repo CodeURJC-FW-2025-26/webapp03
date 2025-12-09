@@ -315,7 +315,7 @@ router.get("/availableRecipe", async (req, res) => {
     res.json(availableRecipe);
 });
 
-//function to check if the first letter is upper
+//function to check if the first letter is upper (ajax)
 
 router.get("/upperLetter", async (req, res) => {
     let name = req.query.recipe;
