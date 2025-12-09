@@ -103,7 +103,7 @@
 
             <div class="form-group">
                 <label for="Steps"><strong> Pasos de preparacion: </strong></label>
-                <textarea class="form-control" name="steps" id="Steps" rows="3"required> {{recipe.steps}} </textarea>
+                <textarea class="form-control" name="steps" id="Steps" rows="3" oninput="checkSteps" required> {{recipe.steps}} </textarea>
                 <div class="invalid-feedback" id="StepsError"></div> <!--estilo bootstrap a la noti de error-->
             </div>
 

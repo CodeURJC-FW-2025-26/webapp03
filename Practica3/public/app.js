@@ -186,27 +186,39 @@ async function lettersDescription() {
 
 //steps validation
 
-async function lettersSteps() {
+async function checkSteps () {
     let stepsInput = document.getElementById("Steps");
     let steps = stepsInput.value;
-    let stepsError = document.getElementById("StepsError");
 
-    if (!steps) { 
-        stepsError.innerHTML = "<p>Los pasos de la receta son obligatorios</p>";
+    let errorDiv = document.getElementById("StepsError");
+
+    const minChar = 10;
+    const maxChar = 2000;
+    const minLines = 3;
+
+    const lineCount = steps.split('\n').length;
+
+    if (steps.trim().length < minChar){
+        errorDiv.innerHTML = "<p>Debe contener al menos ${minCharacters} caracteres.</p>";
         stepsInput.classList.remove("is-valid");
         stepsInput.classList.add("is-invalid");
         return false;
-    }   else if(steps && (steps.length < 10 || steps.length > 2000)){
-        stepsError.innerHTML = "<p>Los pasos deben tener entre 10 y 2000 caracteres</p>";
+    } else if (steps.length > maxChar) {
+        errorDiv.innerHTML = "<p>No puede superar los ${maxCharacters} caracteres.</p>";
         stepsInput.classList.remove("is-valid");
         stepsInput.classList.add("is-invalid");
-        return false
-    }   else if(steps && (steps.length >= 10 || steps.length <= 2000)){
-        stepsInput.classList.remove("is-invalid");
-        stepsInput.classList.add("is-valid");
-        return true;
+        return false;
+    } else if (lineCount < minLines){
+        errorDiv.innerHTML = "<p>Debe contener al menos ${minLines} líneas de pasos.</p>";
+        stepsInput.classList.remove("is-valid");
+        stepsInput.classList.add("is-invalid");
+        return false;
     }
 
+    errorDiv.innerHTML = "<p> Todo correcto </p> ";
+    stepsInput.classList.remove("is-invalid");
+    stepsInput.classList.add("is-valid");
+    return true;
 }
 
 
@@ -230,7 +242,7 @@ descriptionInput.addEventListener("blur", async () => {
 });
 
 stepsInput.addEventListener("blur", async () => {
-    await lettersSteps();
+    await checkSteps();
 });
 
 //final validation  
