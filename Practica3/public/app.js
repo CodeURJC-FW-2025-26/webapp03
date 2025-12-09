@@ -85,7 +85,16 @@ async function upperLetter() {
 //Formulary validation!!!!
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("recipeForm").addEventListener("submit", async function(event) {
+//variables
+let nameInput = document.getElementById("Name") 
+
+//needs  
+nameInput.addEventListener("blur", async () => {
+    await upperLetter();
+});
+
+//final validation  
+document.getElementById("recipeForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
     let ok = await upperLetter();
