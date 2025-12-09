@@ -160,6 +160,7 @@ async function upperLetter() {
 
 }
 
+//description validation
 async function lettersDescription() {
     let descriptionInput = document.getElementById("Description");
     let description = descriptionInput.value;
@@ -175,8 +176,7 @@ async function lettersDescription() {
         descriptionInput.classList.remove("is-valid");
         descriptionInput.classList.add("is-invalid");
         return false
-    }   else if(description && (description.length >= 10 || description-length <= 500)){
-        descriptionError.innerHTML = "<p>La descripcion es correcta</p>";
+    }   else if(description && (description.length >= 10 || description.length <= 500)){
         descriptionInput.classList.remove("is-invalid");
         descriptionInput.classList.add("is-valid");
         return true;
@@ -184,7 +184,30 @@ async function lettersDescription() {
 
 }
 
+//steps validation
 
+async function lettersSteps() {
+    let stepsInput = document.getElementById("Steps");
+    let steps = stepsInput.value;
+    let stepsError = document.getElementById("StepsError");
+
+    if (!steps) { 
+        stepsError.innerHTML = "<p>Los pasos de la receta son obligatorios</p>";
+        stepsInput.classList.remove("is-valid");
+        stepsInput.classList.add("is-invalid");
+        return false;
+    }   else if(steps && (steps.length < 10 || steps.length > 2000)){
+        stepsError.innerHTML = "<p>Los pasos deben tener entre 10 y 2000 caracteres</p>";
+        stepsInput.classList.remove("is-valid");
+        stepsInput.classList.add("is-invalid");
+        return false
+    }   else if(steps && (steps.length >= 10 || steps.length <= 2000)){
+        stepsInput.classList.remove("is-invalid");
+        stepsInput.classList.add("is-valid");
+        return true;
+    }
+
+}
 
 
 
@@ -195,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //variables
 let nameInput = document.getElementById("Name") 
 let descriptionInput = document.getElementById("Description")
+let stepsInput = document.getElementById("Steps")
 
 //needs (blur)
 nameInput.addEventListener("blur", async () => {
@@ -205,11 +229,15 @@ descriptionInput.addEventListener("blur", async () => {
     await lettersDescription();
 });
 
+stepsInput.addEventListener("blur", async () => {
+    await lettersSteps();
+});
+
 //final validation  
 document.getElementById("recipeForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    let ok = await upperLetter() && lettersDescription();
+    let ok = await upperLetter() && lettersDescription() && lettersSteps();
 
     if (ok) {
       event.target.submit();
