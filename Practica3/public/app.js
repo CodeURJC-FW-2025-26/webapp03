@@ -48,56 +48,76 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 // Edit ingredient functions
-async function editIngredient(_id){
-    const ingredientSection = document.getElementById("ingredient-" + _id);
+async function editIngredient(recipe_id, ingredient_id){
+    const response = await fetch(`/getIngredient?recipe_id=${recipe_id}&ingredient_id=${ingredient_id}`);
+    const ingredient = await response.json();
+
+    let gluten = ingredient.allergens?.includes("Gluten");
+    let crustacean = ingredient.allergens?.includes("Crustáceos");
+    let eggs = ingredient.allergens?.includes("Huevo");
+    let fish = ingredient.allergens?.includes("Pescado");
+    let peanuts = ingredient.allergens?.includes("Cacahuetes");
+    let soya = ingredient.allergens?.includes("Soja");
+    let dairy = ingredient.allergens?.includes("Lacteos");
+    let nuts = ingredient.allergens?.includes("Frutos con cáscara");
+    let celery = ingredient.allergens?.includes("Apio");
+    let mustard = ingredient.allergens?.includes("Mostaza");
+    let sesame = ingredient.allergens?.includes("Sésamo");
+    let sulfites = ingredient.allergens?.includes("Sulfitos");
+    let lupin = ingredient.allergens?.includes("Altramuces");
+    let mollusk = ingredient.allergens?.includes("Moluscos");
+
+    const ingredientSection = document.getElementById("ingredient-" + ingredient_id);
     ingredientSection.innerHTML = `
-        <form role="form" method="post" action="{{#isEdit}}/EditIngredient/{{recipe._id}}/{{ingredient._id}}{{/isEdit}}{{^isEdit}}/NewIngredient{{/isEdit}}" enctype="multipart/form-data">
+        <h1> Editar ingrediente: </h1>
+
+        <form role="form" method="post" action="/EditIngredient/${recipe_id}/${ingredient_id}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" name="name" id="Name" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..." required> 
+                <input type="text" class="form-control" name="name" id="Name" value="${ingredient.name}" placeholder="Nombre del ingrediente..." required> 
             </div>  
 
             <div class="row">
                 <label for="Allergens"><strong> Alérgenos: </strong></label>
                 <div class="col">
-                    <label><input type="checkbox" name="allergens" value="Gluten" {{#gluten}}checked{{/gluten}}> Gluten. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Crustáceos" {{#crustacean}}checked{{/crustacean}}> Crustáceos. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Huevo" {{#eggs}}checked{{/eggs}}> Huevo. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Pescado" {{#fish}}checked{{/fish}}> Pescado. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Cacahuetes" {{#peanuts}}checked{{/peanuts}}> Cacahuetes. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Soja" {{#soya}}checked{{/soya}}> Soja. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Lacteos" {{#dairy}}checked{{/dairy}}> Lacteos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Gluten" ${gluten ? "checked" : ""}> Gluten. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Crustáceos" ${crustacean ? "checked" : ""}> Crustáceos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Huevo" ${eggs ? "checked" : ""}> Huevo. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Pescado" ${fish ? "checked" : ""}> Pescado. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Cacahuetes" ${peanuts ? "checked" : ""}> Cacahuetes. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Soja" ${soya ? "checked" : ""}> Soja. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Lacteos" ${dairy ? "checked" : ""}> Lacteos. </label><br>
                 </div>
 
                 <div class="col">
-                    <label><input type="checkbox" name="allergens" value="Frutos con cáscara" {{#nuts}}checked{{/nuts}}> Frutos con cáscara. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Apio" {{#celery}}checked{{/celery}}> Apio. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Mostaza" {{#mustard}}checked{{/mustard}}> Mostaza. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Sésamo" {{#sesame}}checked{{/sesame}}> Sésamo. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Sulfitos" {{#sulfites}}checked{{/sulfites}}> Sulfitos. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Altramuces" {{#lupin}}checked{{/lupin}}> Altramuces. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Moluscos" {{#mollusk}}checked{{/mollusk}}> Moluscos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Frutos con cáscara" ${nuts ? "checked" : ""}> Frutos con cáscara. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Apio" ${celery ? "checked" : ""}> Apio. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Mostaza" ${mustard ? "checked" : ""}> Mostaza. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Sésamo" ${sesame ? "checked" : ""}> Sésamo. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Sulfitos" ${sulfites ? "checked" : ""}> Sulfitos. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Altramuces" ${lupin ? "checked" : ""}> Altramuces. </label><br>
+                    <label><input type="checkbox" name="allergens" value="Moluscos" ${mollusk ? "checked" : ""}> Moluscos. </label><br>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Price"><strong> Precio: </strong></label>
-                <input type="text" class="form-control" id="Price" name="price" value="{{ingredient.price}}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\d{1,3},\d{2} €\.?$"> 
+                <input type="text" class="form-control" id="Price" name="price" value="${ingredient.price}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\\d{1,3},\\d{2} €\\.?$"> 
             </div>  
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
-                <textarea class="form-control" name="description" id="Description" rows="3"> {{ingredient.description}} </textarea>
+                <textarea class="form-control" name="description" id="Description" rows="3"> ${ingredient.description} </textarea>
             </div>
 
             <div class="form-group">
-                <label for="Image"><strong> Imagen: {{#isEdit}} (opcional, si no se incluye se mantendrá la anterior) {{/isEdit}} </strong></label>
-                <input type="file" class="form-control" name="image" id="Image" accept="image/*" {{^isEdit}}required{{/isEdit}}>
+                <label for="Image"><strong> Imagen: (opcional, si no se incluye se mantendrá la anterior) </strong></label>
+                <input type="file" class="form-control" name="image" id="Image" accept="image/*">
             </div>
 
             <div class="form-group mb-0">
-                <input type="hidden" name="recipe_id" value="{{recipe._id}}">
-                <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> {{#isEdit}}Guardar{{/isEdit}}{{^isEdit}}Crear{{/isEdit}} </button>
+                <input type="hidden" name="recipe_id" value="${recipe_id}">
+                <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> Guardar </button>
             </div>
         </form>
         `;

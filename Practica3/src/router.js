@@ -301,6 +301,13 @@ router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'),
     res.render('RecipeConfirmation', { recipe });
 });
 
+// Functions for AJAX and interactive JS
+
+router.get("/getIngredient", async (req, res) => {
+    let ingredient = await recipesDB.getIngredient(req.query.recipe_id, req.query.ingredient_id);
+    res.json(ingredient);
+});
+
 router.get("/availableRecipe", async (req, res) => {
     let recipeName = req.query.recipe;
     let recipe = await recipesDB.findRecipeByName(recipeName);

@@ -58,7 +58,7 @@
             <div class="row p-3 justify-content-center">
                 <a href="/ingredient/{{recipe._id}}/{{_id}}/delete" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </a>
                 <a href="/ingredient/{{recipe._id}}/{{_id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
-                <button onclick="editIngredient('{{_id}}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
+                <button onclick="editIngredient('{{recipe._id}}', '{{_id}}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
             </div>
         </div>
     {{/recipe.ingredients}}
