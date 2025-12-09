@@ -72,10 +72,12 @@ async function upperLetter() {
         errorDiv.innerHTML = "<p>Todo Correcto</p>";
         nameInput.classList.remove("is-invalid");
         nameInput.classList.add("is-valid");
+        return true;
     }   else {
         errorDiv.innerHTML = "<p>La primera letra debe ser mayuscula</p>";
         nameInput.classList.remove("is-valid");
         nameInput.classList.add("is-invalid");
+        return false;
     }
 
 }
