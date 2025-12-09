@@ -58,3 +58,25 @@ async function checkRecipeAvailability() {
     const errorDiv = document.getElementById("NameError");
     errorDiv.innerHTML = message;
 }
+
+async function upperLetter() {
+    let nameInput = document.getElementById("Name");
+    let name = nameInput.value;
+
+    const response = await fetch(`/upperLetter?recipe=${name}`);
+    const upperLetter = await response.json();
+
+    let errorDiv = document.getElementById("NameError");
+
+    if (upperLetter.upper) {
+        errorDiv.innerHTML = "<p>Todo Correcto</p>";
+        nameInput.classList.remove("is-invalid");
+        nameInput.classList.add("is-valid");
+    }   else {
+        errorDiv.innerHTML = "<p>La primera letra debe ser mayuscula</p>";
+        nameInput.classList.remove("is-valid");
+        nameInput.classList.add("is-invalid");
+    }
+
+}
+
