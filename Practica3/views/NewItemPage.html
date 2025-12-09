@@ -27,10 +27,10 @@
             <h1> Nueva receta </h1>
         </div>
 
-        <form role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
+        <form id="recipeForm" role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" name="name" oninput='checkRecipeAvailability(); upperLetter();' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
+                <input type="text" name="name" oninput='checkRecipeAvailability()' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
                 <div id="NameError"></div> <!--error notification-->
             </div>
 

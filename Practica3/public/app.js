@@ -80,3 +80,16 @@ async function upperLetter() {
 
 }
 
+//Formulary validation!!!!
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("recipeForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    let ok = await upperLetter();
+
+    if (ok) {
+      event.target.submit();
+    }
+  });
+});
