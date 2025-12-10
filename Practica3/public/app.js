@@ -381,14 +381,14 @@ document.addEventListener("DOMContentLoaded", () => {
         await valDish();
 
         const formData = new FormData(event.target);
-        const response = await fetch(event.target.action, {    // /NewItem o edititem
+        const response = await fetch(event.target.action, {    // /NewItem o editItem
             method: "POST",
             body: formData
         });
 
         let result = await response.json();
 
-        if (result.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
+        if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
             alert("Receta guardada correctamente");
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let result = await response.json();
 
-        if (result.ok) {    
+        if (response.ok) {    
             alert("Ingrediente guardado correctamente");
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {

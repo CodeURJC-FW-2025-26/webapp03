@@ -155,6 +155,7 @@ router.post('/NewIngredient', upload.single('image'), async (req, res) => {
         image: req.file?.filename,
     };
 
+    /*
     let errors = await recipesDB.validateIngredient(recipeId, ingredient);
     if (errors.length > 0) {
         console.log("❌ Errores:", errors);
@@ -165,6 +166,16 @@ router.post('/NewIngredient', upload.single('image'), async (req, res) => {
     
     let recipe = await recipesDB.getRecipe(recipeId);
     res.render('RecipeConfirmation', { recipe });
+    */
+
+    let errors = await recipesDB.validateIngredient(recipeId, ingredient);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.status(400).json({ errors }); // status400 bad request, send a json with the errors
+    }
+
+    let id = await recipesDB.addIngredient(recipeId, ingredient);
+    res.json({ id });
 });
 
 //Delete functions for recipes and ingredients

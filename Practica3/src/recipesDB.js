@@ -82,10 +82,11 @@ export async function searchSection(section){
 
 export async function addIngredient(recipeId, ingredient) {
     ingredient._id = new ObjectId();
-    return await recipes.updateOne(
+    await recipes.updateOne(
         { _id: new ObjectId(recipeId) },
         { $push: { ingredients: ingredient } }
     );
+    return recipeId;
 }
 
 export async function deleteIngredient(recipeId, ingredientId) {
