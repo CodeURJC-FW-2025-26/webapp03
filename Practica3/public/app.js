@@ -125,34 +125,53 @@ async function editIngredient(recipe_id, ingredient_id){
 
 // Validation functions
 async function checkRecipeAvailability() {
-    let recipeInput = document.getElementById("Name");
-    let recipeName = recipeInput.value;
+    const recipeInput = document.getElementById("Name");
+    const recipeName = recipeInput.value;
+    const errorDiv = document.getElementById("NameError");
+
+    if (!recipeName) {
+        errorDiv.textContent = "El nombre no puede estar vacío";
+        recipeInput.classList.remove("is-valid");
+        recipeInput.classList.add("is-invalid");
+        return false;
+    }
 
     const response = await fetch(`/availableRecipe?recipe=${recipeName}`);
     const availableRecipe = await response.json();
 
-    let message = availableRecipe ? "<p>Disponible</p>" : "<p>No disponible</p>";
-
-    const errorDiv = document.getElementById("NameError");
-    errorDiv.innerHTML = message;
+    if (availableRecipe) {
+        errorDiv.textContent = "Disponible";
+        recipeInput.classList.remove("is-invalid");
+        recipeInput.classList.add("is-valid");
+        return true;
+    } else {
+        errorDiv.textContent = "No disponible";
+        recipeInput.classList.remove("is-valid");
+        recipeInput.classList.add("is-invalid");
+        return false;
+    }
 }
-//quitar ajax de aqui 
+
+
+//check if the first letter of the name is capital
 async function upperLetter() {
     let nameInput = document.getElementById("Name");
     let name = nameInput.value;
-
-    const response = await fetch(`/upperLetter?recipe=${name}`);
-    const upperLetter = await response.json();
-
     let errorDiv = document.getElementById("NameError");
+    let firstLetter = name.charAt(0);
 
-    if (upperLetter.upper) {
+    if (!name || name.length === 0) {
+        errorDiv.innerHTML = "<p>La primera letra debe ser mayuscula</p>";
+        nameInput.classList.remove("is-valid");
+        nameInput.classList.add("is-invalid");
+        return false;
+    }   else if (firstLetter === firstLetter.toUpperCase()) {
         errorDiv.innerHTML = "<p>Todo Correcto</p>";
         nameInput.classList.remove("is-invalid");
         nameInput.classList.add("is-valid");
         return true;
     }   else {
-        errorDiv.innerHTML = "<p>La primera letra debe ser mayuscula</p>";
+        errorDiv.innerHTML = "<p>La primera letra debe ser mayúscula</p>";
         nameInput.classList.remove("is-valid");
         nameInput.classList.add("is-invalid");
         return false;
@@ -186,41 +205,99 @@ async function lettersDescription() {
 
 //steps validation
 
-async function checkSteps () {
+async function lettersSteps() {
     let stepsInput = document.getElementById("Steps");
     let steps = stepsInput.value;
+    let stepsError = document.getElementById("StepsError");
 
-    let errorDiv = document.getElementById("StepsError");
-
-    const minChar = 10;
-    const maxChar = 2000;
-    const minLines = 3;
-
-    const lineCount = steps.split('\n').length;
-
-    if (steps.trim().length < minChar){
-        errorDiv.innerHTML = "<p>Debe contener al menos ${minCharacters} caracteres.</p>";
+    if (!steps) { 
+        stepsError.innerHTML = "<p>Los pasos de la receta son obligatorios</p>";
         stepsInput.classList.remove("is-valid");
         stepsInput.classList.add("is-invalid");
         return false;
-    } else if (steps.length > maxChar) {
-        errorDiv.innerHTML = "<p>No puede superar los ${maxCharacters} caracteres.</p>";
+    }   else if(steps && (steps.length < 10 || steps.length > 2000)){
+        stepsError.innerHTML = "<p>Los pasos deben tener entre 10 y 2000 caracteres</p>";
         stepsInput.classList.remove("is-valid");
         stepsInput.classList.add("is-invalid");
-        return false;
-    } else if (lineCount < minLines){
-        errorDiv.innerHTML = "<p>Debe contener al menos ${minLines} líneas de pasos.</p>";
-        stepsInput.classList.remove("is-valid");
-        stepsInput.classList.add("is-invalid");
-        return false;
+        return false
+    }   else if(steps && (steps.length >= 10 || steps.length <= 2000)){
+        stepsInput.classList.remove("is-invalid");
+        stepsInput.classList.add("is-valid");
+        return true;
     }
 
-    errorDiv.innerHTML = "<p> Todo correcto </p> ";
-    stepsInput.classList.remove("is-invalid");
-    stepsInput.classList.add("is-valid");
-    return true;
 }
 
+//Dish, difficulty, length and image validations
+
+async function valDish() {
+    let dishInput = document.getElementById("Dish");
+    let dish = dishInput.value;
+    let dishError = document.getElementById("DishError");
+
+    if (!dish) {
+        dishError.innerHTML = "<p>Debes seleccionar un tipo de plato</p>";
+        dishInput.classList.remove("is-valid");
+        dishInput.classList.add("is-invalid");
+        return false;
+    }   else {
+        dishInput.classList.remove("is-invalid");
+        dishInput.classList.add("is-valid");
+        return true;
+    }
+
+}
+
+async function valLength() {
+    let lengthInput = document.getElementById("Length");
+    let length = lengthInput.value;
+    let lengthError = document.getElementById("LengthError");
+
+    if (!length) {
+        lengthError.innerHTML = "<p>Debes seleccionar un tipo de plato</p>";
+        lengthInput.classList.remove("is-valid");
+        lengthInput.classList.add("is-invalid");
+        return false;
+    }   else {
+        lengthInput.classList.remove("is-invalid");
+        lengthInput.classList.add("is-valid");
+        return true;
+    }
+
+}
+
+async function valImage() {
+    let imageInput = document.getElementById("Image");
+    let imageError = document.getElementById("ImageError");
+
+    if (!imageInput.files || imageInput.files.length === 0) {
+        imageError.innerHTML = "<p>Debes seleccionar una imagen</p>";
+        imageInput.classList.remove("is-valid");
+        imageInput.classList.add("is-invalid");
+        return false;
+    } else {
+        imageInput.classList.remove("is-invalid");
+        imageInput.classList.add("is-valid");
+        return true;
+    }
+}
+
+function valDifficulty() {
+    let selected = document.querySelector('input[name="difficulty"]:checked');
+    let difficultyGroup = document.getElementById("DifficultyGroup");
+    let difficultyError = document.getElementById("DifficultyError");
+
+    if (!selected) {
+        difficultyError.innerHTML = "<p>Debes seleccionar una dificultad</p>";
+        difficultyGroup.classList.remove("is-valid");
+        difficultyGroup.classList.add("is-invalid");
+        return false;
+    } else {
+        difficultyGroup.classList.remove("is-invalid");
+        difficultyGroup.classList.add("is-valid");
+        return true;
+    }
+}
 
 
 
@@ -228,31 +305,42 @@ async function checkSteps () {
 
 document.addEventListener("DOMContentLoaded", () => {
 //variables
-let nameInput = document.getElementById("Name") 
-let descriptionInput = document.getElementById("Description")
-let stepsInput = document.getElementById("Steps")
+    let nameInput = document.getElementById("Name") 
+    let descriptionInput = document.getElementById("Description")
+    let stepsInput = document.getElementById("Steps")
+    let dishInput = document.getElementById("Dish")
+    let lengthInput = document.getElementById("Length")
 
 //needs (blur)
-nameInput.addEventListener("blur", async () => {
-    await upperLetter();
-});
+    nameInput.addEventListener("blur", async () => {
+        await upperLetter();
+    });
 
-descriptionInput.addEventListener("blur", async () => {
-    await lettersDescription();
-});
+    descriptionInput.addEventListener("blur", async () => {
+        await lettersDescription();
+    });
 
-stepsInput.addEventListener("blur", async () => {
-    await checkSteps();
-});
+    stepsInput.addEventListener("blur", async () => {
+        await lettersSteps();
+    });
+
+    dishInput.addEventListener("blur", async () => {
+        await valDish();
+    });
+
+    lengthInput.addEventListener("blur", async () => {
+        await valLength();
+    });
+
 
 //final validation  
-document.getElementById("recipeForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
+    document.getElementById("recipeForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-    let ok = await upperLetter() && lettersDescription() && lettersSteps();
+        let ok = await valDifficulty() && await valImage() && await valLength() && await checkRecipeAvailability() && await upperLetter() && await lettersDescription() && await lettersSteps() && await valDish();
 
-    if (ok) {
-      event.target.submit();
-    }
-  });
+        if (ok) {
+            event.target.submit();
+        }
+    });
 });

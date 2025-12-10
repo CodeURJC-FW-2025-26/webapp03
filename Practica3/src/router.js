@@ -314,18 +314,3 @@ router.get("/availableRecipe", async (req, res) => {
     let availableRecipe = recipe === null;
     res.json(availableRecipe);
 });
-
-//function to check if the first letter is upper (ajax)
-
-router.get("/upperLetter", async (req, res) => {
-    let name = req.query.recipe;
-    
-    if (!name || name.length === 0) {
-        return res.json({upper: false});
-    } else {
-        let firstLetter = name.charAt(0);
-        let isUpper = firstLetter === firstLetter.toUpperCase();
-        return res.json({upper: isUpper});
-    }
-
-});
