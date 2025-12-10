@@ -303,7 +303,10 @@ async function valDifficulty() {
     }
 }
 
-//Recipe formulary validation!!!!
+
+
+    //Formulary validation!!!!
+
 document.addEventListener("DOMContentLoaded", () => {
     //variables
     let nameInput = document.getElementById("Name") 
@@ -373,4 +376,56 @@ document.addEventListener("DOMContentLoaded", () => {
         
         spinner.style.display = "none";
     });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+ //variables
+    let nameInput = document.getElementById("Name")
+    let priceInput = document.getElementById("Price")
+    let descriptionInput = document.getElementById("Description")
+
+ // needs ( blur )
+    nameInput.addEventListener("blur", async () => {
+        await upperLetter();
+    });
+
+    descriptionInput.addEventListener("blur", async () => {
+        await lettersDescription();
+    });
+
+    priceInput.addEventListener("blur", async () => {
+        await valPrice();
+    })
+
+ //final validation 
+    document.getElementById("ingredientForm").addEventListener("submit", async function(event){
+        event.preventDefault();
+        let spinner = document.getElementById("Spinner");
+        spinner.style.display = "inline-block";
+
+        await upperLetter();
+        await valImage();
+        await lettersDescription();
+        await valPrice();
+
+        const formData = new FormData(event.target);
+        const response = await fetch(event.target.action, {    
+            method: "POST",
+            body: formData
+        });
+
+        let result = await response.json();
+
+        if (response.ok) {    
+            alert("Ingrediente guardado correctamente");
+            window.location.href = `/DetailPage.html/${result.id}`;
+        } else {
+            if (result.errors && result.errors.length > 0) {
+                alert("Errores:\n" + result.errors.join("\n")); 
+            }
+        }
+            
+        spinner.style.display = "none";
+    });
+
 });

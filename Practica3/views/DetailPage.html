@@ -68,7 +68,7 @@
             <h1> Nuevo ingrediente </h1>
         </div>
 
-        <form role="form" method="post" action="{{#isEdit}}/EditIngredient/{{recipe._id}}/{{ingredient._id}}{{/isEdit}}{{^isEdit}}/NewIngredient{{/isEdit}}" enctype="multipart/form-data">
+        <form id="ingredientForm" onsubmit="submitIngredient(event)"role="form" method="post" action="{{#isEdit}}/EditIngredient/{{recipe._id}}/{{ingredient._id}}{{/isEdit}}{{^isEdit}}/NewIngredient{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
                 <input type="text" class="form-control" name="name" id="Name" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..." required> 
