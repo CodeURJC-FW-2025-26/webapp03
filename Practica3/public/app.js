@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let result = await response.json();
 
-        if (response.ok) {
+        if (response.ok) {    //response.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
             alert("Receta guardada correctamente");
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
