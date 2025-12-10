@@ -153,7 +153,7 @@ async function checkRecipeAvailability() {
 }
 
 
-    //check if the first letter of the name is capital
+//check if the first letter of the name is capital
 async function upperLetter() {
     let nameInput = document.getElementById("Name");
     let name = nameInput.value;
@@ -179,7 +179,7 @@ async function upperLetter() {
 
 }
 
-    //description validation
+//description validation
 async function lettersDescription() {
     let descriptionInput = document.getElementById("Description");
     let description = descriptionInput.value;
@@ -204,7 +204,7 @@ async function lettersDescription() {
 
 }
 
-    //steps validation
+//steps validation
 async function lettersSteps() {
     let stepsInput = document.getElementById("Steps");
     let steps = stepsInput.value;
@@ -229,7 +229,7 @@ async function lettersSteps() {
 
 }
 
-    //Dish, difficulty, length and image validations
+//Dish, difficulty, length and image validations
 async function valDish() {
     let dishInput = document.getElementById("Dish");
     let dish = dishInput.value;
@@ -303,12 +303,9 @@ async function valDifficulty() {
     }
 }
 
-
-
-    //Formulary validation!!!!
-
+//Recipe formulary validation!!!!
 document.addEventListener("DOMContentLoaded", () => {
-//variables
+    //variables
     let nameInput = document.getElementById("Name") 
     let descriptionInput = document.getElementById("Description")
     let stepsInput = document.getElementById("Steps")
@@ -316,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let lengthInput = document.getElementById("Length")
     let difficultyInput = document.getElementById("Difficulty")
 
-//needs (blur)
+    //use of blur event 
     nameInput.addEventListener("blur", async () => {
         await upperLetter();
     });
@@ -341,8 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await valDifficulty();
     });
 
-
-//final validation  
+    //final validation  
     document.getElementById("recipeForm").addEventListener("submit", async function(event) {
         event.preventDefault();
 
@@ -376,6 +372,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         spinner.style.display = "none";
-
     });
 });
