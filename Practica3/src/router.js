@@ -138,12 +138,11 @@ router.post('/NewItem', upload.single('image'), async (req, res) => {
     let errors = await recipesDB.validateRecipe(recipe);
     if (errors.length > 0) {
         console.log("❌ Errores:", errors);
-        return res.render('ErrorFormulary', { errors });
+        return res.status(400).json({errors}); // status400 bad request, send a json with the errors
     }
 
-    await recipesDB.addRecipe(recipe);
-
-    res.render('RecipeConfirmation', { recipe });
+    let newRecipe = await recipesDB.addRecipe(recipe);
+    res.json({ id: newRecipe._id });
 });
 
 router.post('/NewIngredient', upload.single('image'), async (req, res) => {
@@ -268,12 +267,11 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     let errors = await recipesDB.validateRecipe(editRecipe, recipe.name);
     if (errors.length > 0) {
         console.log("❌ Errores:", errors);
-        return res.render('ErrorFormulary', { errors });
+        return res.status(400).json({ errors });
     }
 
     await recipesDB.editRecipe(editRecipe);
-    recipe = editRecipe;
-    res.render('RecipeConfirmation', { recipe });
+    res.json({ id: editRecipe._id });
 });
 
 router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'), async (req, res) => {

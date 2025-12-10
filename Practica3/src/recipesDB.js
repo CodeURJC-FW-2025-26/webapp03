@@ -17,7 +17,8 @@ export async function addRecipe(recipe) {
     for(let ingredient of recipe.ingredients){
         ingredient._id = new ObjectId();
     }
-    return await recipes.insertOne(recipe);
+    let result = await recipes.insertOne(recipe);
+    return { ...recipe, _id: result.insertedId }; // return the full object with the id
 }
 
 export async function deleteRecipe(id){
@@ -106,7 +107,7 @@ export async function findIngredientByName(name) {
 }
 
 export async function editRecipe(recipe){
-    return await recipes.updateOne(
+    await recipes.updateOne(
         { _id: new ObjectId(recipe._id) },
         { $set: {
             name: recipe.name,
@@ -119,6 +120,7 @@ export async function editRecipe(recipe){
             image: recipe.image
         }}
     );
+    return recipe;
 }
 
 export async function editIngredient(recipe, ingredient){

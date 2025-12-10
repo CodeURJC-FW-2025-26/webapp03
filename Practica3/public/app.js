@@ -153,7 +153,7 @@ async function checkRecipeAvailability() {
 }
 
 
-//check if the first letter of the name is capital
+    //check if the first letter of the name is capital
 async function upperLetter() {
     let nameInput = document.getElementById("Name");
     let name = nameInput.value;
@@ -179,7 +179,7 @@ async function upperLetter() {
 
 }
 
-//description validation
+    //description validation
 async function lettersDescription() {
     let descriptionInput = document.getElementById("Description");
     let description = descriptionInput.value;
@@ -203,8 +203,7 @@ async function lettersDescription() {
 
 }
 
-//steps validation
-
+    //steps validation
 async function lettersSteps() {
     let stepsInput = document.getElementById("Steps");
     let steps = stepsInput.value;
@@ -228,8 +227,7 @@ async function lettersSteps() {
 
 }
 
-//Dish, difficulty, length and image validations
-
+    //Dish, difficulty, length and image validations
 async function valDish() {
     let dishInput = document.getElementById("Dish");
     let dish = dishInput.value;
@@ -301,7 +299,7 @@ function valDifficulty() {
 
 
 
-//Formulary validation!!!!
+    //Formulary validation!!!!
 
 document.addEventListener("DOMContentLoaded", () => {
 //variables
@@ -337,10 +335,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("recipeForm").addEventListener("submit", async function(event) {
         event.preventDefault();
 
-        let ok = await valDifficulty() && await valImage() && await valLength() && await checkRecipeAvailability() && await upperLetter() && await lettersDescription() && await lettersSteps() && await valDish();
+        let spinner = document.getElementById("Spinner");
+        spinner.style.display = "inline-block";
 
-        if (ok) {
-            event.target.submit();
+        let ok = valDifficulty() && await valImage() && await valLength() && await checkRecipeAvailability() && await upperLetter() && await lettersDescription() && await lettersSteps() && await valDish();
+        if (!ok) return;
+
+        const formData = new FormData(event.target);
+        const response = await fetch(event.target.action, {    // /NewItem o edititem
+            method: "POST",
+            body: formData
+        });
+
+        let result = await response.json();
+
+        if (response.ok) {
+            alert("Receta guardada correctamente");
+            window.location.href = `/DetailPage.html/${result.id}`;
+        } else {
+            alert("Errores: " + (result.errors?.join(", ") || result.message || "Error al procesar los datos."));
         }
+        
+        spinner.style.display = "none";
+
     });
 });

@@ -27,7 +27,7 @@
             <h1> Nueva receta </h1>
         </div>
 
-        <form id="recipeForm" role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
+        <form id="recipeForm" onsubmit="submitRecipe(event)" role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
                 <input type="text" name="name" oninput='checkRecipeAvailability()' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
@@ -117,6 +117,12 @@
                 <button type="submit" class="btn btn-primary"> <i class="bi bi-floppy"></i> Guardar </button> 
                 <a href="/MainPage.html/1" class="btn btn-primary" role="button"> <i class="bi bi-box-arrow-left"></i> Cancelar </a>
             </div>
+
+            <!--Spinner-->
+            <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
+                <span class="visually-hidden">Procesando...</span>
+            </div>
+
          </form>
     </div>
 
