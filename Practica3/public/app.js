@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     difficultyInput.addEventListener("click", async () => {
-        await valLength();
+        await valDifficulty();
     });
 
 
