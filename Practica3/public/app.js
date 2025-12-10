@@ -157,7 +157,7 @@ async function checkRecipeAvailability() {
 async function upperLetter() {
     let nameInput = document.getElementById("Name");
     let name = nameInput.value;
-    let errorDiv = document.getElementById("NameError");
+    let errorDiv = document.getElementById("NameError2");
     let firstLetter = name.charAt(0);
 
     if (!name || name.length === 0) {
@@ -165,8 +165,7 @@ async function upperLetter() {
         nameInput.classList.remove("is-valid");
         nameInput.classList.add("is-invalid");
         return false;
-    }   else if (firstLetter === firstLetter.toUpperCase()) {
-        errorDiv.innerHTML = "<p>Todo Correcto</p>";
+    }   else if (checkRecipeAvailability() && (firstLetter === firstLetter.toUpperCase())) {;
         nameInput.classList.remove("is-invalid");
         nameInput.classList.add("is-valid");
         return true;
