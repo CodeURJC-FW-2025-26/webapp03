@@ -140,12 +140,12 @@ async function checkRecipeAvailability() {
     const availableRecipe = await response.json();
 
     if (availableRecipe) {
-        errorDiv.textContent = "Disponible";
+        errorDiv.innerHTML = "<p>Disponible</p>";
         recipeInput.classList.remove("is-invalid");
         recipeInput.classList.add("is-valid");
         return true;
     } else {
-        errorDiv.textContent = "No disponible";
+        errorDiv.innerHTML = "<p>No disponible</p>";
         recipeInput.classList.remove("is-valid");
         recipeInput.classList.add("is-invalid");
         return false;
@@ -166,6 +166,7 @@ async function upperLetter() {
         nameInput.classList.add("is-invalid");
         return false;
     }   else if (checkRecipeAvailability() && (firstLetter === firstLetter.toUpperCase())) {;
+        errorDiv.innerHTML = "";
         nameInput.classList.remove("is-invalid");
         nameInput.classList.add("is-valid");
         return true;
@@ -195,6 +196,7 @@ async function lettersDescription() {
         descriptionInput.classList.add("is-invalid");
         return false
     }   else if(description && (description.length >= 10 || description.length <= 500)){
+        descriptionError.innerHTML = "";
         descriptionInput.classList.remove("is-invalid");
         descriptionInput.classList.add("is-valid");
         return true;
@@ -219,6 +221,7 @@ async function lettersSteps() {
         stepsInput.classList.add("is-invalid");
         return false
     }   else if(steps && (steps.length >= 10 || steps.length <= 2000)){
+        stepsError.innerHTML = "";
         stepsInput.classList.remove("is-invalid");
         stepsInput.classList.add("is-valid");
         return true;
@@ -238,6 +241,7 @@ async function valDish() {
         dishInput.classList.add("is-invalid");
         return false;
     }   else {
+        dishError.innerHTML = "";
         dishInput.classList.remove("is-invalid");
         dishInput.classList.add("is-valid");
         return true;
@@ -256,6 +260,7 @@ async function valLength() {
         lengthInput.classList.add("is-invalid");
         return false;
     }   else {
+        lengthError.innerHTML = "";
         lengthInput.classList.remove("is-invalid");
         lengthInput.classList.add("is-valid");
         return true;
@@ -273,13 +278,14 @@ async function valImage() {
         imageInput.classList.add("is-invalid");
         return false;
     } else {
+        imageError.innerHTML = "";
         imageInput.classList.remove("is-invalid");
         imageInput.classList.add("is-valid");
         return true;
     }
 }
 
-function valDifficulty() {
+async function valDifficulty() {
     let selected = document.querySelector('input[name="difficulty"]:checked');
     let difficultyGroup = document.getElementById("DifficultyGroup");
     let difficultyError = document.getElementById("DifficultyError");
@@ -290,6 +296,7 @@ function valDifficulty() {
         difficultyGroup.classList.add("is-invalid");
         return false;
     } else {
+        difficultyError.innerHTML = "";
         difficultyGroup.classList.remove("is-invalid");
         difficultyGroup.classList.add("is-valid");
         return true;
@@ -307,6 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let stepsInput = document.getElementById("Steps")
     let dishInput = document.getElementById("Dish")
     let lengthInput = document.getElementById("Length")
+    let difficultyInput = document.getElementById("Difficulty")
 
 //needs (blur)
     nameInput.addEventListener("blur", async () => {
@@ -329,6 +337,10 @@ document.addEventListener("DOMContentLoaded", () => {
         await valLength();
     });
 
+    difficultyInput.addEventListener("click", async () => {
+        await valLength();
+    });
+
 
 //final validation  
     document.getElementById("recipeForm").addEventListener("submit", async function(event) {
@@ -337,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let spinner = document.getElementById("Spinner");
         spinner.style.display = "inline-block";
 
-        valDifficulty();
+        await valDifficulty();
         await valImage();
         await valLength();
         await checkRecipeAvailability();
