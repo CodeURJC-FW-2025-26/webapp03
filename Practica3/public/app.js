@@ -338,8 +338,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let spinner = document.getElementById("Spinner");
         spinner.style.display = "inline-block";
 
-        let ok = valDifficulty() && await valImage() && await valLength() && await checkRecipeAvailability() && await upperLetter() && await lettersDescription() && await lettersSteps() && await valDish();
-        if (!ok) return;
+        valDifficulty();
+        await valImage();
+        await valLength();
+        await checkRecipeAvailability();
+        await upperLetter();
+        await lettersDescription();
+        await lettersSteps();
+        await valDish();
 
         const formData = new FormData(event.target);
         const response = await fetch(event.target.action, {    // /NewItem o edititem
@@ -353,7 +359,9 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Receta guardada correctamente");
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
-            alert("Errores: " + (result.errors?.join(", ") || result.message || "Error al procesar los datos."));
+            if (result.errors && result.errors.length > 0) {
+                alert("Errores:\n" + result.errors.join("\n")); // \n is for a brake line, join is to make a string with a field of an array
+            }
         }
         
         spinner.style.display = "none";

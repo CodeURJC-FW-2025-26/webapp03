@@ -30,13 +30,13 @@
         <form id="recipeForm" onsubmit="submitRecipe(event)" role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" name="name" oninput='checkRecipeAvailability()' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta..." required>
+                <input type="text" name="name" oninput='checkRecipeAvailability()' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta...">
                 <div id="NameError"></div> <!--error notification-->
             </div>
 
             <div class="form-group row justify-content-center">
                 <label for="Dish"><strong> Tipo de plato: </strong></label>
-                <select class="form-select justify-content-center" name="dish" id="Dish" required>
+                <select class="form-select justify-content-center" name="dish" id="Dish">
                     <option value="" disabled selected> Tipo de plato... </option>
                     <option value="Guarnición" {{#isStarter}}selected{{/isStarter}}> Guarnición. </option>
                     <option value="Primer plato" {{#isSide}}selected{{/isSide}}> Primer plato. </option>
@@ -58,7 +58,7 @@
 
             <div class="form-group row justify-content-center">
                 <label for="Length"><strong> Duración: </strong></label>
-                <select class="form-select justify-content-center" name="length" id="Length" required>
+                <select class="form-select justify-content-center" name="length" id="Length">
                         <option value="" disabled selected> Duración... </option>
                         <option value="5 min" {{#is5min}}selected{{/is5min}}> 5 min </option>
                         <option value="15 min" {{#is15min}}selected{{/is15min}}> 15 min </option>
@@ -103,7 +103,7 @@
 
             <div class="form-group">
                 <label for="Steps"><strong> Pasos de preparacion: </strong></label>
-                <textarea class="form-control" name="steps" id="Steps" rows="3" required> {{recipe.steps}} </textarea>
+                <textarea class="form-control" name="steps" id="Steps" rows="3"> {{recipe.steps}} </textarea>
                 <div class="invalid-feedback" id="StepsError"></div> <!--estilo bootstrap a la noti de error-->
             </div>
 
