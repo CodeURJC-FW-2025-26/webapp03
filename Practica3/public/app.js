@@ -152,7 +152,6 @@ async function checkRecipeAvailability() {
     }
 }
 
-
 //check if the first letter of the name is capital
 async function upperLetter() {
     let nameInput = document.getElementById("Name");
@@ -303,10 +302,33 @@ async function valDifficulty() {
     }
 }
 
+// Price validation
+async function valPrice(){
+    let priceInput = document.getElementById("Price");
+    let price = priceInput.value;
+    let priceError = document.getElementById("PriceError");
 
+    const priceRegex = /^\d{1,3},\d{2} €\.?$/;
 
-    //Formulary validation!!!!
+    if (!price){
+        priceError.innerHTML = "<p> Debes introducir un precio </p>";
+        priceInput.classList.remove("is-valid");
+        priceInput.classList.add("is-invalid");
+        return false;
+    } else if (!priceRegex.test(price)) {
+        priceError.innerHTML = "<p>El precio debe tener el formato X,XX € (ej: 1,65 €)</p>";
+        priceInput.classList.remove("is-valid");
+        priceInput.classList.add("is-invalid");
+        return false;
+    } else {
+        priceError.innerHTML = "";
+        priceInput.classList.remove("is-invalid");
+        priceInput.classList.add("is-valid");
+        return true;
+    }
+}
 
+//Recipe formulary validation
 document.addEventListener("DOMContentLoaded", () => {
     //variables
     let nameInput = document.getElementById("Name") 
@@ -316,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let lengthInput = document.getElementById("Length")
     let difficultyInput = document.getElementById("Difficulty")
 
-    //use of blur event 
+    //use of blur event
     nameInput.addEventListener("blur", async () => {
         await upperLetter();
     });
@@ -340,6 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
     difficultyInput.addEventListener("click", async () => {
         await valDifficulty();
     });
+
 
     //final validation  
     document.getElementById("recipeForm").addEventListener("submit", async function(event) {
@@ -365,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let result = await response.json();
 
-        if (response.ok) {    //response.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
+        if (result.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
             alert("Receta guardada correctamente");
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
@@ -379,12 +402,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
- //variables
+    //variables
     let nameInput = document.getElementById("Name")
     let priceInput = document.getElementById("Price")
     let descriptionInput = document.getElementById("Description")
 
- // needs ( blur )
+    // use of blur event
     nameInput.addEventListener("blur", async () => {
         await upperLetter();
     });
@@ -397,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await valPrice();
     })
 
- //final validation 
+    //final validation 
     document.getElementById("ingredientForm").addEventListener("submit", async function(event){
         event.preventDefault();
         let spinner = document.getElementById("Spinner");
@@ -416,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let result = await response.json();
 
-        if (response.ok) {    
+        if (result.ok) {    
             alert("Ingrediente guardado correctamente");
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
@@ -427,5 +450,4 @@ document.addEventListener("DOMContentLoaded", () => {
             
         spinner.style.display = "none";
     });
-
 });

@@ -71,7 +71,7 @@
         <form id="ingredientForm" onsubmit="submitIngredient(event)"role="form" method="post" action="{{#isEdit}}/EditIngredient/{{recipe._id}}/{{ingredient._id}}{{/isEdit}}{{^isEdit}}/NewIngredient{{/isEdit}}" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" name="name" id="Name" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..." required> 
+                <input type="text" class="form-control" name="name" id="Name" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..."> 
             </div>  
 
             <div class="row">
@@ -99,7 +99,7 @@
 
             <div class="form-group">
                 <label for="Price"><strong> Precio: </strong></label>
-                <input type="text" class="form-control" id="Price" name="price" value="{{ingredient.price}}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\d{1,3},\d{2} €\.?$"> 
+                <input type="text" class="form-control" id="Price" name="price" value="{{ingredient.price}}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" pattern="^\d{1,3},\d{2} €\.?$"> 
             </div>  
 
             <div class="form-group">
@@ -109,7 +109,7 @@
 
             <div class="form-group">
                 <label for="Image"><strong> Imagen: {{#isEdit}} (opcional, si no se incluye se mantendrá la anterior) {{/isEdit}} </strong></label>
-                <input type="file" class="form-control" name="image" id="Image" accept="image/*" {{^isEdit}}required{{/isEdit}}>
+                <input type="file" class="form-control" name="image" id="Image" accept="image/*">
             </div>
 
             <div class="form-group mb-0">
