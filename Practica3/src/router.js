@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import fs from 'node:fs/promises';
+import fs from 'node:fs/promises'; //only for deleting images 
 
 import * as recipesDB from './recipesDB.js';
 
@@ -262,15 +262,25 @@ router.get('/ingredient/:recipe_id/:ingredient_id/edit', async (req, res) => {
 
 router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
-    let deleteImage = req.body.deleteImage === "true";
 
-    if (deleteImage && !req.file) {
+    if (!req.file) {
+        if (recipe.image) { //delete image from the uploads folder
+            const imagePath = recipesDB.UPLOADS_FOLDER + '/' + recipe.image;
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Error al eliminar la imagen:", err);
+                } else {
+                    console.log("Imagen eliminada:", imagePath);
+                }
+            });
+        }
         recipe.image = null;
     } else if (req.file) {
         recipe.image = req.file.filename;
     }
 
     let editRecipe = {
+        edit: true, //only for the validation
         _id: recipe._id,
         name: req.body.name,
         dish: req.body.dish,
@@ -279,7 +289,7 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
         description: req.body.description,
         allergens: req.body.allergens,
         steps: req.body.steps,
-        image: req.file ? req.file.filename : recipe.image,
+        image: recipe.image,
         ingredients: recipe.ingredients
     };
 
@@ -289,6 +299,7 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
         return res.status(400).json({ errors });
     }
 
+    delete editRecipe.edit; //edit is an atributte only used for the validation
     await recipesDB.editRecipe(editRecipe);
     res.json({ id: editRecipe._id });
 });

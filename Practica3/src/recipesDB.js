@@ -142,7 +142,7 @@ export async function validateRecipe(recipe, nameOriginalRecipe){
     if (!recipe.length) errors.push("La duración es obligatoria"); 
     if (!recipe.description) errors.push("La descripción es obligatoria"); 
     if (!recipe.steps) errors.push("Los pasos son obligatorios"); 
-    if (!recipe.image) errors.push("La imagen es obligatoria"); 
+    if ((!recipe.image) && (!recipe.edit)) errors.push("La imagen es obligatoria"); 
     if (recipe.name && !/^[A-ZÁÉÍÓÚÑ]/.test(recipe.name)) { 
         errors.push("El nombre de la receta debe comenzar por mayúscula"); 
     } 

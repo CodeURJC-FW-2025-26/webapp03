@@ -25,15 +25,12 @@ async function DeleteImage() {
     let imagePreview = document.getElementById("ImagePreview");
     let imageButton = document.getElementById("ImageButton");
     let dropArea = document.getElementById("DropArea");
-    let deleteEdit = document.getElementById("EditDeleteImage");
 
     imageInput.value = "";
     imageInput.dispatchEvent(new Event("change")); //change event for the validation event listener
     imagePreview.innerHTML = "";
     imageButton.style.display = "none";
     dropArea.style.display = "block"
-
-    deleteEdit.value = "true";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -323,8 +320,9 @@ async function valLength() {
 async function valImage() {
     let imageInput = document.getElementById("Image");
     let imageError = document.getElementById("ImageError");
+    let editDeleteImage = document.getElementById("EditDeleteImage"); //.value === true if isEdit and === false if is new item
 
-    if (!imageInput.files || imageInput.files.length === 0) {
+    if ((!imageInput.files || imageInput.files.length === 0) && (editDeleteImage.value === "false")) { 
         imageError.innerHTML = "<p>Debes seleccionar una imagen</p>";
         imageInput.classList.remove("is-valid");
         imageInput.classList.add("is-invalid");
@@ -438,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await valDish();
 
         const formData = new FormData(event.target);
-        const response = await fetch(event.target.action, {    // /NewItem o editItem
+        const response = await fetch(event.target.action, {    // /NewItem o EditItem
             method: "POST",
             body: formData
         });
