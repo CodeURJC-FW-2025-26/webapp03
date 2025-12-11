@@ -113,7 +113,7 @@ router.get('/NewItemPage.html', async (req, res) => {
 
 router.get('/recipe/:_id/image', async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
-    res.download(recipesDB.UPLOADS_FOLDER + '/' + recipe.image);
+    if(recipe.image) res.download(recipesDB.UPLOADS_FOLDER + '/' + recipe.image);
 });
 
 router.get('/ingredient/:recipe_id/:_id/image', async (req, res) => {
