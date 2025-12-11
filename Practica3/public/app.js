@@ -1,5 +1,4 @@
-//images function
-
+//Images functions
 async function previewImage(event) {
     let file = event.target.files[0]; //event.target = input type file, files[0] first file selected 
     let previewImg = document.getElementById("ImagePreview");
@@ -9,13 +8,12 @@ async function previewImage(event) {
 
     if (file) {
         let img = document.createElement("img"); //create a element img in memory
-        img.src = URL.createObjectURL(file);   // create a url that aim to the file of your pc
+        img.src = URL.createObjectURL(file);   //create a url that aim to the file of your pc
         img.style.maxWidth = "200px";
-        img.classList.add("img-thumbnail");    // bootstrap styles
+        img.classList.add("img-thumbnail");    //bootstrap styles
         previewImg.appendChild(img);
 
-    //button of delete
-
+    //Delete button
     let buttonImg = document.getElementById("ImageButton");
     buttonImg.style.display = "block";
     dropArea.style.display = "none";
@@ -30,12 +28,12 @@ async function DeleteImage() {
     let deleteEdit = document.getElementById("EditDeleteImage");
 
     imageInput.value = "";
+    imageInput.dispatchEvent(new Event("change")); //change event for the validation event listener
     imagePreview.innerHTML = "";
     imageButton.style.display = "none";
     dropArea.style.display = "block"
 
     deleteEdit.value = "true";
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,17 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dropArea.style.display = "none"
         previewImage({ target: inputImg }); //preview
     };
-    
 });
-
-
-
-
-
-
-
-
-
 
 // Infinite Scroll functions
 let numPage = 1;
@@ -402,6 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let dishInput = document.getElementById("Dish")
     let lengthInput = document.getElementById("Length")
     let difficultyInput = document.getElementById("Difficulty")
+    let imageInput = document.getElementById("Image")
 
     //use of blur event
     nameInput.addEventListener("blur", async () => {
@@ -428,6 +417,9 @@ document.addEventListener("DOMContentLoaded", () => {
         await valDifficulty();
     });
 
+    imageInput.addEventListener("change", async () => {
+        await valImage();
+    });
 
     //final validation  
     document.getElementById("recipeForm").addEventListener("submit", async function(event) {
