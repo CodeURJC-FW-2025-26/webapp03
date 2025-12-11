@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import router from './router.js';
 import './load_data.js';
 
+import { UPLOADS_FOLDER } from './recipesDB.js';
+
 const app = express();
 
 app.use(express.static('./public'));
@@ -19,3 +21,5 @@ app.use(express.json());
 app.use('/', router);
 
 app.listen(3000, () => console.log('Web ready in http://localhost:3000/'));
+
+app.use('/uploads', express.static(UPLOADS_FOLDER));

@@ -1,3 +1,68 @@
+//images function
+
+async function previewImage(event) {
+    let file = event.target.files[0]; //event.target = input type file, files[0] first file selected 
+    let previewImg = document.getElementById("ImagePreview");
+    let dropArea = document.getElementById("DropArea");
+
+    previewImg.innerHTML = "";
+
+    if (file) {
+        let img = document.createElement("img"); //create a element img in memory
+        img.src = URL.createObjectURL(file);   // create a url that aim to the file of your pc
+        img.style.maxWidth = "200px";
+        img.classList.add("img-thumbnail");    // bootstrap styles
+        previewImg.appendChild(img);
+
+    //button of delete
+
+    let buttonImg = document.getElementById("ImageButton");
+    buttonImg.style.display = "block";
+    dropArea.style.display = "none";
+  }
+}
+
+async function DeleteImage() {
+    let imageInput = document.getElementById("Image");
+    let imagePreview = document.getElementById("ImagePreview");
+    let imageButton = document.getElementById("ImageButton");
+    let dropArea = document.getElementById("DropArea");
+    let deleteEdit = document.getElementById("EditDeleteImage");
+
+    imageInput.value = "";
+    imagePreview.innerHTML = "";
+    imageButton.style.display = "none";
+    dropArea.style.display = "block"
+
+    deleteEdit.value = "true";
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    let dropArea = document.getElementById("DropArea");
+    let inputImg = document.getElementById("Image");
+
+    dropArea.ondragover = (event) => event.preventDefault(); //execute this when u drag an img on the area, and the event.preventdefault forbide open the file
+
+    dropArea.ondrop = (event) => {  //same but when u drop
+        event.preventDefault();
+
+        inputImg.files = event.dataTransfer.files; //event.dataTransfer.files have the list of file that u drag, and the file go to image
+        dropArea.style.display = "none"
+        previewImage({ target: inputImg }); //preview
+    };
+    
+});
+
+
+
+
+
+
+
+
+
+
 // Infinite Scroll functions
 let numPage = 1;
 let isLoading = false;

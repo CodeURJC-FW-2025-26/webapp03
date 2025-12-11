@@ -262,6 +262,14 @@ router.get('/ingredient/:recipe_id/:ingredient_id/edit', async (req, res) => {
 
 router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
+    let deleteImage = req.body.deleteImage === "true";
+
+    if (deleteImage && !req.file) {
+        recipe.image = null;
+    } else if (req.file) {
+        recipe.image = req.file.filename;
+    }
+
     let editRecipe = {
         _id: recipe._id,
         name: req.body.name,
