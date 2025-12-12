@@ -506,3 +506,45 @@ document.addEventListener("DOMContentLoaded", () => {
         spinner.style.display = "none";
     });
 });
+
+//delete recipe with ajax
+async function deleteRecipe(action){
+    let spinner = document.getElementById("DeleteSpinner");
+    spinner.style.display = "inline-block";
+
+    const response = await fetch(action);
+    const result = await response.json();
+
+    if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
+        alert("Receta borrada correctamente");
+        window.location.href = `/MainPage.html/1`;
+    } else {
+        if (result.errors && result.errors.length > 0) {
+            alert("Errores:\n" + result.errors.join("\n")); // \n is for a brake line, join is to make a string with a field of an array
+        }
+        window.location.href = `/MainPage.html/1`;
+    }
+    
+    spinner.style.display = "none";
+}
+
+//delete recipe with ajax
+async function deleteIngredient(action){
+    let spinner = document.getElementById("DeleteIngredientSpinner");
+    spinner.style.display = "inline-block";
+
+    const response = await fetch(action);
+    const result = await response.json();
+
+    if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
+        alert("Ingrediente borrado correctamente");
+        window.location.href = `/DetailPage.html/${result.recipeId}`;
+    } else {
+        if (result.errors && result.errors.length > 0) {
+            alert("Errores:\n" + result.errors.join("\n")); // \n is for a brake line, join is to make a string with a field of an array
+        }
+        window.location.href = `/DetailPage.html/${result.recipeId}`;
+    }
+    
+    spinner.style.display = "none";
+}

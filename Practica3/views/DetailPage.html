@@ -39,9 +39,14 @@
         {{/recipe.image}}
 
         <div class="row p-3 justify-content-center">
-            <a href="/recipe/{{recipe._id}}/delete" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </a>
+            <button onclick="deleteRecipe('/recipe/{{recipe._id}}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
             <a href="/recipe/{{recipe._id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
             <a href="/MainPage.html/1" class="btn btn-primary" role="button"> <i class="bi bi-box-arrow-left"></i> Volver </a>
+        </div>
+
+        <!--Delete Ingredient Spinner-->
+        <div id="DeleteSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+            <span class="visually-hidden">Procesando...</span>
         </div>
     </div>
 
@@ -56,9 +61,14 @@
                 <img class="img-fluid rounded" src="/ingredient/{{recipe._id}}/{{_id}}/image" alt="{{name}}">
             {{/image}}
             <div class="row p-3 justify-content-center">
-                <a href="/ingredient/{{recipe._id}}/{{_id}}/delete" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </a>
+                <button onclick="deleteIngredient('/ingredient/{{recipe._id}}/{{_id}}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
                 <a href="/ingredient/{{recipe._id}}/{{_id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
                 <button onclick="editIngredient('{{recipe._id}}', '{{_id}}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
+            </div>
+
+            <!--Delete Ingredient Spinner-->
+            <div id="DeleteIngredientSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                <span class="visually-hidden">Procesando...</span>
             </div>
         </div>
     {{/recipe.ingredients}}

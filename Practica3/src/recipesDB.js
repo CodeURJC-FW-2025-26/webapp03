@@ -22,7 +22,12 @@ export async function addRecipe(recipe) {
 }
 
 export async function deleteRecipe(id){
-    return await recipes.findOneAndDelete({ _id: new ObjectId(id) });
+    //return await recipes.findOneAndDelete({ _id: new ObjectId(id) });
+    let errors = [];
+    let found = await recipes.findOne({ _id: new ObjectId(id) });
+    if (!found) errors.push("Error al borrar: el objeto ya no existe"); 
+    else await recipes.findOneAndDelete({ _id: new ObjectId(id) });
+    return errors;
 }
 
 export async function deleteRecipes(){
@@ -90,14 +95,26 @@ export async function addIngredient(recipeId, ingredient) {
 }
 
 export async function deleteIngredient(recipeId, ingredientId) {
-  return await recipes.updateOne(
-    { _id: new ObjectId(recipeId) },
-    { $pull: { ingredients: { _id: new ObjectId(ingredientId) } } }
-  );
+    /*return await recipes.updateOne(
+        { _id: new ObjectId(recipeId) },
+        { $pull: { ingredients: { _id: new ObjectId(ingredientId) } } }
+    );*/
+
+    let errors = [];
+    let found = await recipes.findOne(
+                    { _id: new ObjectId(recipeId)},
+                    { projection: { ingredients: { $elemMatch: { _id: new ObjectId(ingredientId) }}}}
+                );
+    if (!found.ingredients) errors.push("Error al borrar: el objeto ya no existe"); 
+    else await recipes.updateOne(
+            { _id: new ObjectId(recipeId) },
+            { $pull: { ingredients: { _id: new ObjectId(ingredientId) } } }
+        );
+    return errors;
 }
 
 export async function findRecipeByName(name) {
-  return await recipes.findOne({ name: name });
+    return await recipes.findOne({ name: name });
 }
 
 export async function findIngredientByName(name) {

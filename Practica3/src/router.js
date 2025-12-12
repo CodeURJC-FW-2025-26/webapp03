@@ -181,17 +181,33 @@ router.post('/NewIngredient', upload.single('image'), async (req, res) => {
 //Delete functions for recipes and ingredients
 router.get('/recipe/:_id/delete', async (req, res) => {
     let recipeId = req.params._id;
-    await recipesDB.deleteRecipe(recipeId);
+    /*await recipesDB.deleteRecipe(recipeId);
     let recipe = false;
-    res.render('RecipeConfirmation', { recipe });
+    res.render('RecipeConfirmation', { recipe });*/
+
+    let errors = await recipesDB.deleteRecipe(recipeId);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.status(400).json({ errors });
+    }
+
+    res.json({ errors });
 });
 
 router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
     let recipeId = req.params.recipe_id;
     let ingredientId = req.params.ingredient_id;
-    await recipesDB.deleteIngredient(recipeId, ingredientId);
+    /*await recipesDB.deleteIngredient(recipeId, ingredientId);
     let recipe = await recipesDB.getRecipe(recipeId);
-    res.render('RecipeConfirmation', { recipe });
+    res.render('RecipeConfirmation', { recipe });*/
+
+    let errors = await recipesDB.deleteIngredient(recipeId, ingredientId);
+    if (errors.length > 0) {
+        console.log("❌ Errores:", errors);
+        return res.status(400).json({ recipeId, errors });
+    }
+
+    res.json({ recipeId });
 });
 
 //Edit functions for recipes and ingredients
