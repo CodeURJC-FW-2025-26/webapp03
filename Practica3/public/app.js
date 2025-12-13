@@ -25,12 +25,14 @@ async function DeleteImage() {
     let imagePreview = document.getElementById("ImagePreview");
     let imageButton = document.getElementById("ImageButton");
     let dropArea = document.getElementById("DropArea");
+    let editDeleteImage = document.getElementById("EditDeleteImage");
 
     imageInput.value = "";
     imageInput.dispatchEvent(new Event("change")); //change event for the validation event listener
     imagePreview.innerHTML = "";
     imageButton.style.display = "none";
     dropArea.style.display = "block"
+    editDeleteImage.value = "true";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -121,10 +123,13 @@ async function editIngredient(recipe_id, ingredient_id){
     ingredientSection.innerHTML = `
         <h1> Editar ingrediente: </h1>
 
-        <form role="form" method="post" action="/EditIngredient/${recipe_id}/${ingredient_id}" enctype="multipart/form-data">
+        <form id="ingredientForm" role="form" method="post" action="/EditIngredient/${recipe_id}/${ingredient_id}" enctype="multipart/form-data">
+            <input type="hidden" name="editForm" id="EditForm" value="true">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" name="name" id="Name" value="${ingredient.name}" placeholder="Nombre del ingrediente..." required> 
+                <input type="text" class="form-control" name="name" id="Name" value="${ingredient.name}" placeholder="Nombre del ingrediente..."> 
+                <div id="NameError"></div> <!--error notification-->
+                <div id="NameError2"></div> <!--error notification-->
             </div>  
 
             <div class="row">
@@ -152,25 +157,39 @@ async function editIngredient(recipe_id, ingredient_id){
 
             <div class="form-group">
                 <label for="Price"><strong> Precio: </strong></label>
-                <input type="text" class="form-control" id="Price" name="price" value="${ingredient.price}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €" required pattern="^\\d{1,3},\\d{2} €\\.?$"> 
+                <input type="text" class="form-control" id="Price" name="price" value="${ingredient.price}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €"> 
+                <div class="invalid-feedback" id="PriceError"></div> <!--bootstrap style-->
             </div>  
 
             <div class="form-group">
                 <label for="Description"><strong> Descripción: </strong></label>
                 <textarea class="form-control" name="description" id="Description" rows="3"> ${ingredient.description} </textarea>
+                <div class="invalid-feedback" id="DescriptionError"></div> <!--bootstrap style-->
             </div>
 
             <div class="form-group">
-                <label for="Image"><strong> Imagen: (opcional, si no se incluye se mantendrá la anterior) </strong></label>
-                <input type="file" class="form-control" name="image" id="Image" accept="image/*">
+                <label for="Image"><strong> Imagen: (opcional, si no se incluye o se selecciona una distinta se eliminará la anterior) </strong></label>
+                <input class="form-control" onchange="previewImage(event)" name="image" id="Image" type="file" accept="image/*">
+                <div id="DropArea" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 10px; display: block;">Arrastra la imagen aqui</div>
+                <div id="ImagePreview"> ${ingredient.image ? `<img src='/uploads/${ingredient.image}' class='img-thumbnail' style='max-width:200px;'>` : ""} </div>
+                <button type="button" onclick="DeleteImage()" class="btn btn-primary" id="ImageButton"style="${ingredient.image ? "display:block;" : "display:none;"}"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
+                <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
+                <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
             </div>
 
             <div class="form-group mb-0">
                 <input type="hidden" name="recipe_id" value="${recipe_id}">
                 <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> Guardar </button>
             </div>
+
+            <!--Spinner-->
+            <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
+                <span class="visually-hidden">Procesando...</span>
+            </div>
         </form>
-        `;
+    `;
+
+    ingredientFormularyValidation();
 }
 
 // Validation functions
@@ -320,9 +339,9 @@ async function valLength() {
 async function valImage() {
     let imageInput = document.getElementById("Image");
     let imageError = document.getElementById("ImageError");
-    let editDeleteImage = document.getElementById("EditDeleteImage"); //.value === true if isEdit and === false if is new item
+    let editForm = document.getElementById("EditForm"); //.value === true if isEdit and === false if is new item
 
-    if ((!imageInput.files || imageInput.files.length === 0) && (editDeleteImage.value === "false")) { 
+    if ((!imageInput.files || imageInput.files.length === 0) && (editForm.value === "false")) { 
         imageError.innerHTML = "<p>Debes seleccionar una imagen</p>";
         imageInput.classList.remove("is-valid");
         imageInput.classList.add("is-invalid");
@@ -456,7 +475,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+//Ingredient formulary validation
+async function ingredientFormularyValidation() {
     //variables
     let nameInput = document.getElementById("Name");
     let priceInput = document.getElementById("Price");
@@ -501,12 +521,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {    
             alert("Ingrediente guardado correctamente");
-            const ingredientsList = document.getElementById("ingredientsList");
-            const ingredient = result.ingredient;
+            let ingredientsList = document.getElementById("ingredientsList");
+            let ingredient = result.ingredient;
+            let ingredientDiv;
+            let edit = false;
             
-            const ingredientDiv = document.createElement("div");
-            ingredientDiv.className = "container-fluid";
-            ingredientDiv.id = "ingredient-" + `${ingredient._id}`;
+            if(document.getElementById("ingredient-" + ingredient._id)){
+                ingredientDiv = document.getElementById("ingredient-" + ingredient._id);
+                edit = true;
+            }else {
+                ingredientDiv = document.createElement("div");
+                ingredientDiv.className = "container-fluid";
+                ingredientDiv.id = "ingredient-" + ingredient._id;
+            }
 
             ingredientDiv.innerHTML = `
                 <h3><strong> Nombre del ingrediente: </strong> ${ingredient.name}. </h3>
@@ -514,7 +541,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><strong> Precio: </strong> ${ingredient.price} </p>
                 <p><strong> Descripción: </strong> ${ingredient.description} </p>
                 <p><strong> Imagen del ingrediente: </strong></p>
-                <img class="img-fluid rounded" src="/ingredient/${result.id}/${ingredient._id}/image" alt="${ingredient.name}">
+                ${ingredient.image ? `<img class="img-fluid rounded" src="/ingredient/${result.id}/${ingredient._id}/image" alt="${ingredient.name}">` : ""}
                 <div class="row p-3 justify-content-center">
                     <button onclick="deleteIngredient('/ingredient/${result.id}/${ingredient._id}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
                     <a href="/ingredient/${result.id}/${ingredient._id}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
@@ -527,12 +554,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
-            ingredientsList.appendChild(ingredientDiv);
-            event.target.reset(); //clear formulary
-            nameInput.classList.remove("is-valid");
-            descriptionInput.classList.remove("is-valid");
-            priceInput.classList.remove("is-valid");
-            imageInput.classList.remove("is-valid");
+            if(!edit){ //if its an edit the formulary will disappear so its not neccesary to reset it
+                ingredientsList.appendChild(ingredientDiv); //only append if its a new ingredient
+                event.target.reset(); //clear formulary
+                nameInput.classList.remove("is-valid");
+                descriptionInput.classList.remove("is-valid");
+                priceInput.classList.remove("is-valid");
+                imageInput.classList.remove("is-valid");
+            }
         } else {
             if (result.errors && result.errors.length > 0) {
                 alert("Errores:\n" + result.errors.join("\n")); 
@@ -541,6 +570,10 @@ document.addEventListener("DOMContentLoaded", () => {
             
         spinner.style.display = "none";
     });
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    ingredientFormularyValidation();
 });
 
 //delete recipe with ajax

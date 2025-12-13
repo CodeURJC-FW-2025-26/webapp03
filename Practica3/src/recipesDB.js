@@ -141,10 +141,10 @@ export async function editRecipe(recipe){
     return recipe;
 }
 
-export async function editIngredient(recipe, ingredient){
+export async function editIngredient(recipeId, ingredient){
     ingredient._id = new ObjectId(ingredient._id);
     return await recipes.updateOne(
-        { _id: new ObjectId(recipe._id),
+        { _id: new ObjectId(recipeId),
           "ingredients._id": new ObjectId(ingredient._id) 
         },
         { $set: { "ingredients.$": ingredient } }
@@ -186,7 +186,7 @@ export async function validateIngredient(recipeId, ingredient, nameOriginalIngre
     if (!ingredient.name) errors.push("El nombre del ingrediente es obligatorio"); 
     if (!ingredient.price) errors.push("El precio es obligatorio"); 
     if (!ingredient.description) errors.push("La descripción es obligatoria"); 
-    if (!ingredient.image) errors.push("La imagen es obligatoria"); 
+    if ((!ingredient.image) && (!ingredient.edit)) errors.push("La imagen es obligatoria"); 
     if (ingredient.name && !/^[A-ZÁÉÍÓÚÑ]/.test(ingredient.name)) { 
         errors.push("El nombre del ingrediente debe comenzar por mayúscula"); 
     } 

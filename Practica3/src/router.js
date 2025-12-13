@@ -279,22 +279,6 @@ router.get('/ingredient/:recipe_id/:ingredient_id/edit', async (req, res) => {
 router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
 
-    if (!req.file) {
-        if (recipe.image) { //delete image from the uploads folder
-            const imagePath = recipesDB.UPLOADS_FOLDER + '/' + recipe.image;
-            fs.unlink(imagePath, (err) => {
-                if (err) {
-                    console.error("Error al eliminar la imagen:", err);
-                } else {
-                    console.log("Imagen eliminada:", imagePath);
-                }
-            });
-        }
-        recipe.image = null;
-    } else if (req.file) {
-        recipe.image = req.file.filename;
-    }
-
     let editRecipe = {
         edit: true, //only for the validation
         _id: recipe._id,
@@ -305,7 +289,7 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
         description: req.body.description,
         allergens: req.body.allergens,
         steps: req.body.steps,
-        image: recipe.image,
+        image: req.file ? req.file.filename : recipe.image,
         ingredients: recipe.ingredients
     };
 
@@ -315,6 +299,20 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
         return res.status(400).json({ errors });
     }
 
+    if (!req.file && (req.body.deleteImage === "true")) {
+        if (recipe.image) { //delete image from the uploads folder
+            const imagePath = recipesDB.UPLOADS_FOLDER + '/' + recipe.image;
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Error al eliminar la imagen:", err);
+                } else {
+                    console.log("Imagen eliminada:", imagePath);
+                }
+            });
+        }
+        editRecipe.image = null;
+    } 
+
     delete editRecipe.edit; //edit is an atributte only used for the validation
     await recipesDB.editRecipe(editRecipe);
     res.json({ id: editRecipe._id });
@@ -323,9 +321,10 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
 router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'), async (req, res) => {
     let recipeId = req.params.recipe_id;
     let ingredientId = req.params.ingredient_id;
-    let recipe = await recipesDB.getRecipe(recipeId);
     let ingredient = await recipesDB.getIngredient(recipeId, ingredientId);
+
     let editIngredient = {
+        edit: true, //only for the validation
         _id: ingredientId,
         name: req.body.name,
         allergens: req.body.allergens,
@@ -337,12 +336,26 @@ router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'),
     let errors = await recipesDB.validateIngredient(recipeId, editIngredient, ingredient.name);
     if (errors.length > 0) {
         console.log("❌ Errores:", errors);
-        return res.render('ErrorFormulary', { errors });
+        return res.status(400).json({ errors }); // status400 bad request, send a json with the errors
     }
 
-    await recipesDB.editIngredient(recipe, editIngredient);
-    recipe = await recipesDB.getRecipe(recipeId);
-    res.render('RecipeConfirmation', { recipe });
+    if (!req.file && (req.body.deleteImage === "true")) {
+        if (ingredient.image) { //delete image from the uploads folder
+            const imagePath = recipesDB.UPLOADS_FOLDER + '/' + ingredient.image;
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Error al eliminar la imagen:", err);
+                } else {
+                    console.log("Imagen eliminada:", imagePath);
+                }
+            });
+            editIngredient.image = null;
+        }
+    }
+
+    delete editIngredient.edit; //edit is an atributte only used for the validation
+    await recipesDB.editIngredient(recipeId, editIngredient);
+    res.json({ id: recipeId, ingredient: editIngredient });
 });
 
 // Functions for AJAX and interactive JS

@@ -29,6 +29,7 @@
 
         <!--onsubmit="submitRecipe(event)"-->
         <form id="recipeForm" role="form" method="post" action="{{#isEdit}}/EditItem/{{recipe._id}}{{/isEdit}}{{^isEdit}}NewItem{{/isEdit}}" enctype="multipart/form-data">
+            <input type="hidden" name="editForm" id="EditForm" value="{{#isEdit}}true{{/isEdit}}{{^isEdit}}false{{/isEdit}}">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
                 <input type="text" name="name" oninput='checkRecipeAvailability()' class="form-control" id="Name" value="{{recipe.name}}" placeholder="Nombre de la receta...">
@@ -115,7 +116,7 @@
                 <div id="DropArea" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 10px; display: block;">Arrastra la imagen aqui</div>
                 <div id="ImagePreview">{{#recipe.image}}<img src="/uploads/{{recipe.image}}" class="img-thumbnail" style="max-width:200px;">{{/recipe.image}}</div>
                 <button type="button" onclick="DeleteImage()" class="btn btn-primary" id="ImageButton"style="{{#recipe.image}}display:block;{{/recipe.image}}{{^recipe.image}}display:none;{{/recipe.image}}"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
-                <input type="hidden" name="deleteImage" id="EditDeleteImage" value="{{#isEdit}}true{{/isEdit}}{{^isEdit}}false{{/isEdit}}">
+                <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
                 <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
             </div>
 
