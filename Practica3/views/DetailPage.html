@@ -22,6 +22,8 @@
     
     {{>Header}}
 
+    <div id="page-vars" data-recipe-id="{{recipe._id}}"></div> <!-- with this app.js can access page variables -->
+
     <div class="container-fluid p-3">
         <h2><strong> Nombre de la receta: </strong> {{recipe.name}} </h2>
         <p><strong> Tipo de plato: </strong> {{recipe.dish}} </p>
@@ -85,7 +87,7 @@
             <input type="hidden" name="editForm" id="EditForm" value="false">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" name="name" id="Name" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..."> 
+                <input type="text" class="form-control" name="name" id="Name" oninput="checkIngredientAvailability('{{recipe._id}}')" value="{{ingredient.name}}" placeholder="Nombre del ingrediente..."> 
                 <div id="NameError"></div> <!--error notification-->
                 <div id="NameError2"></div> <!--error notification-->
             </div>  

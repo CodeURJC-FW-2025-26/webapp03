@@ -371,3 +371,11 @@ router.get("/availableRecipe", async (req, res) => {
     let availableRecipe = recipe === null;
     res.json(availableRecipe);
 });
+
+router.get("/availableIngredient", async (req, res) => {
+    let recipeId = req.query.recipeId;
+    let ingredientName = req.query.ingredientName;
+    let ingredient = await recipesDB.findIngredientByName(recipeId, ingredientName);
+    let availableIngredient = ingredient === null;
+    res.json(availableIngredient);
+});

@@ -117,11 +117,18 @@ export async function findRecipeByName(name) {
     return await recipes.findOne({ name: name });
 }
 
-export async function findIngredientByName(name) {
-    return await recipes.findOne(
-        { "ingredients.name": name },
-        { projection: { "ingredients.$": 1 } }
+export async function findIngredientByName(recipeId, ingredientName) {
+    let recipe = await recipes.findOne(
+        { _id: new ObjectId(recipeId)},
+        { projection: { ingredients: { $elemMatch: { name: ingredientName }}}}
     );
+    let ingredient;
+    if(recipe.ingredients){
+        ingredient = recipe.ingredients[0];
+    }else {
+        ingredient = null;
+    }
+    return ingredient;
 }
 
 export async function editRecipe(recipe){

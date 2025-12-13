@@ -193,6 +193,19 @@ async function editIngredient(recipe_id, ingredient_id){
 }
 
 // Validation functions
+// check if the first letter of the name is capital
+async function upperLetter() {
+    let nameInput = document.getElementById("Name");
+    let name = nameInput.value;
+    let firstLetter = name.charAt(0);
+
+    if (firstLetter === firstLetter.toUpperCase()) {;
+        return true;
+    } else {
+        return false;
+    }
+}
+
 async function checkRecipeAvailability() {
     const recipeInput = document.getElementById("Name");
     const recipeName = recipeInput.value;
@@ -205,11 +218,20 @@ async function checkRecipeAvailability() {
         return false;
     }
 
+    let upper = await upperLetter();
+
+    if (!upper) {
+        errorDiv.innerHTML = "<p>La primera letra debe ser mayúscula</p>";
+        recipeInput.classList.remove("is-valid");
+        recipeInput.classList.add("is-invalid");
+        return false;
+    }
+
     const response = await fetch(`/availableRecipe?recipe=${recipeName}`);
     const availableRecipe = await response.json();
 
     if (availableRecipe) {
-        errorDiv.innerHTML = "<p>Disponible</p>";
+        errorDiv.innerHTML = "";
         recipeInput.classList.remove("is-invalid");
         recipeInput.classList.add("is-valid");
         return true;
@@ -221,30 +243,41 @@ async function checkRecipeAvailability() {
     }
 }
 
-//check if the first letter of the name is capital
-async function upperLetter() {
-    let nameInput = document.getElementById("Name");
-    let name = nameInput.value;
-    let errorDiv = document.getElementById("NameError2");
-    let firstLetter = name.charAt(0);
+async function checkIngredientAvailability(recipeId) {
+    const ingredientInput = document.getElementById("Name");
+    const ingredientName = ingredientInput.value;
+    const errorDiv = document.getElementById("NameError");
 
-    if (!name || name.length === 0) {
-        errorDiv.innerHTML = "<p>La primera letra debe ser mayuscula</p>";
-        nameInput.classList.remove("is-valid");
-        nameInput.classList.add("is-invalid");
-        return false;
-    }   else if (checkRecipeAvailability() && (firstLetter === firstLetter.toUpperCase())) {;
-        errorDiv.innerHTML = "";
-        nameInput.classList.remove("is-invalid");
-        nameInput.classList.add("is-valid");
-        return true;
-    }   else {
-        errorDiv.innerHTML = "<p>La primera letra debe ser mayúscula</p>";
-        nameInput.classList.remove("is-valid");
-        nameInput.classList.add("is-invalid");
+    if (!ingredientName) {
+        errorDiv.textContent = "El nombre no puede estar vacío";
+        ingredientInput.classList.remove("is-valid");
+        ingredientInput.classList.add("is-invalid");
         return false;
     }
 
+    let upper = await upperLetter();
+
+    if (!upper) {
+        errorDiv.innerHTML = "<p>La primera letra debe ser mayúscula</p>";
+        ingredientInput.classList.remove("is-valid");
+        ingredientInput.classList.add("is-invalid");
+        return false;
+    }
+
+    const response = await fetch(`/availableIngredient?recipeId=${recipeId}&ingredientName=${ingredientName}`);
+    const availableIngredient = await response.json();
+
+    if (availableIngredient) {
+        errorDiv.innerHTML = "";
+        ingredientInput.classList.remove("is-invalid");
+        ingredientInput.classList.add("is-valid");
+        return true;
+    } else {
+        errorDiv.innerHTML = "<p>No disponible</p>";
+        ingredientInput.classList.remove("is-valid");
+        ingredientInput.classList.add("is-invalid");
+        return false;
+    }
 }
 
 //description validation
@@ -411,7 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //use of blur event
     nameInput.addEventListener("blur", async () => {
-        await upperLetter();
+        await checkRecipeAvailability();
     });
 
     descriptionInput.addEventListener("blur", async () => {
@@ -481,10 +514,12 @@ async function ingredientFormularyValidation() {
     let priceInput = document.getElementById("Price");
     let descriptionInput = document.getElementById("Description");
     let imageInput = document.getElementById("Image");
+    const pageVars = document.getElementById("page-vars");
+    let recipeId = pageVars.dataset.recipeId;
 
     // use of blur event
     nameInput.addEventListener("blur", async () => {
-        await upperLetter();
+        await checkIngredientAvailability(recipeId);
     });
 
     descriptionInput.addEventListener("blur", async () => {
@@ -505,7 +540,7 @@ async function ingredientFormularyValidation() {
         let spinner = document.getElementById("Spinner");
         spinner.style.display = "inline-block";
 
-        await upperLetter();
+        await checkIngredientAvailability(recipeId);
         await valImage();
         await lettersDescription();
         await valPrice();
