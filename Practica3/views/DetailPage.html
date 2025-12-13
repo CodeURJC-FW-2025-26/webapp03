@@ -129,8 +129,8 @@
                 <label for="Image"><strong> Imagen: </strong></label>
                 <input class="form-control" onchange="previewImage(event)" name="image" id="Image" type="file" accept="image/*">
                 <div id="DropArea" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 10px; display: block;">Arrastra la imagen aqui</div>
-                <div id="ImagePreview">{{#recipe.image}}<img src="/uploads/{{recipe.image}}" class="img-thumbnail" style="max-width:200px;">{{/recipe.image}}</div>
-                <button type="button" onclick="DeleteImage()" class="btn btn-primary" id="ImageButton"style="{{#recipe.image}}display:block;{{/recipe.image}}{{^recipe.image}}display:none;{{/recipe.image}}"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
+                <div id="ImagePreview"></div>
+                <button type="button" onclick="DeleteImage()" class="btn btn-primary" id="ImageButton"style="display:none;"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
                 <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
                 <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
             </div>

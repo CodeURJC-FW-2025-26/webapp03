@@ -444,7 +444,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let spinner = document.getElementById("Spinner");
         spinner.style.display = "inline-block";
-        console.log("puesto");
 
         await valDifficulty();
         await valImage();
@@ -562,6 +561,8 @@ async function ingredientFormularyValidation() {
                     descriptionInput.classList.remove("is-valid");
                     priceInput.classList.remove("is-valid");
                     imageInput.classList.remove("is-valid");
+                    let imagePreview = document.getElementById("ImagePreview");
+                    imagePreview.innerHTML = "";
                 }
             } else {
                 if (result.errors && result.errors.length > 0) {
@@ -637,12 +638,14 @@ function showAlert(messages, type = "danger") {
     let alert = document.createElement("div");
     alert.className = `alert alert-${type} alert-dismissible fade show`;
     alert.role = "alert";
-    alert.innerHTML = `<strong>${type === "danger" ? "Error" : "Éxito"}:</strong><br>${messages}<button type="button" class="btn btn-primary mt-2" id="AlertAccept">Aceptar</button>`;
+    alert.innerHTML = `
+        <strong>${type === "danger" ? "Error" : "Éxito"}:</strong><br>
+        ${messages}
+        <button type="button" class="btn btn-primary mt-2" id="AlertAccept">Aceptar</button>`;
 
     alert.querySelector("#AlertAccept").addEventListener("click", () => {
         document.getElementById("Spinner").style.display = "none";
         alert.remove();
-        console.log("borrado");
     });
 
     alertContainer.appendChild(alert);
