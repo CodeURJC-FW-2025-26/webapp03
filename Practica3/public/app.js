@@ -444,6 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let spinner = document.getElementById("Spinner");
         spinner.style.display = "inline-block";
+        console.log("puesto");
 
         await valDifficulty();
         await valImage();
@@ -462,16 +463,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let result = await response.json();
 
-        if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
-            alert("Receta guardada correctamente");
+        if (response.ok) {
+            showAlert("Receta guardada correctamente", "success");
+            spinner.style.display = "none"; 
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
             if (result.errors && result.errors.length > 0) {
-                alert("Errores:\n" + result.errors.join("\n")); // \n is for a brake line, join is to make a string with a field of an array
+                showAlert(result.errors, "danger");
             }
         }
-        
-        spinner.style.display = "none";
     });
 });
 
@@ -618,4 +618,32 @@ async function deleteIngredient(action){
     }
     
     spinner.style.display = "none";
+}
+
+function showAlert(messages, type = "danger") {
+    let alertContainer = document.getElementById("AlertContainer");
+    if (!alertContainer) {
+        alertContainer = document.createElement("div");
+        alertContainer.id = "AlertContainer";
+        document.querySelector(".container-fluid").prepend(alertContainer);
+    }
+
+    alertContainer.innerHTML = "";
+
+    if (Array.isArray(messages)) {
+        messages = messages.join("<br>");
+    }
+
+    let alert = document.createElement("div");
+    alert.className = `alert alert-${type} alert-dismissible fade show`;
+    alert.role = "alert";
+    alert.innerHTML = `<strong>${type === "danger" ? "Error" : "Éxito"}:</strong><br>${messages}<button type="button" class="btn btn-primary mt-2" id="AlertAccept">Aceptar</button>`;
+
+    alert.querySelector("#AlertAccept").addEventListener("click", () => {
+        document.getElementById("Spinner").style.display = "none";
+        alert.remove();
+        console.log("borrado");
+    });
+
+    alertContainer.appendChild(alert);
 }
