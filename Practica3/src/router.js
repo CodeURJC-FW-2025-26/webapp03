@@ -175,7 +175,7 @@ router.post('/NewIngredient', upload.single('image'), async (req, res) => {
     }
 
     let id = await recipesDB.addIngredient(recipeId, ingredient);
-    res.json({ id });
+    res.json({ id, ingredient });
 });
 
 //Delete functions for recipes and ingredients

@@ -458,9 +458,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     //variables
-    let nameInput = document.getElementById("Name")
-    let priceInput = document.getElementById("Price")
-    let descriptionInput = document.getElementById("Description")
+    let nameInput = document.getElementById("Name");
+    let priceInput = document.getElementById("Price");
+    let descriptionInput = document.getElementById("Description");
+    let imageInput = document.getElementById("Image");
 
     // use of blur event
     nameInput.addEventListener("blur", async () => {
@@ -474,6 +475,10 @@ document.addEventListener("DOMContentLoaded", () => {
     priceInput.addEventListener("blur", async () => {
         await valPrice();
     })
+
+    imageInput.addEventListener("change", async () => {
+        await valImage();
+    });
 
     //final validation 
     document.getElementById("ingredientForm").addEventListener("submit", async function(event){
@@ -496,7 +501,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.ok) {    
             alert("Ingrediente guardado correctamente");
-            window.location.href = `/DetailPage.html/${result.id}`;
+            const ingredientsList = document.getElementById("ingredientsList");
+            const ingredient = result.ingredient;
+            
+            const ingredientDiv = document.createElement("div");
+            ingredientDiv.className = "container-fluid";
+            ingredientDiv.id = "ingredient-" + `${ingredient._id}`;
+
+            ingredientDiv.innerHTML = `
+                <h3><strong> Nombre del ingrediente: </strong> ${ingredient.name}. </h3>
+                <p><strong> Alérgenos: </strong> ${ingredient.allergens ? ingredient.allergens : ""} </p>
+                <p><strong> Precio: </strong> ${ingredient.price} </p>
+                <p><strong> Descripción: </strong> ${ingredient.description} </p>
+                <p><strong> Imagen del ingrediente: </strong></p>
+                <img class="img-fluid rounded" src="/ingredient/${result.id}/${ingredient._id}/image" alt="${ingredient.name}">
+                <div class="row p-3 justify-content-center">
+                    <button onclick="deleteIngredient('/ingredient/${result.id}/${ingredient._id}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
+                    <a href="/ingredient/${result.id}/${ingredient._id}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
+                    <button onclick="editIngredient('${result.id}', '${ingredient._id}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
+                </div>
+
+                <!--Delete Ingredient Spinner-->
+                <div id="DeleteIngredientSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                    <span class="visually-hidden">Procesando...</span>
+                </div>
+            `;
+
+            ingredientsList.appendChild(ingredientDiv);
+            event.target.reset(); //clear formulary
+            nameInput.classList.remove("is-valid");
+            descriptionInput.classList.remove("is-valid");
+            priceInput.classList.remove("is-valid");
+            imageInput.classList.remove("is-valid");
         } else {
             if (result.errors && result.errors.length > 0) {
                 alert("Errores:\n" + result.errors.join("\n")); 
