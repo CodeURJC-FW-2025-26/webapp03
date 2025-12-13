@@ -519,56 +519,58 @@ async function ingredientFormularyValidation() {
 
         let result = await response.json();
 
-        if (response.ok) {    
-            alert("Ingrediente guardado correctamente");
-            let ingredientsList = document.getElementById("ingredientsList");
-            let ingredient = result.ingredient;
-            let ingredientDiv;
-            let edit = false;
-            
-            if(document.getElementById("ingredient-" + ingredient._id)){
-                ingredientDiv = document.getElementById("ingredient-" + ingredient._id);
-                edit = true;
-            }else {
-                ingredientDiv = document.createElement("div");
-                ingredientDiv.className = "container-fluid";
-                ingredientDiv.id = "ingredient-" + ingredient._id;
+        setTimeout(() => { //forced delay
+            if (response.ok) {    
+                alert("Ingrediente guardado correctamente");
+                let ingredientsList = document.getElementById("ingredientsList");
+                let ingredient = result.ingredient;
+                let ingredientDiv;
+                let edit = false;
+                
+                if(document.getElementById("ingredient-" + ingredient._id)){
+                    ingredientDiv = document.getElementById("ingredient-" + ingredient._id);
+                    edit = true;
+                }else {
+                    ingredientDiv = document.createElement("div");
+                    ingredientDiv.className = "container-fluid";
+                    ingredientDiv.id = "ingredient-" + ingredient._id;
+                }
+
+                ingredientDiv.innerHTML = `
+                    <h3><strong> Nombre del ingrediente: </strong> ${ingredient.name}. </h3>
+                    <p><strong> Alérgenos: </strong> ${ingredient.allergens ? ingredient.allergens : ""} </p>
+                    <p><strong> Precio: </strong> ${ingredient.price} </p>
+                    <p><strong> Descripción: </strong> ${ingredient.description} </p>
+                    <p><strong> Imagen del ingrediente: </strong></p>
+                    ${ingredient.image ? `<img class="img-fluid rounded" src="/uploads/${ingredient.image}" alt="${ingredient.name}">` : ""}
+                    <div class="row p-3 justify-content-center">
+                        <button onclick="deleteIngredient('/ingredient/${result.id}/${ingredient._id}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
+                        <a href="/ingredient/${result.id}/${ingredient._id}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
+                        <button onclick="editIngredient('${result.id}', '${ingredient._id}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
+                    </div>
+
+                    <!--Delete Ingredient Spinner-->
+                    <div id="DeleteIngredientSpinner" class="spinner-border text-primary" role="status" style="display:none;">
+                        <span class="visually-hidden">Procesando...</span>
+                    </div>
+                `;
+
+                if(!edit){ //if its an edit the formulary will disappear so its not neccesary to reset it
+                    ingredientsList.appendChild(ingredientDiv); //only append if its a new ingredient
+                    event.target.reset(); //clear formulary
+                    nameInput.classList.remove("is-valid");
+                    descriptionInput.classList.remove("is-valid");
+                    priceInput.classList.remove("is-valid");
+                    imageInput.classList.remove("is-valid");
+                }
+            } else {
+                if (result.errors && result.errors.length > 0) {
+                    alert("Errores:\n" + result.errors.join("\n")); 
+                }
             }
 
-            ingredientDiv.innerHTML = `
-                <h3><strong> Nombre del ingrediente: </strong> ${ingredient.name}. </h3>
-                <p><strong> Alérgenos: </strong> ${ingredient.allergens ? ingredient.allergens : ""} </p>
-                <p><strong> Precio: </strong> ${ingredient.price} </p>
-                <p><strong> Descripción: </strong> ${ingredient.description} </p>
-                <p><strong> Imagen del ingrediente: </strong></p>
-                ${ingredient.image ? `<img class="img-fluid rounded" src="/ingredient/${result.id}/${ingredient._id}/image" alt="${ingredient.name}">` : ""}
-                <div class="row p-3 justify-content-center">
-                    <button onclick="deleteIngredient('/ingredient/${result.id}/${ingredient._id}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
-                    <a href="/ingredient/${result.id}/${ingredient._id}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
-                    <button onclick="editIngredient('${result.id}', '${ingredient._id}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
-                </div>
-
-                <!--Delete Ingredient Spinner-->
-                <div id="DeleteIngredientSpinner" class="spinner-border text-primary" role="status" style="display:none;">
-                    <span class="visually-hidden">Procesando...</span>
-                </div>
-            `;
-
-            if(!edit){ //if its an edit the formulary will disappear so its not neccesary to reset it
-                ingredientsList.appendChild(ingredientDiv); //only append if its a new ingredient
-                event.target.reset(); //clear formulary
-                nameInput.classList.remove("is-valid");
-                descriptionInput.classList.remove("is-valid");
-                priceInput.classList.remove("is-valid");
-                imageInput.classList.remove("is-valid");
-            }
-        } else {
-            if (result.errors && result.errors.length > 0) {
-                alert("Errores:\n" + result.errors.join("\n")); 
-            }
-        }
-            
-        spinner.style.display = "none";
+            spinner.style.display = "none";
+        }, 500); //end of the delay
     });
 };
 
