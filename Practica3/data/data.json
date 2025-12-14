@@ -474,436 +474,280 @@
             }
         ]
     },
+    
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
-        "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "name": "Natillas",
+        "dish": "Postre",
+        "difficulty": "Fácil",
+        "length": "30 min",
+        "description": "Las natillas son un postre tradicional de la cocina española, cremoso y suave, elaborado a base de leche, huevos, azúcar y aromatizado con vainilla o canela. Es un dulce clásico que se sirve frío y suele decorarse con una galleta.",
+        "allergens": ["Huevo", "Lácteos"],
+        "steps": ["Calienta la leche con la canela y la vainilla.\n Bate los huevos con el azúcar.\n Añade la leche poco a poco a la mezcla de huevos.\n Cocina a fuego lento sin dejar de remover hasta espesar.\n Deja enfriar y sirve."],
+        "image": "Natillas.jpg",
+        "ingredients": [
+            { 
+                "name": "Leche",
+                "allegerns": ["Lácteos"], 
+                "price": "1,00 €", 
+                "description": "Lácteo", 
+                "image": "Leche.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
+            { 
+                "name": "Huevo", 
+                "allegerns": ["Huevo"], 
+                "price": "0,65 €", 
+                "description": "Origen animal", 
+                "image": "Huevo.png" 
             },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Azúcar", 
+                "allegerns": [], 
+                "price": "0,50 €", 
+                "description": "Endulzante", 
+                "image": "Azucar.jpg" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
+        "name": "Flan de huevo",
+        "dish": "Postre",
         "difficulty": "Media",
         "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "description": "El flan de huevo es un postre clásico elaborado con huevos, leche y azúcar, caracterizado por su textura suave y su capa de caramelo líquido.",
+        "allergens": ["Huevo", "Lácteos"],
+        "steps": ["Prepara el caramelo y viértelo en el molde.\n Bate los huevos con la leche y el azúcar.\n Vierte la mezcla en el molde.\n Cocina al baño maría en el horno.\n Deja enfriar antes de desmoldar."],
+        "image": "Flan.jpg",
+        "ingredients": [
+            { 
+                "name": "Huevo", 
+                "allegerns": ["Huevo"], 
+                "price": "0,65 €", 
+                "description": "Origen animal", 
+                "image": "Huevo.png" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
+            { 
+                "name": "Leche", 
+                "allegerns": ["Lácteos"], 
+                "price": "1,00 €", 
+                "description": "Lácteo", 
+                "image": "Leche.jpg" 
             },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Azúcar", 
+                "allegerns": [], 
+                "price": "0,50 €", 
+                "description": "Endulzante", 
+                "image": "Azucar.jpg" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
+        "name": "Pasta carbonara",
+        "dish": "Segundo plato",
         "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "length": "25 min",
+        "description": "La pasta carbonara es un plato tradicional italiano elaborado con pasta, huevo, queso, panceta y pimienta negra, sin utilizar nata en su receta original.",
+        "allergens": ["Gluten", "Huevo", "Lácteos"],
+        "steps": ["Cuece la pasta en agua con sal.\n Dora la panceta en una sartén.\n Bate los huevos con el queso.\n Mezcla la pasta caliente con la panceta y el huevo.\n Sirve con pimienta negra."],
+        "image": "Carbonara.jpg",
+        "ingredients": [
+            { 
+                "name": "Pasta", 
+                "allegerns": ["Gluten"], 
+                "price": "1,00 €", 
+                "description": "Cereal", 
+                "image": "Pasta.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
+            { 
+                "name": "Huevo", 
+                "allegerns": ["Huevo"], 
+                "price": "0,65 €", 
+                "description": "Origen animal", 
+                "image": "Huevo.png" 
             },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Queso", 
+                "allegerns": ["Lácteos"], 
+                "price": "1,50 €", 
+                "description": "Lácteo", 
+                "image": "Queso.jpg" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
-        "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "name": "Galletas",
+        "dish": "Postre",
+        "difficulty": "Fácil",
+        "length": "40 min",
+        "description": "Las galletas caseras son un dulce horneado elaborado con harina, mantequilla, azúcar y huevo. Son crujientes por fuera y tiernas por dentro.",
+        "allergens": ["Gluten", "Huevo", "Lácteos"],
+        "steps": ["Mezcla la mantequilla con el azúcar.\n Añade el huevo.\n Incorpora la harina.\n Forma las galletas.\n Hornea hasta que estén doradas."],
+        "image": "Galletas.jpg",
+        "ingredients": [
+            { 
+                "name": "Harina", 
+                "allegerns": ["Gluten"], 
+                "price": "0,70 €", 
+                "description": "Cereal", 
+                "image": "Harina.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
+            { 
+                "name": "Mantequilla", 
+                "allegerns": ["Lácteos"], 
+                "price": "1,20 €", 
+                "description": "Grasa láctea", 
+                "image": "Mantequilla.jpg" 
             },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Huevo", 
+                "allegerns": ["Huevo"], 
+                "price": "0,65 €", 
+                "description": "Origen animal", 
+                "image": "Huevo.png" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
+        "name": "Pulpo a la gallega",
+        "dish": "Segundo plato",
         "difficulty": "Media",
         "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "description": "El pulpo a la gallega es un plato tradicional de Galicia, elaborado con pulpo cocido, patatas, pimentón y aceite de oliva.",
+        "allergens": ["Moluscos"],
+        "steps": ["Cuece el pulpo hasta que esté tierno.\n Cuece las patatas.\n Corta el pulpo en rodajas.\n Sirve sobre las patatas.\n Añade pimentón, sal y aceite."],
+        "image": "PulpoGallega.jpg",
+        "ingredients": [
+            { 
+                "name": "Pulpo", 
+                "allegerns": ["Moluscos"], 
+                "price": "8,00 €", 
+                "description": "Pulpo", 
+                "image": "Pulpo.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
-            },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Patata", 
+                "allegerns": [], 
+                "price": "0,65 €", 
+                "description": "Tubérculo", 
+                "image": "Patatas.jpg" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
-        "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "name": "Dorada al vapor",
+        "dish": "Segundo plato",
+        "difficulty": "Fácil",
+        "length": "30 min",
+        "description": "La dorada al vapor es un plato ligero y saludable que conserva todo el sabor del pescado gracias a su cocción suave.",
+        "allergens": ["Pescado"],
+        "steps": ["Limpia la dorada.\n Colócala en la vaporera.\n Cocina durante 20 minutos.\n Añade sal y aceite antes de servir."],
+        "image": "DoradaVapor.jpg",
+        "ingredients": [
+            { 
+                "name": "Dorada", 
+                "allegerns": ["Pescado"], 
+                "price": "6,50 €", 
+                "description": "Pescado", 
+                "image": "Dorada.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
-            },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Aceite", 
+                "allegerns": [], 
+                "price": "2,00 €", 
+                "description": "Aceite", 
+                "image": "Aceite.png" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
+        "name": "Tartar de salmón",
         "dish": "Primer plato",
         "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "length": "25 min",
+        "description": "El tartar de salmón es un plato fresco elaborado con salmón crudo cortado en dados y aliñado con ingredientes suaves.",
+        "allergens": ["Pescado"],
+        "steps": ["Corta el salmón en dados pequeños.\n Añade aceite y sal.\n Mezcla suavemente.\n Sirve frío."],
+        "image": "TartarSalmon.jpg",
+        "ingredients": [
+            { 
+                "name": "Salmón", 
+                "allegerns": ["Pescado"], 
+                "price": "7,00 €", 
+                "description": "Pescado", 
+                "image": "Salmon.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
-            },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Aceite", 
+                "allegerns": [], 
+                "price": "2,00 €", 
+                "description": "Aceite", 
+                "image": "Aceite.png" 
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
+        "name": "Arroz negro",
+        "dish": "Segundo plato",
         "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "length": "50 min",
+        "description": "El arroz negro es un plato marinero elaborado con arroz, sepia y tinta de calamar, caracterizado por su intenso sabor a mar.",
+        "allergens": ["Moluscos"],
+        "steps": ["Sofríe la sepia.\n Añade el arroz.\n Incorpora el caldo y la tinta.\n Cocina hasta que el arroz esté en su punto."],
+        "image": "ArrozNegro.jpg",
+        "ingredients": [
+            { 
+                "name": "Arroz", 
+                "allegerns": [], 
+                "price": "0,60 €", 
+                "description": "Cereal", 
+                "image": "Arroz.jpg" 
             },
-            {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
-            },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+            { 
+                "name": "Sepia", 
+                "allegerns": ["Moluscos"], 
+                "price": "5,50 €", 
+                "description": "Molusco", 
+                "image": "Sepia.jpg"
             }
         ]
     },
     {
-        "name": "Tortilla de patatas",
-        "dish": "Primer plato",
-        "difficulty": "Media",
-        "length": "1 h",
-        "description": "La tortilla de patatas, también conocida como tortilla española, es un plato tradicional de la cocina de España. Se elabora principalmente con huevos, patatas y aceite de oliva, aunque a menudo se le añade cebolla para darle más sabor. Las patatas se fríen lentamente hasta quedar tiernas, luego se mezclan con los huevos batidos y se cuajan en una sartén, formando una tortilla jugosa y dorada. Es un plato versátil que puede servirse frío o caliente, como tapa, plato principal o en bocadillo.",
-        "allergens": ["Huevo"],
-        "steps": ["Pela y corta las patatas en rodajas finas.\n Corta la cebolla (opcional) en trozos pequeños.\n Fríe las patatas y la cebolla en abundante aceite de oliva hasta que estén tiernas.\n Escurre el aceite y mezcla las patatas con los huevos batidos en un bol y una pizca de sal.\n Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio. \n Cuando esté cuajada por un lado, dale la vuelta con ayuda de un plato y cocina el otro lado.\n Retira del fuego y deja reposar unos minutos antes de servir."], 
-        "image": "TortillaDePatatas.jpg",
-        "ingredients": 
-        [
-            {
-                "name": "Patata",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Tubérculo",
-                "image": "Patatas.jpg"
+        "name": "Paella clásica valenciana",
+        "dish": "Segundo plato",
+        "difficulty": "Alta",
+        "length": "1 h 30 min",
+        "description": "La paella clásica valenciana es uno de los platos más emblemáticos de España, elaborada con arroz, pollo, conejo, y judía verde.",
+        "allergens": [],
+        "steps": ["Sofríe la carne.\n Añade las verduras.\n Incorpora el arroz.\n Añade el caldo.\n Cocina hasta que el arroz esté seco."],
+        "image": "PaellaValenciana.jpg",
+        "ingredients": [
+            { 
+                "name": "Arroz", 
+                "allegerns": [], 
+                "price": "0,60 €", 
+                "description": "Cereal", 
+                "image": "Arroz.jpg"
+            },
+            { 
+                "name": "Pollo", 
+                "allegerns": [], 
+                "price": "3,00 €", 
+                "description": "Carne", 
+                "image": "Pollo.jpg" 
+            },
+            { 
+                "name": "Conejo", 
+                "allegerns": [], 
+                "price": "4,00 €", 
+                "description": "Carne", 
+                "image": "Conejo.jpg"
             },
             {
-                "name": "Huevo",
-                "allegerns": ["Huevo"],
-                "price": "0,65 €",
-                "description": "Origen animal",
-                "image": "Huevo.png"
-            },
-            {
-                "name": "Cebolla",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Hortaliza",
-                "image": "Cebolla.png"
-            },
-            {
-                "name": "Aceite",
-                "allegerns": [],
-                "price": "2,65 €",
-                "description": "Aceite",
-                "image": "Aceite.png"
-            },
-            {
-                "name": "Sal",
-                "allegerns": [],
-                "price": "0,65 €",
-                "description": "Condimento",
-                "image": "Sal.png"
+                "name":"Judia Verde",
+                "allegerns":[],
+                "price":"0,35 €",
+                "description":"Judia verde de bolsa",
+                "image": "JudiaVerde.jpg"
             }
         ]
     }
-]
