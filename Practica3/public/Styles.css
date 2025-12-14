@@ -98,14 +98,18 @@ body {
   font-style: normal;
 }
 
-/* Alert styles */
-#AlertContainer {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1055; 
-    width: 90%;
-    max-width: 600px;
-    pointer-events: auto;
+/* Alert Styles */
+.modal-content{
+    color: #212121;
+    background-color: #FFF3E0;
+}
+
+.modal-content .modal-header{
+    color: #FFC107 !important;
+    background-color: #6D1B1B !important;
+    justify-content: center;
+}
+
+.modal-content .modal-footer{
+    justify-content: center;
 }

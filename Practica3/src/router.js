@@ -207,7 +207,7 @@ router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
         return res.status(400).json({ recipeId, errors });
     }
 
-    res.json({ recipeId });
+    res.json({ recipeId, ingredientId });
 });
 
 //Edit functions for recipes and ingredients

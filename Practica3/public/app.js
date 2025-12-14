@@ -498,12 +498,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let result = await response.json();
 
         if (response.ok) {
-            showAlert("Receta guardada correctamente", "success");
+            showAlert("Receta guardada correctamente");
             spinner.style.display = "none"; 
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
             if (result.errors && result.errors.length > 0) {
-                showAlert(result.errors, "danger");
+                showAlert(result.errors);
             }
         }
     });
@@ -559,7 +559,7 @@ async function ingredientFormularyValidation() {
         setTimeout(() => { //forced delay
             if (response.ok) {    
                 pageVars.dataset.ingredientId = "newIngredient"; //reset the variable of the ingredientId
-                alert("Ingrediente guardado correctamente");
+                showAlert("Ingrediente guardado correctamente");
                 let ingredientsList = document.getElementById("ingredientsList");
                 let ingredient = result.ingredient;
                 let ingredientDiv;
@@ -605,7 +605,7 @@ async function ingredientFormularyValidation() {
                 }
             } else {
                 if (result.errors && result.errors.length > 0) {
-                    alert("Errores:\n" + result.errors.join("\n")); 
+                    showAlert(result.errors); 
                 }
             }
 
@@ -627,11 +627,11 @@ async function deleteRecipe(action){
     const result = await response.json();
 
     if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
-        alert("Receta borrada correctamente");
+        showAlert("Receta borrada correctamente");
         window.location.href = `/MainPage.html/1`;
     } else {
         if (result.errors && result.errors.length > 0) {
-            alert("Errores:\n" + result.errors.join("\n")); // \n is for a brake line, join is to make a string with a field of an array
+            showAlert(result.errors); 
         }
         window.location.href = `/MainPage.html/1`;
     }
@@ -648,11 +648,13 @@ async function deleteIngredient(action){
     const result = await response.json();
 
     if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
-        alert("Ingrediente borrado correctamente");
-        window.location.href = `/DetailPage.html/${result.recipeId}`;
+        showAlert("Ingrediente borrado correctamente");
+        let ingredientId = result.ingredientId;
+        let ingredientDiv = document.getElementById("ingredient-" + ingredientId);
+        ingredientDiv.remove();
     } else {
         if (result.errors && result.errors.length > 0) {
-            alert("Errores:\n" + result.errors.join("\n")); // \n is for a brake line, join is to make a string with a field of an array
+            showAalert(result.errors);
         }
         window.location.href = `/DetailPage.html/${result.recipeId}`;
     }
@@ -660,32 +662,33 @@ async function deleteIngredient(action){
     spinner.style.display = "none";
 }
 
-function showAlert(messages, type = "danger") {
+function showAlert(messages) {
     let alertContainer = document.getElementById("AlertContainer");
-    if (!alertContainer) {
-        alertContainer = document.createElement("div");
-        alertContainer.id = "AlertContainer";
-        document.querySelector(".container-fluid").prepend(alertContainer);
-    }
-
-    alertContainer.innerHTML = "";
 
     if (Array.isArray(messages)) {
         messages = messages.join("<br>");
     }
 
-    let alert = document.createElement("div");
-    alert.className = `alert alert-${type} alert-dismissible fade show`;
-    alert.role = "alert";
-    alert.innerHTML = `
-        <strong>${type === "danger" ? "Error" : "Éxito"}:</strong><br>
-        ${messages}
-        <button type="button" class="btn btn-primary mt-2" id="AlertAccept">Aceptar</button>`;
+    alertContainer.innerHTML = `
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Errores en el formulario: </h5>
+                </div>
+                <div class="modal-body">
+                    ${messages}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    `;
 
-    alert.querySelector("#AlertAccept").addEventListener("click", () => {
+    alertContainer.addEventListener('hidden.bs.modal', () => {
         document.getElementById("Spinner").style.display = "none";
-        alert.remove();
     });
 
-    alertContainer.appendChild(alert);
+    const modal = new bootstrap.Modal(alertContainer);
+    modal.show();
 }

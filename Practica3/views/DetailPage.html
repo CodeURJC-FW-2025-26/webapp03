@@ -141,11 +141,13 @@
                 <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> {{#isEdit}}Guardar{{/isEdit}}{{^isEdit}}Crear{{/isEdit}} </button>
             </div>
 
-            <!--Spinner-->
-            <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
-                <span class="visually-hidden">Procesando...</span>
-            </div>
+            <div class="modal fade" id="AlertContainer" tabindex="-1" role="dialog"></div>
         </form>
+
+        <!--Spinner-->
+        <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
+            <span class="visually-hidden">Procesando...</span>
+        </div>
     </div>
 
     {{>Footer}}
