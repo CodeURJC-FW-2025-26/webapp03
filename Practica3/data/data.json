@@ -549,7 +549,7 @@
         "description": "La pasta carbonara es un plato tradicional italiano elaborado con pasta, huevo, queso, panceta y pimienta negra, sin utilizar nata en su receta original.",
         "allergens": ["Gluten", "Huevo", "Lácteos"],
         "steps": ["Cuece la pasta en agua con sal.\n Dora la panceta en una sartén.\n Bate los huevos con el queso.\n Mezcla la pasta caliente con la panceta y el huevo.\n Sirve con pimienta negra."],
-        "image": "Carbonara.jpg",
+        "image": "PastaCarbonara.jpg",
         "ingredients": [
             { 
                 "name": "Pasta", 
@@ -615,7 +615,7 @@
         "description": "El pulpo a la gallega es un plato tradicional de Galicia, elaborado con pulpo cocido, patatas, pimentón y aceite de oliva.",
         "allergens": ["Moluscos"],
         "steps": ["Cuece el pulpo hasta que esté tierno.\n Cuece las patatas.\n Corta el pulpo en rodajas.\n Sirve sobre las patatas.\n Añade pimentón, sal y aceite."],
-        "image": "PulpoGallega.jpg",
+        "image": "PulpoGallega.jpeg",
         "ingredients": [
             { 
                 "name": "Pulpo", 
@@ -719,7 +719,7 @@
         "description": "La paella clásica valenciana es uno de los platos más emblemáticos de España, elaborada con arroz, pollo, conejo, y judía verde.",
         "allergens": [],
         "steps": ["Sofríe la carne.\n Añade las verduras.\n Incorpora el arroz.\n Añade el caldo.\n Cocina hasta que el arroz esté seco."],
-        "image": "PaellaValenciana.jpg",
+        "image": "Paella.jpg",
         "ingredients": [
             { 
                 "name": "Arroz", 
