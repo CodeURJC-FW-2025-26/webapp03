@@ -101,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // Edit ingredient functions
 async function editIngredient(recipe_id, ingredient_id){
+    let pageVars = document.getElementById("page-vars");
+    pageVars.dataset.ingredientId = ingredient_id;
+
     const response = await fetch(`/getIngredient?recipe_id=${recipe_id}&ingredient_id=${ingredient_id}`);
     const ingredient = await response.json();
 
@@ -127,9 +130,8 @@ async function editIngredient(recipe_id, ingredient_id){
             <input type="hidden" name="editForm" id="EditForm" value="true">
             <div class="form-group">
                 <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" name="name" id="Name" value="${ingredient.name}" placeholder="Nombre del ingrediente..."> 
-                <div id="NameError"></div> <!--error notification-->
-                <div id="NameError2"></div> <!--error notification-->
+                <input type="text" class="form-control" name="name" id="Name" oninput="checkIngredientAvailability('${recipe_id}', '${ingredient_id}')" value="${ingredient.name}" placeholder="Nombre del ingrediente..."> 
+                <div class="invalid-feedback" id="NameError"></div> <!--error notification-->
             </div>  
 
             <div class="row">
@@ -243,7 +245,7 @@ async function checkRecipeAvailability() {
     }
 }
 
-async function checkIngredientAvailability(recipeId) {
+async function checkIngredientAvailability(recipeId, ingredientId = "newIngredient") {
     const ingredientInput = document.getElementById("Name");
     const ingredientName = ingredientInput.value;
     const errorDiv = document.getElementById("NameError");
@@ -264,7 +266,7 @@ async function checkIngredientAvailability(recipeId) {
         return false;
     }
 
-    const response = await fetch(`/availableIngredient?recipeId=${recipeId}&ingredientName=${ingredientName}`);
+    const response = await fetch(`/availableIngredient?recipeId=${recipeId}&ingredientId=${ingredientId}&ingredientName=${ingredientName}`);
     const availableIngredient = await response.json();
 
     if (availableIngredient) {
@@ -516,10 +518,11 @@ async function ingredientFormularyValidation() {
     let imageInput = document.getElementById("Image");
     const pageVars = document.getElementById("page-vars");
     let recipeId = pageVars.dataset.recipeId;
+    let ingredientId = pageVars.dataset.ingredientId;
 
     // use of blur event
     nameInput.addEventListener("blur", async () => {
-        await checkIngredientAvailability(recipeId);
+        await checkIngredientAvailability(recipeId, ingredientId);
     });
 
     descriptionInput.addEventListener("blur", async () => {
@@ -540,7 +543,7 @@ async function ingredientFormularyValidation() {
         let spinner = document.getElementById("Spinner");
         spinner.style.display = "inline-block";
 
-        await checkIngredientAvailability(recipeId);
+        await checkIngredientAvailability(recipeId, ingredientId);
         await valImage();
         await lettersDescription();
         await valPrice();
@@ -555,6 +558,7 @@ async function ingredientFormularyValidation() {
 
         setTimeout(() => { //forced delay
             if (response.ok) {    
+                pageVars.dataset.ingredientId = "newIngredient"; //reset the variable of the ingredientId
                 alert("Ingrediente guardado correctamente");
                 let ingredientsList = document.getElementById("ingredientsList");
                 let ingredient = result.ingredient;

@@ -374,8 +374,20 @@ router.get("/availableRecipe", async (req, res) => {
 
 router.get("/availableIngredient", async (req, res) => {
     let recipeId = req.query.recipeId;
+    let ingredientId = req.query.ingredientId;
     let ingredientName = req.query.ingredientName;
     let ingredient = await recipesDB.findIngredientByName(recipeId, ingredientName);
-    let availableIngredient = ingredient === null;
+    let availableIngredient;
+
+    if(ingredient){
+        if((ingredientId !== "newIngredient") && (ingredientId === ingredient._id.toString())){
+            availableIngredient = true;
+        }else {
+            availableIngredient = false;
+        }
+    }else {
+        availableIngredient = true;
+    }
+
     res.json(availableIngredient);
 });
