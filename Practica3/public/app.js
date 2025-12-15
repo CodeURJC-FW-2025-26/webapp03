@@ -57,26 +57,32 @@ async function loadMore() {
     if(isLoading) return;
     isLoading = true;
 
+    let spinner = document.getElementById("Spinner");
+    spinner.style.display = "inline-block";
+
     numPage++;
     const response = await fetch(`/loadRecipes?numPage=${numPage}`);
     const loadedRecipes = await response.json();
 
-    const recipesDiv = document.getElementById("recipesGrid");
-    loadedRecipes.forEach(recipe => {
-        const recipeButton = document.createElement("div");
-        recipeButton.className = "col-xs-12 col-sm-6 col-md-6 col-lg-4";
+    setTimeout(() => { //forced delay
+        const recipesDiv = document.getElementById("recipesGrid");
+        loadedRecipes.forEach(recipe => {
+            const recipeButton = document.createElement("div");
+            recipeButton.className = "col-xs-12 col-sm-6 col-md-6 col-lg-4";
 
-        recipeButton.innerHTML = `
-        <a href="/DetailPage.html/${recipe._id}" class="btn btn-primary" role="button">
-            <img class="img-fluid" src="/recipe/${recipe._id}/image" alt="${recipe.name}">
-            ${recipe.name}
-        </a>
-        `;
+            recipeButton.innerHTML = `
+            <a href="/DetailPage.html/${recipe._id}" class="btn btn-primary" role="button">
+                <img class="img-fluid" src="/recipe/${recipe._id}/image" alt="${recipe.name}">
+                ${recipe.name}
+            </a>
+            `;
 
-        recipesDiv.appendChild(recipeButton);
-    });
+            recipesDiv.appendChild(recipeButton);
+        });
 
-    isLoading = false;
+        spinner.style.display = "none";
+        isLoading = false;
+    }, 500); //end of the delay */
 };
 
 async function initInfiniteScroll(){
@@ -94,7 +100,8 @@ async function initInfiniteScroll(){
 document.addEventListener("DOMContentLoaded", function(){
     const pageVars = document.getElementById("page-vars");
     const isSearch = pageVars.dataset.search === "true";
-    if(!isSearch) {
+    const isMainPage = pageVars.dataset.mainPage === "true";
+    if(!isSearch && isMainPage) {
         initInfiniteScroll();
     }
 });
@@ -602,6 +609,10 @@ async function ingredientFormularyValidation() {
                     imageInput.classList.remove("is-valid");
                     let imagePreview = document.getElementById("ImagePreview");
                     imagePreview.innerHTML = "";
+                    let imageButton = document.getElementById("ImageButton");
+                    imageButton.style.display = "none";
+                    let imageArea = document.getElementById("DropArea");
+                    imageArea.style.display = "block";
                 }
             } else {
                 if (result.errors && result.errors.length > 0) {
