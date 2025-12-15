@@ -60,8 +60,12 @@ async function loadMore() {
     let spinner = document.getElementById("Spinner");
     spinner.style.display = "inline-block";
 
+    let pageVars = document.getElementById("page-vars");
+    let searchQuery = pageVars.dataset.searchQuery;
+    let section = pageVars.dataset.section;
+
     numPage++;
-    const response = await fetch(`/loadRecipes?numPage=${numPage}`);
+    const response = await fetch(`/loadRecipes?numPage=${numPage}&searchQuery=${searchQuery}&section=${section}`);
     const loadedRecipes = await response.json();
 
     setTimeout(() => { //forced delay
@@ -99,9 +103,8 @@ async function initInfiniteScroll(){
 
 document.addEventListener("DOMContentLoaded", function(){
     const pageVars = document.getElementById("page-vars");
-    const isSearch = pageVars.dataset.search === "true";
     const isMainPage = pageVars.dataset.mainPage === "true";
-    if(!isSearch && isMainPage) {
+    if(isMainPage) {
         initInfiniteScroll();
     }
 });

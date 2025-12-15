@@ -38,10 +38,6 @@ export async function getRecipes(){
     return await recipes.find().toArray();
 }
 
-export async function getRecipesOfPage(numPage){
-    return await recipes.find().skip((numPage - 1) * pageSize).limit(pageSize).toArray();
-}
-
 export async function countPages(){
     let totalRecipes = await recipes.countDocuments();
     let pages = Math.ceil(totalRecipes / pageSize);
@@ -75,14 +71,26 @@ export async function getIngredient(recipeId, ingredientId){
     return ingredient;
 }
 
-export async function searchRecipes(searchQuery){
-    let resultRecipes = await recipes.find({ $text: { $search: searchQuery }}).toArray();
+export async function searchRecipes(searchQuery, numPage){
+    let resultRecipes = await recipes.find({ $text: { $search: searchQuery }}).skip((numPage - 1) * pageSize).limit(pageSize).toArray();
     return resultRecipes;
 }
 
-export async function searchSection(section){
-    let resultRecipes = await recipes.find({ $text: { $search: section }}).toArray();
+export async function searchSection(section, numPage){
+    let resultRecipes = await recipes.find({ $text: { $search: section }}).skip((numPage - 1) * pageSize).limit(pageSize).toArray();
     return resultRecipes;
+}
+
+export async function getRecipesOfPage(numPage, searchQuery, section){
+    if(searchQuery){
+        return await searchRecipes(searchQuery, numPage);
+    }
+
+    if(section){
+        return await searchSection(section, numPage);
+    }
+
+    return await recipes.find().skip((numPage - 1) * pageSize).limit(pageSize).toArray();
 }
 
 export async function addIngredient(recipeId, ingredient) {

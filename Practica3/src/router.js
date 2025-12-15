@@ -70,7 +70,7 @@ router.get('/MainPage.html/next/:numPage', async (req, res) => {
 });*/
 
 router.get("/loadRecipes", async (req, res) => {
-    let loadedRecipes = await recipesDB.getRecipesOfPage(req.query.numPage);
+    let loadedRecipes = await recipesDB.getRecipesOfPage(req.query.numPage, req.query.searchQuery, req.query.section);
     res.json(loadedRecipes);
 });
 
@@ -83,7 +83,7 @@ router.get('/searchBar', async (req, res) => {
     let first = true;
     let last = true; 
     let search = true;
-    res.render('MainPage', { recipes, pages, numPage, first, last, search });
+    res.render('MainPage', { recipes, pages, numPage, first, last, search, searchQuery });
 });
 
 router.get('/searchSection', async (req, res) => {
@@ -99,7 +99,7 @@ router.get('/searchSection', async (req, res) => {
     let side = section === "Primer";
     let main = section === "Segundo";
     let dessert = section === "Postre";
-    res.render('MainPage', { recipes, pages, numPage, first, last, search, starter, side, main, dessert });
+    res.render('MainPage', { recipes, pages, numPage, first, last, search, starter, side, main, dessert, section });
 });
 
 router.get('/DetailPage.html/:_id', async (req, res) => {

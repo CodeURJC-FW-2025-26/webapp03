@@ -543,7 +543,7 @@
     },
     {
         "name": "Pasta carbonara",
-        "dish": "Segundo plato",
+        "dish": "Primer plato",
         "difficulty": "Media",
         "length": "25 min",
         "description": "La pasta carbonara es un plato tradicional italiano elaborado con pasta, huevo, queso, panceta y pimienta negra, sin utilizar nata en su receta original.",
@@ -687,7 +687,7 @@
     },
     {
         "name": "Arroz negro",
-        "dish": "Segundo plato",
+        "dish": "Primer plato",
         "difficulty": "Media",
         "length": "50 min",
         "description": "El arroz negro es un plato marinero elaborado con arroz, sepia y tinta de calamar, caracterizado por su intenso sabor a mar.",
@@ -713,7 +713,7 @@
     },
     {
         "name": "Paella clásica valenciana",
-        "dish": "Segundo plato",
+        "dish": "Primer plato",
         "difficulty": "Alta",
         "length": "1 h 30 min",
         "description": "La paella clásica valenciana es uno de los platos más emblemáticos de España, elaborada con arroz, pollo, conejo, y judía verde.",
