@@ -113,3 +113,11 @@ body {
 .modal-content .modal-footer{
     justify-content: center;
 }
+
+/* Drop area styles*/
+#DropArea{
+    border: 2px dashed #ccc; 
+    padding: 20px; 
+    text-align: center; 
+    margin-top: 10px;
+}

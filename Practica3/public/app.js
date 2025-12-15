@@ -131,71 +131,75 @@ async function editIngredient(recipe_id, ingredient_id){
 
     const ingredientSection = document.getElementById("ingredient-" + ingredient_id);
     ingredientSection.innerHTML = `
-        <h1> Editar ingrediente: </h1>
+        <div class="container-fluid text-center">
+            <div class="row-1 p-3">
+                <h1> Editar ingrediente: </h1>
+            </div>
 
-        <form id="ingredientForm" role="form" method="post" action="/EditIngredient/${recipe_id}/${ingredient_id}" enctype="multipart/form-data">
-            <input type="hidden" name="editForm" id="EditForm" value="true">
-            <div class="form-group">
-                <label for="Name"><strong> Nombre: </strong></label>
-                <input type="text" class="form-control" name="name" id="Name" oninput="checkIngredientAvailability('${recipe_id}', '${ingredient_id}')" value="${ingredient.name}" placeholder="Nombre del ingrediente..."> 
-                <div class="invalid-feedback" id="NameError"></div> <!--error notification-->
-            </div>  
+            <form id="ingredientForm" role="form" method="post" action="/EditIngredient/${recipe_id}/${ingredient_id}" enctype="multipart/form-data">
+                <input type="hidden" name="editForm" id="EditForm" value="true">
+                <div class="form-group">
+                    <label for="Name"><strong> Nombre: </strong></label>
+                    <input type="text" class="form-control" name="name" id="Name" oninput="checkIngredientAvailability('${recipe_id}', '${ingredient_id}')" value="${ingredient.name}" placeholder="Nombre del ingrediente..."> 
+                    <div class="invalid-feedback" id="NameError"></div> <!--error notification-->
+                </div>  
 
-            <div class="row">
-                <label for="Allergens"><strong> Alérgenos: </strong></label>
-                <div class="col">
-                    <label><input type="checkbox" name="allergens" value="Gluten" ${gluten ? "checked" : ""}> Gluten. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Crustáceos" ${crustacean ? "checked" : ""}> Crustáceos. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Huevo" ${eggs ? "checked" : ""}> Huevo. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Pescado" ${fish ? "checked" : ""}> Pescado. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Cacahuetes" ${peanuts ? "checked" : ""}> Cacahuetes. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Soja" ${soya ? "checked" : ""}> Soja. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Lacteos" ${dairy ? "checked" : ""}> Lacteos. </label><br>
+                <div class="row">
+                    <label for="Allergens"><strong> Alérgenos: </strong></label>
+                    <div class="col">
+                        <label><input type="checkbox" name="allergens" value="Gluten" ${gluten ? "checked" : ""}> Gluten. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Crustáceos" ${crustacean ? "checked" : ""}> Crustáceos. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Huevo" ${eggs ? "checked" : ""}> Huevo. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Pescado" ${fish ? "checked" : ""}> Pescado. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Cacahuetes" ${peanuts ? "checked" : ""}> Cacahuetes. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Soja" ${soya ? "checked" : ""}> Soja. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Lacteos" ${dairy ? "checked" : ""}> Lacteos. </label><br>
+                    </div>
+
+                    <div class="col">
+                        <label><input type="checkbox" name="allergens" value="Frutos con cáscara" ${nuts ? "checked" : ""}> Frutos con cáscara. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Apio" ${celery ? "checked" : ""}> Apio. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Mostaza" ${mustard ? "checked" : ""}> Mostaza. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Sésamo" ${sesame ? "checked" : ""}> Sésamo. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Sulfitos" ${sulfites ? "checked" : ""}> Sulfitos. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Altramuces" ${lupin ? "checked" : ""}> Altramuces. </label><br>
+                        <label><input type="checkbox" name="allergens" value="Moluscos" ${mollusk ? "checked" : ""}> Moluscos. </label><br>
+                    </div>
                 </div>
 
-                <div class="col">
-                    <label><input type="checkbox" name="allergens" value="Frutos con cáscara" ${nuts ? "checked" : ""}> Frutos con cáscara. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Apio" ${celery ? "checked" : ""}> Apio. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Mostaza" ${mustard ? "checked" : ""}> Mostaza. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Sésamo" ${sesame ? "checked" : ""}> Sésamo. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Sulfitos" ${sulfites ? "checked" : ""}> Sulfitos. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Altramuces" ${lupin ? "checked" : ""}> Altramuces. </label><br>
-                    <label><input type="checkbox" name="allergens" value="Moluscos" ${mollusk ? "checked" : ""}> Moluscos. </label><br>
+                <div class="form-group">
+                    <label for="Price"><strong> Precio: </strong></label>
+                    <input type="text" class="form-control" id="Price" name="price" value="${ingredient.price}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €"> 
+                    <div class="invalid-feedback" id="PriceError"></div> <!--bootstrap style-->
+                </div>  
+
+                <div class="form-group">
+                    <label for="Description"><strong> Descripción: </strong></label>
+                    <textarea class="form-control" name="description" id="Description" rows="3"> ${ingredient.description} </textarea>
+                    <div class="invalid-feedback" id="DescriptionError"></div> <!--bootstrap style-->
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="Price"><strong> Precio: </strong></label>
-                <input type="text" class="form-control" id="Price" name="price" value="${ingredient.price}" placeholder="Precio del ingrediente. (X,XX €) Ej: 1,65 €"> 
-                <div class="invalid-feedback" id="PriceError"></div> <!--bootstrap style-->
-            </div>  
+                <div class="form-group">
+                    <label for="Image"><strong> Imagen: (opcional, si no se incluye o se selecciona una distinta se eliminará la anterior) </strong></label>
+                    <input class="form-control" onchange="previewImage(event)" name="image" id="Image" type="file" accept="image/*">
+                    <div id="DropArea" style="${ingredient.image ? "display: none;" : "display: block;"}">Arrastra la imagen aquí</div>
+                    <div id="ImagePreview"> ${ingredient.image ? `<img src='/uploads/${ingredient.image}' class='img-thumbnail' style='max-width:200px;'>` : ""} </div>
+                    <button type="button" onclick="DeleteImage()" class="btn btn-primary mx-auto mt-3" id="ImageButton"style="${ingredient.image ? "display:block;" : "display:none;"}"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
+                    <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
+                    <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
+                </div>
 
-            <div class="form-group">
-                <label for="Description"><strong> Descripción: </strong></label>
-                <textarea class="form-control" name="description" id="Description" rows="3"> ${ingredient.description} </textarea>
-                <div class="invalid-feedback" id="DescriptionError"></div> <!--bootstrap style-->
-            </div>
+                <div class="form-group mb-0">
+                    <input type="hidden" name="recipe_id" value="${recipe_id}">
+                    <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> Guardar </button>
+                </div>
 
-            <div class="form-group">
-                <label for="Image"><strong> Imagen: (opcional, si no se incluye o se selecciona una distinta se eliminará la anterior) </strong></label>
-                <input class="form-control" onchange="previewImage(event)" name="image" id="Image" type="file" accept="image/*">
-                <div id="DropArea" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 10px; display: block;">Arrastra la imagen aqui</div>
-                <div id="ImagePreview"> ${ingredient.image ? `<img src='/uploads/${ingredient.image}' class='img-thumbnail' style='max-width:200px;'>` : ""} </div>
-                <button type="button" onclick="DeleteImage()" class="btn btn-primary" id="ImageButton"style="${ingredient.image ? "display:block;" : "display:none;"}"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
-                <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
-                <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
-            </div>
-
-            <div class="form-group mb-0">
-                <input type="hidden" name="recipe_id" value="${recipe_id}">
-                <button type="submit" class="btn btn-primary"> <i class="bi bi-plus-lg"></i> Guardar </button>
-            </div>
-
-            <!--Spinner-->
-            <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
-                <span class="visually-hidden">Procesando...</span>
-            </div>
-        </form>
+                <!--Spinner-->
+                <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
+                    <span class="visually-hidden">Procesando...</span>
+                </div>
+            </form>
+        </div>
     `;
 
     ingredientFormularyValidation();

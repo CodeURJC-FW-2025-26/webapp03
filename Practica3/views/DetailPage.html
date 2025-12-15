@@ -129,9 +129,9 @@
             <div class="form-group">
                 <label for="Image"><strong> Imagen: </strong></label>
                 <input class="form-control" onchange="previewImage(event)" name="image" id="Image" type="file" accept="image/*">
-                <div id="DropArea" style="border: 2px dashed #ccc; padding: 20px; text-align: center; margin-top: 10px; display: block;">Arrastra la imagen aqui</div>
+                <div id="DropArea" style="display: block;">Arrastra la imagen aqui</div>
                 <div id="ImagePreview"></div>
-                <button type="button" onclick="DeleteImage()" class="btn btn-primary" id="ImageButton"style="display:none;"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
+                <button type="button" onclick="DeleteImage()" class="btn btn-primary mx-auto mt-3" id="ImageButton"style="display:none;"><i class="bi bi-trash"></i> Eliminar la imagen seleccionada </button>
                 <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
                 <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
             </div>
