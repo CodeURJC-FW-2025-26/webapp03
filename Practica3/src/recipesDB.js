@@ -22,7 +22,6 @@ export async function addRecipe(recipe) {
 }
 
 export async function deleteRecipe(id){
-    //return await recipes.findOneAndDelete({ _id: new ObjectId(id) });
     let errors = [];
     let found = await recipes.findOne({ _id: new ObjectId(id) });
     if (!found) errors.push("Error al borrar: el objeto ya no existe"); 
@@ -45,7 +44,7 @@ export async function countPages(){
 }
 
 export async function getRecipesPagination(actualPage){
-    let totalRecipes = await recipes.countDocuments();
+    /*let totalRecipes = await recipes.countDocuments();
     let pages = Math.ceil(totalRecipes / pageSize);
     let pagesArray = [];
     for(let i = 1; i <= pages; i++){
@@ -55,7 +54,8 @@ export async function getRecipesPagination(actualPage){
         };
         pagesArray.push(elem);
     }
-    return pagesArray;
+    return pagesArray;*/
+    return undefined;
 }
 
 export async function getRecipe(id){
@@ -103,11 +103,6 @@ export async function addIngredient(recipeId, ingredient) {
 }
 
 export async function deleteIngredient(recipeId, ingredientId) {
-    /*return await recipes.updateOne(
-        { _id: new ObjectId(recipeId) },
-        { $pull: { ingredients: { _id: new ObjectId(ingredientId) } } }
-    );*/
-
     let errors = [];
     let found = await recipes.findOne(
                     { _id: new ObjectId(recipeId)},

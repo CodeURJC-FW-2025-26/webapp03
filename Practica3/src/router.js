@@ -30,48 +30,11 @@ router.get('/MainPage.html/:numPage', async (req, res) => {
     let search = false;
     res.render('MainPage', { recipes, pages, numPage, first, last, search });
 });
-/*
-router.get('/MainPage.html/prev/:numPage', async (req, res) => {
-    let maxPage = await recipesDB.countPages();
-    if(Number(req.params.numPage) > 1){
-        let recipes = await recipesDB.getRecipesOfPage(Number(req.params.numPage) - 1);
-        let pages = await recipesDB.getRecipesPagination(Number(req.params.numPage) - 1);
-        let numPage = Number(req.params.numPage) - 1;
-        let first = numPage === 1;
-        let last = numPage === maxPage;
-        res.render('MainPage', { recipes, pages, numPage, first, last});
-    }else {
-        let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
-        let pages = await recipesDB.getRecipesPagination(req.params.numPage);
-        let numPage = Number(req.params.numPage);
-        let first = numPage === 1;
-        let last = numPage === maxPage;
-        res.render('MainPage', { recipes, pages, numPage, first, last });
-    }
-});
-
-router.get('/MainPage.html/next/:numPage', async (req, res) => {
-    let maxPage = await recipesDB.countPages();
-    if(Number(req.params.numPage) < maxPage){
-        let recipes = await recipesDB.getRecipesOfPage(Number(req.params.numPage) + 1);
-        let pages = await recipesDB.getRecipesPagination(Number(req.params.numPage) + 1);
-        let numPage = Number(req.params.numPage) + 1;
-        let first = numPage === 1;
-        let last = numPage === maxPage;
-        res.render('MainPage', { recipes, pages, numPage, first, last });
-    }else {
-        let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
-        let pages = await recipesDB.getRecipesPagination(req.params.numPage);
-        let numPage = Number(req.params.numPage);
-        let first = numPage === 1;
-        let last = numPage === maxPage;
-        res.render('MainPage', { recipes, pages, numPage, first, last });
-    }
-});*/
 
 router.get("/loadRecipes", async (req, res) => {
     let loadedRecipes = await recipesDB.getRecipesOfPage(req.query.numPage, req.query.searchQuery, req.query.section);
-    res.json(loadedRecipes);
+    let maxPage = await recipesDB.countPages();
+    res.json({ loadedRecipes, maxPage });
 });
 
 router.get('/searchBar', async (req, res) => {
@@ -118,7 +81,7 @@ router.get('/recipe/:_id/image', async (req, res) => {
 
 router.get('/ingredient/:recipe_id/:_id/image', async (req, res) => {
     let ingredient = await recipesDB.getIngredient(req.params.recipe_id, req.params._id);
-    res.download(recipesDB.UPLOADS_FOLDER + '/' + ingredient.image);
+    if(ingredient.image) res.download(recipesDB.UPLOADS_FOLDER + '/' + ingredient.image);
 });
 
 //Functions for recipes and ingredients creation
@@ -155,19 +118,6 @@ router.post('/NewIngredient', upload.single('image'), async (req, res) => {
         image: req.file?.filename,
     };
 
-    /*
-    let errors = await recipesDB.validateIngredient(recipeId, ingredient);
-    if (errors.length > 0) {
-        console.log("❌ Errores:", errors);
-        return res.render('ErrorFormulary', { errors });
-    }
-
-    await recipesDB.addIngredient(recipeId, ingredient);
-    
-    let recipe = await recipesDB.getRecipe(recipeId);
-    res.render('RecipeConfirmation', { recipe });
-    */
-
     let errors = await recipesDB.validateIngredient(recipeId, ingredient);
     if (errors.length > 0) {
         console.log("❌ Errores:", errors);
@@ -181,9 +131,6 @@ router.post('/NewIngredient', upload.single('image'), async (req, res) => {
 //Delete functions for recipes and ingredients
 router.get('/recipe/:_id/delete', async (req, res) => {
     let recipeId = req.params._id;
-    /*await recipesDB.deleteRecipe(recipeId);
-    let recipe = false;
-    res.render('RecipeConfirmation', { recipe });*/
 
     let errors = await recipesDB.deleteRecipe(recipeId);
     if (errors.length > 0) {
@@ -197,9 +144,6 @@ router.get('/recipe/:_id/delete', async (req, res) => {
 router.get('/ingredient/:recipe_id/:ingredient_id/delete', async (req, res) => {
     let recipeId = req.params.recipe_id;
     let ingredientId = req.params.ingredient_id;
-    /*await recipesDB.deleteIngredient(recipeId, ingredientId);
-    let recipe = await recipesDB.getRecipe(recipeId);
-    res.render('RecipeConfirmation', { recipe });*/
 
     let errors = await recipesDB.deleteIngredient(recipeId, ingredientId);
     if (errors.length > 0) {
@@ -251,31 +195,6 @@ router.get('/recipe/:_id/edit', async (req, res) => {
                                 isEdit });
 });
 
-router.get('/ingredient/:recipe_id/:ingredient_id/edit', async (req, res) => {
-    let recipeId = req.params.recipe_id;
-    let ingredientId = req.params.ingredient_id;
-    let recipe = await recipesDB.getRecipe(recipeId);
-    let ingredient = await recipesDB.getIngredient(recipeId, ingredientId);
-    let isEdit = true;
-    let gluten = ingredient.allergens?.includes("Gluten");
-    let crustacean = ingredient.allergens?.includes("Crustáceos");
-    let eggs = ingredient.allergens?.includes("Huevo");
-    let fish = ingredient.allergens?.includes("Pescado");
-    let peanuts = ingredient.allergens?.includes("Cacahuetes");
-    let soya = ingredient.allergens?.includes("Soja");
-    let dairy = ingredient.allergens?.includes("Lacteos");
-    let nuts = ingredient.allergens?.includes("Frutos con cáscara");
-    let celery = ingredient.allergens?.includes("Apio");
-    let mustard = ingredient.allergens?.includes("Mostaza");
-    let sesame = ingredient.allergens?.includes("Sésamo");
-    let sulfites = ingredient.allergens?.includes("Sulfitos");
-    let lupin = ingredient.allergens?.includes("Altramuces");
-    let mollusk = ingredient.allergens?.includes("Moluscos");
-    res.render('DetailPage', {  recipe, ingredient,
-                                gluten, crustacean, eggs, fish, peanuts, soya, dairy, nuts, celery, mustard, sesame, sulfites, lupin, mollusk,
-                                isEdit });
-});
-
 router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
 
@@ -302,13 +221,7 @@ router.post('/EditItem/:_id', upload.single('image'), async (req, res) => {
     if (!req.file && (req.body.deleteImage === "true")) {
         if (recipe.image) { //delete image from the uploads folder
             const imagePath = recipesDB.UPLOADS_FOLDER + '/' + recipe.image;
-            fs.unlink(imagePath, (err) => {
-                if (err) {
-                    console.error("Error al eliminar la imagen:", err);
-                } else {
-                    console.log("Imagen eliminada:", imagePath);
-                }
-            });
+            await fs.rm(imagePath);
         }
         editRecipe.image = null;
     } 
@@ -342,15 +255,9 @@ router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'),
     if (!req.file && (req.body.deleteImage === "true")) {
         if (ingredient.image) { //delete image from the uploads folder
             const imagePath = recipesDB.UPLOADS_FOLDER + '/' + ingredient.image;
-            fs.unlink(imagePath, (err) => {
-                if (err) {
-                    console.error("Error al eliminar la imagen:", err);
-                } else {
-                    console.log("Imagen eliminada:", imagePath);
-                }
-            });
-            editIngredient.image = null;
+            await fs.rm(imagePath);
         }
+        editIngredient.image = null;
     }
 
     delete editIngredient.edit; //edit is an atributte only used for the validation
@@ -359,7 +266,6 @@ router.post('/EditIngredient/:recipe_id/:ingredient_id', upload.single('image'),
 });
 
 // Functions for AJAX and interactive JS
-
 router.get("/getIngredient", async (req, res) => {
     let ingredient = await recipesDB.getIngredient(req.query.recipe_id, req.query.ingredient_id);
     res.json(ingredient);

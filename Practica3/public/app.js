@@ -35,7 +35,8 @@ async function DeleteImage() {
     editDeleteImage.value = "true";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+//document.addEventListener("DOMContentLoaded", () => {
+async function initDropArea() {
     let dropArea = document.getElementById("DropArea");
     let inputImg = document.getElementById("Image");
 
@@ -48,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         dropArea.style.display = "none"
         previewImage({ target: inputImg }); //preview
     };
-});
+}
+//});
 
 // Infinite Scroll functions
 let numPage = 1;
@@ -66,7 +68,11 @@ async function loadMore() {
 
     numPage++;
     const response = await fetch(`/loadRecipes?numPage=${numPage}&searchQuery=${searchQuery}&section=${section}`);
-    const loadedRecipes = await response.json();
+    const result = await response.json();
+    let loadedRecipes = result.loadedRecipes;
+    let maxPage = result.maxPage;
+
+    numPage = Math.min(numPage, maxPage);
 
     setTimeout(() => { //forced delay
         const recipesDiv = document.getElementById("recipesGrid");
@@ -104,8 +110,16 @@ async function initInfiniteScroll(){
 document.addEventListener("DOMContentLoaded", function(){
     const pageVars = document.getElementById("page-vars");
     const isMainPage = pageVars.dataset.mainPage === "true";
+    const isDetailPage = pageVars.dataset.detailPage === "true";
+    const isNewItemPage = pageVars.dataset.newItemPage === "true";
     if(isMainPage) {
         initInfiniteScroll();
+    }else if(isDetailPage) {
+        ingredientFormularyValidation();
+        initDropArea();
+    }else if(isNewItemPage){
+        recipeFormularyValidation();
+        initDropArea();
     }
 });
 
@@ -448,7 +462,8 @@ async function valPrice(){
 }
 
 //Recipe formulary validation
-document.addEventListener("DOMContentLoaded", () => {
+//document.addEventListener("DOMContentLoaded", () => {
+async function recipeFormularyValidation() {
     //variables
     let nameInput = document.getElementById("Name") 
     let descriptionInput = document.getElementById("Description")
@@ -512,8 +527,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let result = await response.json();
 
         if (response.ok) {
-            showAlert("Receta guardada correctamente");
-            spinner.style.display = "none"; 
             window.location.href = `/DetailPage.html/${result.id}`;
         } else {
             if (result.errors && result.errors.length > 0) {
@@ -521,7 +534,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-});
+}
+//});
 
 //Ingredient formulary validation
 async function ingredientFormularyValidation() {
@@ -630,11 +644,7 @@ async function ingredientFormularyValidation() {
             spinner.style.display = "none";
         }, 500); //end of the delay
     });
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-    ingredientFormularyValidation();
-});
+}
 
 //delete recipe with ajax
 async function deleteRecipe(action){

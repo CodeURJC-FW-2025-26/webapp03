@@ -22,7 +22,7 @@
     
     {{>Header}}
 
-    <div id="page-vars" data-recipe-id="{{recipe._id}}" data-ingredient-id="newIngredient"></div> <!-- with this app.js can access page variables -->
+    <div id="page-vars" data-detail-page="true" data-recipe-id="{{recipe._id}}" data-ingredient-id="newIngredient"></div> <!-- with this app.js can access page variables -->
 
     <div class="container-fluid p-3">
         <h2><strong> Nombre de la receta: </strong> {{recipe.name}} </h2>
@@ -35,8 +35,9 @@
         <ul class="list-group">
             <li class="list-group-item" style="white-space: pre-line;"> {{recipe.steps}} </li> 
         </ul>   
-        <p><strong> Imágenes de la receta: </strong></p>
+        
         {{#recipe.image}}
+            <p><strong> Imágenes de la receta: </strong></p>
             <img class="img-fluid rounded" src="/recipe/{{recipe._id}}/image" alt="{{recipe.name}}">
         {{/recipe.image}}
 
@@ -59,13 +60,12 @@
             <p><strong> Alérgenos: </strong> {{allergens}} </p>
             <p><strong> Precio: </strong> {{price}} </p>
             <p><strong> Descripción: </strong> {{description}} </p>
-            <p><strong> Imagen del ingrediente: </strong></p>
             {{#image}}
+                <p><strong> Imagen del ingrediente: </strong></p>
                 <img class="img-fluid rounded" src="/ingredient/{{recipe._id}}/{{_id}}/image" alt="{{name}}">
             {{/image}}
             <div class="row p-3 justify-content-center">
                 <button onclick="deleteIngredient('/ingredient/{{recipe._id}}/{{_id}}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
-                <a href="/ingredient/{{recipe._id}}/{{_id}}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
                 <button onclick="editIngredient('{{recipe._id}}', '{{_id}}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
             </div>
 

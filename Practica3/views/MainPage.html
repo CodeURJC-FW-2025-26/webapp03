@@ -21,6 +21,8 @@
 <body>
 
     {{>Header}}
+
+    <div id="page-vars" data-main-page="true" data-search-query="{{searchQuery}}" data-section="{{section}}"></div> <!-- with this app.js can access page variables -->
     
     <div class="container-fluid text-center">
         <div class="row p-3">
@@ -37,8 +39,6 @@
             </form>
         </div>
 
-        <div id="page-vars" data-main-page="true" data-search-query="{{searchQuery}}" data-section="{{section}}"></div> <!-- with this app.js can access page variables -->
-
         <div class="row-1 p-3 text-end">
             <a href="/NewItemPage.html" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nueva receta </a>
         </div>
@@ -47,7 +47,7 @@
             {{#recipes}}
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                 <a href="/DetailPage.html/{{_id}}" class="btn btn-primary" role="button">
-                    <img class="img-fluid" src="/recipe/{{_id}}/image" alt="{{name}}">
+                    {{#image}}<img class="img-fluid" src="/recipe/{{_id}}/image" alt="{{name}}">{{/image}}
                     {{name}}
                 </a>
             </div>
@@ -58,28 +58,6 @@
         <div id="Spinner" class="spinner-border text-primary" role="status" style="display:none;">
             <span class="visually-hidden">Procesando...</span>
         </div>
-
-        <!--
-        <div class="container-fluid">
-            <nav>
-                <ul class="pagination justify-content-center">
-                    {{^first}}
-                        <li class="page-item"><a href="/MainPage.html/prev/{{numPage}}" class="page-link"> Anterior </a></li>
-                    {{/first}}
-                    {{#pages}}
-                        {{#actual}}
-                            <li class="page-item"><a href="/MainPage.html/{{num}}" class="page-link active"> {{num}} </a></li>
-                        {{/actual}}
-                        {{^actual}}
-                            <li class="page-item"><a href="/MainPage.html/{{num}}" class="page-link"> {{num}} </a></li>
-                        {{/actual}}
-                    {{/pages}}
-                    {{^last}}
-                        <li class="page-item"><a href="/MainPage.html/next/{{numPage}}" class="page-link"> Siguiente </a></li>
-                    {{/last}}
-                </ul>
-            </nav>
-        </div> -->
     </div>
 
     {{>Footer}}
