@@ -284,3 +284,33 @@ Enlace a youtube con el vídeo demostrativo: https://youtu.be/1RXj2QLhdmg.
 
 5) `data.json`
 
+
+#Práctica 3
+
+###Lucas Román Jiménez
+
+- He trabajado en la primera versión de la validación de los pasos de la receta en el cliente. También he hecho la validación de los ingredientes en el cliente. He Cambiado también los ejemplos en el data.json para que salgan diferentes recetas al entrar en la web.
+
+- Los commits más importantes que he hecho son:
+
+  1) Validación de los ingredientes en el cliente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e6512543129dc90a98315db34e2053c463bd74af)
+
+  2) Primera versión de la validación de los pasos de la receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c29a9d07720d93964a93aac437c65921ce82066f)
+
+  3) Nuevas recetas en el data.json (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba6207ed8f470bc2786eec2f804dcc69af146f0c)
+
+  4) Imágenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba1315e63d35f46473c2074e37e53820442fe91d)
+
+  5) Imágenes para las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/29f3de600d75bc713f964c2c6a3dafa416f84a14)
+
+- Los ficheros en los que más he trabajado son:
+
+1) `app.js`
+
+2) `data.json`
+
+3) `Images`
+
+4) `DetailPage`
+
+5) `ReadMe`
