@@ -284,42 +284,10 @@ Enlace a youtube con el vídeo demostrativo: https://youtu.be/1RXj2QLhdmg.
 
 5) `data.json`
 
-
-#Práctica 3
-
-###Lucas Román Jiménez
-
-- He trabajado en la primera versión de la validación de los pasos de la receta en el cliente. También he hecho la validación de los ingredientes en el cliente. He Cambiado también los ejemplos en el data.json para que salgan diferentes recetas al entrar en la web.
-
-- Los commits más importantes que he hecho son:
-
-  1) Validación de los ingredientes en el cliente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e6512543129dc90a98315db34e2053c463bd74af)
-
-  2) Primera versión de la validación de los pasos de la receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c29a9d07720d93964a93aac437c65921ce82066f)
-
-  3) Nuevas recetas en el data.json (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba6207ed8f470bc2786eec2f804dcc69af146f0c)
-
-  4) Imágenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba1315e63d35f46473c2074e37e53820442fe91d)
-
-  5) Imágenes para las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/29f3de600d75bc713f964c2c6a3dafa416f84a14)
-
-- Los ficheros en los que más he trabajado son:
-
-1) `app.js`
-
-2) `data.json`
-
-3) `Images`
-
-4) `DetailPage`
-
-5) `ReadMe`
-
-
 # Práctica 3
 
 ## Instrucciones de ejecución:
-Una vez descargada la Practica2, desde un terminal hay que acceder a su directorio. Una vez en él, es necesario ejecutar `npm install` para descargar las bibliotecas necesarias. Para iniciar la aplicación se puede usar directamente el comando `node src/app.js` o si se prefiere el equivalente `npm run start` o `npm run watch` para usar nodemon si se quieren probar cambios de forma más cómoda. 
+Una vez descargada la Practica3, desde un terminal hay que acceder a su directorio. Una vez en él, es necesario ejecutar `npm install` para descargar las bibliotecas necesarias. Para iniciar la aplicación se puede usar directamente el comando `node src/app.js` o si se prefiere el equivalente `npm run start` o `npm run watch` para usar nodemon si se quieren probar cambios de forma más cómoda. 
 Los requisitos son:
 - Node: v22.21.0
 - Mongo: ^6.20.0
@@ -360,7 +328,7 @@ Carpeta views:
 
 ## Vídeo demostrativo
 
-Enlace a youtube con el vídeo demostrativo:
+Enlace a youtube con el vídeo demostrativo: https://youtu.be/5-scnuZzuN0
 
 ## Participación de los miembros
 
@@ -370,15 +338,15 @@ Enlace a youtube con el vídeo demostrativo:
 
 - Los commits más importantes que he hecho son:
 
-  1) Validación de los ingredientes en el cliente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e6512543129dc90a98315db34e2053c463bd74af)
+1) Validación de los ingredientes en el cliente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e6512543129dc90a98315db34e2053c463bd74af)
 
-  2) Primera versión de la validación de los pasos de la receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c29a9d07720d93964a93aac437c65921ce82066f)
+2) Primera versión de la validación de los pasos de la receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c29a9d07720d93964a93aac437c65921ce82066f)
 
-  3) Nuevas recetas en el data.json (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba6207ed8f470bc2786eec2f804dcc69af146f0c)
+3) Nuevas recetas en el data.json (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba6207ed8f470bc2786eec2f804dcc69af146f0c)
 
-  4) Imágenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba1315e63d35f46473c2074e37e53820442fe91d)
+4) Imágenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba1315e63d35f46473c2074e37e53820442fe91d)
 
-  5) Imágenes para las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/29f3de600d75bc713f964c2c6a3dafa416f84a14)
+5) Imágenes para las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/29f3de600d75bc713f964c2c6a3dafa416f84a14)
 
 - Los ficheros en los que más he trabajado son:
 
@@ -423,29 +391,29 @@ Enlace a youtube con el vídeo demostrativo:
 
 ### Hugo García Palomo
 
-- 
+- En esta práctica me he encargado de implementar el scroll infinito, incluido en búsquedas y secciones. Además de la nueva edición de ingrediente con AJAX, junto con los borrados con AJAX. Tamebién implemente las alertas con modales de Bootstrap. Por último he corregido númerosos errores de diversos tipos. 
 
 - Los commits más importantes que he hecho son: 
 
-1) 
+1) Primera versión del scroll infinito. (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/245acbb17acc92ad19f699304e66526e3d0fddc8)
 
-2) 
+2) Segunda versión de editar ingrediente con AJAX. (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/9f34d3632955f003f1569f165699b99ad857cf9a)
 
-3) 
+3) Eliminar recetas e ingredientes con AJAX. (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/f7d8d2cb79b083f6d36c3ec8ce6b7c04620a3d9d) 
 
-4) 
+4) Alertas con modales de Bootstrap. (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/2a55c32d966416aa8a9ed658465c72820203c215)
 
-5) 
+5) Corrección de bugs. (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/f8bf15a1ca80db45aa3fc04dcc1be28401d2f6fa)
 
 - Los ficheros en los que más he trabajado son:
 
-1) 
+1) `app.js` (public)
 
-2) 
+2) `router.js`
 
-3) 
+3) `recipesDB.js`
 
-4) 
+4) `MainPage.html`
 
-5) 
+5) `DetailPage.html`
 
