@@ -314,3 +314,138 @@ Enlace a youtube con el vídeo demostrativo: https://youtu.be/1RXj2QLhdmg.
 4) `DetailPage`
 
 5) `ReadMe`
+
+
+# Práctica 3
+
+## Instrucciones de ejecución:
+Una vez descargada la Practica2, desde un terminal hay que acceder a su directorio. Una vez en él, es necesario ejecutar `npm install` para descargar las bibliotecas necesarias. Para iniciar la aplicación se puede usar directamente el comando `node src/app.js` o si se prefiere el equivalente `npm run start` o `npm run watch` para usar nodemon si se quieren probar cambios de forma más cómoda. 
+Los requisitos son:
+- Node: v22.21.0
+- Mongo: ^6.20.0
+- Express: 5.1.0,
+- Multer: 2.0.2,
+- Mustache-express: 1.3.2
+
+## Descripción de ficheros:
+Carpeta data:
+- Images: carpeta con imagenes de ejemplo que se cargan al inicar.
+
+- data.json : fichero json en el que se encuentran los datos que se cargar al inicar la aplicación para la demo de la práctica.
+
+Carpeta public:
+- Style.css : fichero para implementar estilos al html.
+
+-app.js : fichero JavaScript encargado de las funciones del frontend para mejorar la experiencia del usuario.
+
+Carpeta src:
+- app.js : fichero JavaScript necesario para inicializar correctamente la aplicación e importar las librerias necesarias.
+
+- load_data.js : fichero JavaScript con el que se cargan los datos de la demo que se encuentran en la base de datos de MongoDB
+
+- recipesDB.js : fichero en el que se encuentran las funciones necesarias para interactuar con la base de datos.
+
+- router.js : fichero en el que se almacena las funciones a realizar con sus respectivas rutas a las vistas.
+
+Carpeta views: 
+- DetailPage.html : fichero con la vista de la DetailPage.
+
+- Footer.html: fichero con la plantilla del footer.
+
+- Header.html: fichero con la plantilla del header.
+
+- MainPage.html : fichero con la vista de la MainPage.
+
+- NewItemPage.html : fichero con la vista de la NewItemPage.
+
+## Vídeo demostrativo
+
+Enlace a youtube con el vídeo demostrativo:
+
+## Participación de los miembros
+
+### Lucas Román Jiménez
+
+- 
+
+- Los commits más importantes que he hecho son:
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+5) 
+
+- Los ficheros en los que más he trabajado son: 
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+5) 
+
+
+### Miguel de Luis Ibáñez
+
+- En esta práctica he colaborado en hacer las validaciones de nuevo item, el envio del formulario usando AJAX, todos los requisitos que tienen las imagenes, el spinner, las alertas entre otros.
+
+- Los commits más importantes que he hecho son:
+
+1) New item page terminada (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/be5225d50af6a96af95b7e3653a10d1336a2c6ba)
+
+2) Validaciones en new item page (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/53a3d34d0eefdcac0c8ccf738186cb28d1b6422c)
+
+3) Requisitos para las imagenes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c54634e577b474e171ba6aaf120f992cceb4e988)
+
+4) Alertas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/1346e1789a995cba5d89d309bfb1c3df3ec729f8)
+
+5) Envio del formulario con AJAX (arreglado) (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/f43dd01f60a61a3efc1e8fe9ee4e959f8d35bd13)
+
+- Los ficheros en lo que más he trabajado son:
+
+1) `app.js` (public)
+
+2) `router.js`
+
+3) `NewItemPage.html`
+
+4) `DetailPage.html`
+
+5) `recipesDB.js`
+
+### Hugo García Palomo
+
+- 
+
+- Los commits más importantes que he hecho son: 
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+5) 
+
+- Los ficheros en los que más he trabajado son:
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+5) 
+
