@@ -284,3 +284,168 @@ Enlace a youtube con el vídeo demostrativo: https://youtu.be/1RXj2QLhdmg.
 
 5) `data.json`
 
+
+#Práctica 3
+
+###Lucas Román Jiménez
+
+- He trabajado en la primera versión de la validación de los pasos de la receta en el cliente. También he hecho la validación de los ingredientes en el cliente. He Cambiado también los ejemplos en el data.json para que salgan diferentes recetas al entrar en la web.
+
+- Los commits más importantes que he hecho son:
+
+  1) Validación de los ingredientes en el cliente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e6512543129dc90a98315db34e2053c463bd74af)
+
+  2) Primera versión de la validación de los pasos de la receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c29a9d07720d93964a93aac437c65921ce82066f)
+
+  3) Nuevas recetas en el data.json (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba6207ed8f470bc2786eec2f804dcc69af146f0c)
+
+  4) Imágenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba1315e63d35f46473c2074e37e53820442fe91d)
+
+  5) Imágenes para las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/29f3de600d75bc713f964c2c6a3dafa416f84a14)
+
+- Los ficheros en los que más he trabajado son:
+
+1) `app.js`
+
+2) `data.json`
+
+3) `Images`
+
+4) `DetailPage`
+
+5) `ReadMe`
+
+
+# Práctica 3
+
+## Instrucciones de ejecución:
+Una vez descargada la Practica2, desde un terminal hay que acceder a su directorio. Una vez en él, es necesario ejecutar `npm install` para descargar las bibliotecas necesarias. Para iniciar la aplicación se puede usar directamente el comando `node src/app.js` o si se prefiere el equivalente `npm run start` o `npm run watch` para usar nodemon si se quieren probar cambios de forma más cómoda. 
+Los requisitos son:
+- Node: v22.21.0
+- Mongo: ^6.20.0
+- Express: 5.1.0,
+- Multer: 2.0.2,
+- Mustache-express: 1.3.2
+
+## Descripción de ficheros:
+Carpeta data:
+- Images: carpeta con imagenes de ejemplo que se cargan al inicar.
+
+- data.json : fichero json en el que se encuentran los datos que se cargar al inicar la aplicación para la demo de la práctica.
+
+Carpeta public:
+- Style.css : fichero para implementar estilos al html.
+
+-app.js : fichero JavaScript encargado de las funciones del frontend para mejorar la experiencia del usuario.
+
+Carpeta src:
+- app.js : fichero JavaScript necesario para inicializar correctamente la aplicación e importar las librerias necesarias.
+
+- load_data.js : fichero JavaScript con el que se cargan los datos de la demo que se encuentran en la base de datos de MongoDB
+
+- recipesDB.js : fichero en el que se encuentran las funciones necesarias para interactuar con la base de datos.
+
+- router.js : fichero en el que se almacena las funciones a realizar con sus respectivas rutas a las vistas.
+
+Carpeta views: 
+- DetailPage.html : fichero con la vista de la DetailPage.
+
+- Footer.html: fichero con la plantilla del footer.
+
+- Header.html: fichero con la plantilla del header.
+
+- MainPage.html : fichero con la vista de la MainPage.
+
+- NewItemPage.html : fichero con la vista de la NewItemPage.
+
+## Vídeo demostrativo
+
+Enlace a youtube con el vídeo demostrativo:
+
+## Participación de los miembros
+
+### Lucas Román Jiménez
+
+- He trabajado en la primera versión de la validación de los pasos de la receta en el cliente. También he hecho la validación de los ingredientes en el cliente. He Cambiado también los ejemplos en el data.json para que salgan diferentes recetas al entrar en la web.
+
+- Los commits más importantes que he hecho son:
+
+  1) Validación de los ingredientes en el cliente (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/e6512543129dc90a98315db34e2053c463bd74af)
+
+  2) Primera versión de la validación de los pasos de la receta (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c29a9d07720d93964a93aac437c65921ce82066f)
+
+  3) Nuevas recetas en el data.json (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba6207ed8f470bc2786eec2f804dcc69af146f0c)
+
+  4) Imágenes para los ingredientes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/ba1315e63d35f46473c2074e37e53820442fe91d)
+
+  5) Imágenes para las recetas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/29f3de600d75bc713f964c2c6a3dafa416f84a14)
+
+- Los ficheros en los que más he trabajado son:
+
+1) `app.js`
+
+2) `data.json`
+
+3) `Images`
+
+4) `DetailPage`
+
+5) `ReadMe`
+
+
+### Miguel de Luis Ibáñez
+
+- En esta práctica he colaborado en hacer las validaciones de nuevo item, el envio del formulario usando AJAX, todos los requisitos que tienen las imagenes, el spinner, las alertas entre otros.
+
+- Los commits más importantes que he hecho son:
+
+1) New item page terminada (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/be5225d50af6a96af95b7e3653a10d1336a2c6ba)
+
+2) Validaciones en new item page (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/53a3d34d0eefdcac0c8ccf738186cb28d1b6422c)
+
+3) Requisitos para las imagenes (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/c54634e577b474e171ba6aaf120f992cceb4e988)
+
+4) Alertas (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/1346e1789a995cba5d89d309bfb1c3df3ec729f8)
+
+5) Envio del formulario con AJAX (arreglado) (https://github.com/CodeURJC-FW-2025-26/webapp03/commit/f43dd01f60a61a3efc1e8fe9ee4e959f8d35bd13)
+
+- Los ficheros en lo que más he trabajado son:
+
+1) `app.js` (public)
+
+2) `router.js`
+
+3) `NewItemPage.html`
+
+4) `DetailPage.html`
+
+5) `recipesDB.js`
+
+### Hugo García Palomo
+
+- 
+
+- Los commits más importantes que he hecho son: 
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+5) 
+
+- Los ficheros en los que más he trabajado son:
+
+1) 
+
+2) 
+
+3) 
+
+4) 
+
+5) 
+
