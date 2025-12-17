@@ -14,35 +14,35 @@
                 "name": "Patata",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Tubérculo",
+                "description": "Tubérculo, cultivado en España.",
                 "image": "Patatas.jpg"
             },
             {
                 "name": "Huevo",
                 "allegerns": ["Huevo"],
                 "price": "0,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, normalmente gallinas.",
                 "image": "Huevo.png"
             },
             {
                 "name": "Cebolla",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Hortaliza",
+                "description": "Hortaliza, es opcional pero recomendable.",
                 "image": "Cebolla.png"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "2,65 €",
-                "description": "Aceite",
+                "description": "Aceite de oliva.",
                 "image": "Aceite.png"
             },
             {
                 "name": "Sal",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Condimento",
+                "description": "Condimento, añadir al gusto.",
                 "image": "Sal.png"
             }
         ]
@@ -62,28 +62,28 @@
                 "name": "Bacalao",
                 "allegerns": ["Pescado"],
                 "price": "7,00 €",
-                "description": "Origen animal",
+                "description": "Origen animal, pescado.",
                 "image": "Bacalao.jpg"
             },
             {
                 "name": "Guindillas",
                 "allegerns": [],
                 "price": "0,75 €",
-                "description": "Fruta",
+                "description": "Fruta, picante.",
                 "image": "Guindilla.jpg"
             },
             {
                 "name": "Ajo",
                 "allegerns": [],
                 "price": "0,55 €",
-                "description": "Hortaliza",
+                "description": "Hortaliza, aporta sabor.",
                 "image": "Ajo.jpg"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "2,65 €",
-                "description": "Aceite",
+                "description": "Aceite de oliva.",
                 "image": "Aceite.png"
             }
         ]
@@ -103,49 +103,49 @@
                 "name": "Ternera",
                 "allegerns": [],
                 "price": "6,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, carne.",
                 "image": "Ternera.jpg"
             },
             {
                 "name": "Jamon",
                 "allegerns": [],
                 "price": "8,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, carne.",
                 "image": "Jamon.jpg"
             },
             {
                 "name": "Queso",
                 "allegerns": ["Leche"],
                 "price": "2,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, lácteo.",
                 "image": "Queso.jpg"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "2,65 €",
-                "description": "Aceite",
+                "description": "Aceite de oliva.",
                 "image": "Aceite.png"
             },
             {
                 "name": "Harina",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Condimento",
+                "description": "Condimento, derivado de trigo.",
                 "image": "Harina.jpg"
             },
             {
                 "name": "Huevo",
                 "allegerns": ["Huevo"],
                 "price": "0,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, normalmente gallinas.",
                 "image": "Huevo.png"
             },
             {
                 "name": "Pan Rallado",
                 "allegerns": ["Gluten"],
                 "price": "0,45 €",
-                "description": "Condimento",
+                "description": "Condimento, pan de barra rallado.",
                 "image": "PanRallado.jpg"
             }
 
@@ -166,42 +166,42 @@
                 "name": "Garbanzos",
                 "allegerns": [],
                 "price": "1,65 €",
-                "description": "Legumbre",
+                "description": "Legumbre, importante.",
                 "image": "Garbanzos.jpg"
             },
             {
                 "name": "Pollo",
                 "allegerns": [],
                 "price": "1,40 €",
-                "description": "Origen animal",
+                "description": "Origen animal, carne.",
                 "image": "Pollo.jpg"
             },
             {
                 "name": "Chorizo",
                 "allegerns": ["Gluten"],
                 "price": "1,95 €",
-                "description": "Origen animal",
+                "description": "Origen animal, carne",
                 "image": "Chorizo.jpg"
             },
             {
                 "name": "Hueso de jamon",
                 "allegerns": ["Sulfitos"],
                 "price": "2,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, carne.",
                 "image": "HuesoJamon.jpg"
             },
             {
                 "name": "Patata",
                 "allegerns": [],
                 "price": "1,65 €",
-                "description": "Tuberculo",
+                "description": "Tuberculo, cultivado en España.",
                 "image": "Patatas.jpg"
             },
             {
                 "name": "Zanahoria",
                 "allegerns": [],
                 "price": "0,90 €",
-                "description": "Verdura",
+                "description": "Verdura, cultivada en España.",
                 "image": "Zanahoria.jpg"
             }
         ]
@@ -221,35 +221,35 @@
                 "name": "Leche",
                 "allegerns": ["Leche"],
                 "price": "0,85 €",
-                "description": "Origen animal",
+                "description": "Origen animal, lácteo.",
                 "image": "Leche.jpg"
             },
             {
                 "name": "Yemas de huevo",
                 "allegerns": ["Huevo"],
                 "price": "0,75 €",
-                "description": "Origen animal",
+                "description": "Origen animal, normalmente gallinas.",
                 "image": "YemasHuevo.jpg"
             },
             {
                 "name": "Maicena",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Condimento",
+                "description": "Condimento, importante.",
                 "image": "Maicena.jpg"
             },
             {
                 "name": "Piel de limon",
                 "allegerns": [],
                 "price": "0,30 €",
-                "description": "Fruta",
+                "description": "Fruta, crítico.",
                 "image": "PielLimon.jpg"
             },
             {
                 "name": "Canela",
                 "allegerns": [],
                 "price": "1,20 €",
-                "description": "Condimento",
+                "description": "Condimento, aporta sabor.",
                 "image": "Canela.jpg"
             }
         ]
@@ -269,49 +269,49 @@
                 "name": "Leche",
                 "allegerns": ["Leche"],
                 "price": "0,95 €",
-                "description": "Origen animal",
+                "description": "Origen animal, lácteo.",
                 "image": "Leche.jpg"
             },
             {
                 "name": "Huevo",
                 "allegerns": ["Huevo"],
                 "price": "0,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, normalmente gallinas.",
                 "image": "Huevo.png"
             },
             {
                 "name": "Harina",
                 "allegerns": [],
                 "price": "0,85 €",
-                "description": "Condimento",
+                "description": "Condimento, derivado de trigo.",
                 "image": "Harina.jpg"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Aceite",
+                "description": "Aceite de oliva.",
                 "image": "Aceite.png"
             },
             {
                 "name": "Sal",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Condimento",
+                "description": "Condimento, añadir al gusto.",
                 "image": "Sal.png"
             },
             {
                 "name": "Jamon",
                 "allegerns": [],
                 "price": "5,50 €",
-                "description": "Origen animal",
+                "description": "Origen animal, carne.",
                 "image": "Jamon.jpg"
             },
             {
                 "name": "Pan Rallado",
                 "allegerns": ["Gluten"],
                 "price": "0,45 €",
-                "description": "Condimento",
+                "description": "Condimento, pan de barra rallado.",
                 "image": "PanRallado.jpg"
             }
         ]
@@ -331,42 +331,42 @@
                 "name": "Tomates",
                 "allegerns": [],
                 "price": "0,75 €",
-                "description": "Fruta",
+                "description": "Fruta, cultivada en España.",
                 "image": "Tomate.jpg"
             },
             {
                 "name": "Pimiento",
                 "allegerns": [],
                 "price": "0,60 €",
-                "description": "Verdura",
+                "description": "Verdura, cultivada en España.",
                 "image": "Pimiento.jpg"
             },
             {
                 "name": "Cebolla",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Hortaliza",
+                "description": "Hortaliza, cultivada en España.",
                 "image": "Cebolla.png"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Aceite",
+                "description": "Aceite de oliva.",
                 "image": "Aceite.png"
             },
             {
                 "name": "Sal",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Condimento",
+                "description": "Condimento, añadir al gusto.",
                 "image": "Sal.png"
             },
             {
                 "name": "Ajo",
                 "allegerns": [],
                 "price": "0,35 €",
-                "description": "Hortaliza",
+                "description": "Hortaliza, aporta sabor.",
                 "image": "Ajo.jpg"
             }
         ]
@@ -386,35 +386,35 @@
                 "name": "Patata",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Tubérculo",
+                "description": "Tubérculo, cultivado en España.",
                 "image": "Patatas.jpg"
             },
             {
                 "name": "Pimenton",
                 "allegerns": [],
                 "price": "0,50 €",
-                "description": "Condimento",
+                "description": "Condimento, aporta sabor.",
                 "image": "Pimenton.jpg"
             },
             {
                 "name": "Tomate",
                 "allegerns": [],
                 "price": "0,75 €",
-                "description": "Verdura",
+                "description": "Verdura, cultivada en España.",
                 "image": "Tomate.jpg"
             },
             {
                 "name": "Aceite",
                 "allegerns": [],
                 "price": "2,65 €",
-                "description": "Aceite",
+                "description": "Aceite de oliva.",
                 "image": "Aceite.png"
             },
             {
                 "name": "Sal",
                 "allegerns": [],
                 "price": "0,65 €",
-                "description": "Condimento",
+                "description": "Condimento, añadir al gusto.",
                 "image": "Sal.png"
             }
         ]
@@ -434,42 +434,42 @@
                 "name": "Queso crema",
                 "allegerns": ["Leche"],
                 "price": "3,45 €",
-                "description": "Queso",
+                "description": "Queso, lácteo.",
                 "image": "QuesoCrema.jpg"
             },
             {
                 "name": "Huevo",
                 "allegerns": ["Huevo"],
                 "price": "0,65 €",
-                "description": "Origen animal",
+                "description": "Origen animal, normalmente gallinas.",
                 "image": "Huevo.png"
             },
             {
                 "name": "Azúcar",
                 "allegerns": [],
                 "price": "0,30 €",
-                "description": "Condimento",
+                "description": "Condimento, aporta sabor.",
                 "image": "Azucar.jpg"
             },
             {
                 "name": "Nata",
                 "allegerns": ["Leche"],
                 "price": "0,85 €",
-                "description": "Leche",
+                "description": "Derivado lácteo.",
                 "image": "Nata.jpg"
             },
             {
                 "name": "Galletas",
                 "allegerns": ["Gluten"],
                 "price": "1,90 €",
-                "description": "Dulce",
+                "description": "Dulce, parte de otra receta.",
                 "image": "Galleta.jpg"
             },
             {
                 "name": "Mantequilla",
                 "allegerns": [],
                 "price": "0,90 €",
-                "description": "Condimento",
+                "description": "Condimento, derivado lácteo.",
                 "image": "Mantequilla.jpg"
             }
         ]
@@ -489,21 +489,21 @@
                 "name": "Leche",
                 "allegerns": ["Lácteos"], 
                 "price": "1,00 €", 
-                "description": "Lácteo", 
+                "description": "Origen animal, lácteo", 
                 "image": "Leche.jpg" 
             },
             { 
                 "name": "Huevo", 
                 "allegerns": ["Huevo"], 
                 "price": "0,65 €", 
-                "description": "Origen animal", 
+                "description": "Origen animal, normalmente gallinas.", 
                 "image": "Huevo.png" 
             },
             { 
                 "name": "Azúcar", 
                 "allegerns": [], 
                 "price": "0,50 €", 
-                "description": "Endulzante", 
+                "description": "Endulzante, aporta sabor.", 
                 "image": "Azucar.jpg" 
             }
         ]
@@ -522,21 +522,21 @@
                 "name": "Huevo", 
                 "allegerns": ["Huevo"], 
                 "price": "0,65 €", 
-                "description": "Origen animal", 
+                "description": "Origen animal, normalmente gallinas.", 
                 "image": "Huevo.png" 
             },
             { 
                 "name": "Leche", 
                 "allegerns": ["Lácteos"], 
                 "price": "1,00 €", 
-                "description": "Lácteo", 
+                "description": "Origen animal, lácteo.", 
                 "image": "Leche.jpg" 
             },
             { 
                 "name": "Azúcar", 
                 "allegerns": [], 
                 "price": "0,50 €", 
-                "description": "Endulzante", 
+                "description": "Endulzante, aporta sabor.", 
                 "image": "Azucar.jpg" 
             }
         ]
@@ -555,21 +555,21 @@
                 "name": "Pasta", 
                 "allegerns": ["Gluten"], 
                 "price": "1,00 €", 
-                "description": "Cereal", 
+                "description": "Cereal, origen italiano.", 
                 "image": "Pasta.jpg" 
             },
             { 
                 "name": "Huevo", 
                 "allegerns": ["Huevo"], 
                 "price": "0,65 €", 
-                "description": "Origen animal", 
+                "description": "Origen animal, normalmente gallinas.", 
                 "image": "Huevo.png" 
             },
             { 
                 "name": "Queso", 
                 "allegerns": ["Lácteos"], 
                 "price": "1,50 €", 
-                "description": "Lácteo", 
+                "description": "Origen animal, lácteo", 
                 "image": "Queso.jpg" 
             }
         ]
@@ -588,21 +588,21 @@
                 "name": "Harina", 
                 "allegerns": ["Gluten"], 
                 "price": "0,70 €", 
-                "description": "Cereal", 
+                "description": "Cereal, derivado de trigo.", 
                 "image": "Harina.jpg" 
             },
             { 
                 "name": "Mantequilla", 
                 "allegerns": ["Lácteos"], 
                 "price": "1,20 €", 
-                "description": "Grasa láctea", 
+                "description": "Oirgen animal, grasa láctea.", 
                 "image": "Mantequilla.jpg" 
             },
             { 
                 "name": "Huevo", 
                 "allegerns": ["Huevo"], 
                 "price": "0,65 €", 
-                "description": "Origen animal", 
+                "description": "Origen animal, normalmente gallinas.", 
                 "image": "Huevo.png" 
             }
         ]
@@ -621,14 +621,14 @@
                 "name": "Pulpo", 
                 "allegerns": ["Moluscos"], 
                 "price": "8,00 €", 
-                "description": "Pulpo", 
+                "description": "Origen animal, pescado.", 
                 "image": "Pulpo.jpg" 
             },
             { 
                 "name": "Patata", 
                 "allegerns": [], 
                 "price": "0,65 €", 
-                "description": "Tubérculo", 
+                "description": "Tubérculo, cultivado en España.", 
                 "image": "Patatas.jpg" 
             }
         ]
@@ -647,14 +647,14 @@
                 "name": "Dorada", 
                 "allegerns": ["Pescado"], 
                 "price": "6,50 €", 
-                "description": "Pescado", 
+                "description": "Origen animal, pescado.", 
                 "image": "Dorada.jpg" 
             },
             { 
                 "name": "Aceite", 
                 "allegerns": [], 
                 "price": "2,00 €", 
-                "description": "Aceite", 
+                "description": "Aceite de oliva.", 
                 "image": "Aceite.png" 
             }
         ]
@@ -673,14 +673,14 @@
                 "name": "Salmón", 
                 "allegerns": ["Pescado"], 
                 "price": "7,00 €", 
-                "description": "Pescado", 
+                "description": "Origen animal, pescado.", 
                 "image": "Salmon.jpg" 
             },
             { 
                 "name": "Aceite", 
                 "allegerns": [], 
                 "price": "2,00 €", 
-                "description": "Aceite", 
+                "description": "Aceite de oliva.", 
                 "image": "Aceite.png" 
             }
         ]
@@ -699,14 +699,14 @@
                 "name": "Arroz", 
                 "allegerns": [], 
                 "price": "0,60 €", 
-                "description": "Cereal", 
+                "description": "Cereal, popular en Asia.", 
                 "image": "Arroz.jpg" 
             },
             { 
                 "name": "Sepia", 
                 "allegerns": ["Moluscos"], 
                 "price": "5,50 €", 
-                "description": "Molusco", 
+                "description": "Origen animal, molusco.", 
                 "image": "Sepia.jpg"
             }
         ]
@@ -725,29 +725,22 @@
                 "name": "Arroz", 
                 "allegerns": [], 
                 "price": "0,60 €", 
-                "description": "Cereal", 
+                "description": "Cereal, popular en Asia.", 
                 "image": "Arroz.jpg"
             },
             { 
                 "name": "Pollo", 
                 "allegerns": [], 
                 "price": "3,00 €", 
-                "description": "Carne", 
+                "description": "Origen animal, carne.", 
                 "image": "Pollo.jpg" 
             },
             { 
                 "name": "Conejo", 
                 "allegerns": [], 
                 "price": "4,00 €", 
-                "description": "Carne", 
+                "description": "Origen animal, carne.", 
                 "image": "Conejo.jpg"
-            },
-            {
-                "name":"Judia Verde",
-                "allegerns":[],
-                "price":"0,35 €",
-                "description":"Judia verde de bolsa",
-                "image": "JudiaVerde.jpg"
             }
         ]
     }
