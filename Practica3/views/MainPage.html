@@ -40,13 +40,13 @@
         </div>
 
         <div class="row-1 p-3 text-end">
-            <a href="/NewItemPage.html" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nueva receta </a>
+            <a href="/NewItemPage" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Crear nueva receta </a>
         </div>
 
         <div class="row p-3" id="recipesGrid">
             {{#recipes}}
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                <a href="/DetailPage.html/{{_id}}" class="btn btn-primary" role="button">
+                <a href="/DetailPage/{{_id}}" class="btn btn-primary" role="button">
                     {{#image}}<img class="img-fluid" src="/recipe/{{_id}}/image" alt="{{name}}">{{/image}}
                     {{name}}
                 </a>

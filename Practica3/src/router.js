@@ -11,24 +11,8 @@ const upload = multer({ dest: recipesDB.UPLOADS_FOLDER })
 
 router.get('/', async (req, res) => {
     let recipes = await recipesDB.getRecipesOfPage(1);
-    let pages = await recipesDB.getRecipesPagination(1);
-    let numPage = 1;
-    let maxPage = await recipesDB.countPages();
-    let first = true;
-    let last = maxPage === 1;
     let search = false;
-    res.render('MainPage', { recipes, pages, numPage, first, last, search });
-});
-
-router.get('/MainPage.html/:numPage', async (req, res) => {
-    let recipes = await recipesDB.getRecipesOfPage(req.params.numPage);
-    let pages = await recipesDB.getRecipesPagination(req.params.numPage);
-    let numPage = Number(req.params.numPage);
-    let maxPage = await recipesDB.countPages();
-    let first = numPage === 1;
-    let last = numPage === maxPage;
-    let search = false;
-    res.render('MainPage', { recipes, pages, numPage, first, last, search });
+    res.render('MainPage', { recipes, search });
 });
 
 router.get("/loadRecipes", async (req, res) => {
@@ -39,38 +23,28 @@ router.get("/loadRecipes", async (req, res) => {
 
 router.get('/searchBar', async (req, res) => {
     let searchQuery = req.query.searchQuery;
-    let recipes = await recipesDB.searchRecipes(searchQuery);
-    let elem = {num: 1, actual: false};
-    let pages = [elem];
-    let numPage = 1;
-    let first = true;
-    let last = true; 
+    let recipes = await recipesDB.searchRecipes(searchQuery, 1);
     let search = true;
-    res.render('MainPage', { recipes, pages, numPage, first, last, search, searchQuery });
+    res.render('MainPage', { recipes, search, searchQuery });
 });
 
 router.get('/searchSection', async (req, res) => {
     let section = req.query.section;
-    let recipes = await recipesDB.searchSection(section);
-    let elem = {num: 1, actual: false};
-    let pages = [elem];
-    let numPage = 1;
-    let first = true;
-    let last = true; 
+    let recipes = await recipesDB.searchSection(section, 1);
     let search = true;
     let starter = section === "Guarnición";
     let side = section === "Primer";
     let main = section === "Segundo";
     let dessert = section === "Postre";
-    res.render('MainPage', { recipes, pages, numPage, first, last, search, starter, side, main, dessert, section });
+    res.render('MainPage', { recipes, search, starter, side, main, dessert, section });
 });
 
-router.get('/DetailPage.html/:_id', async (req, res) => {
+router.get('/DetailPage/:_id', async (req, res) => {
     let recipe = await recipesDB.getRecipe(req.params._id);
     res.render('DetailPage', {recipe});
 });
 
-router.get('/NewItemPage.html', async (req, res) => {
+router.get('/NewItemPage', async (req, res) => {
     res.render('NewItemPage');
 });
 

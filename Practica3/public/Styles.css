@@ -121,3 +121,8 @@ body {
     text-align: center; 
     margin-top: 10px;
 }
+
+/* Spinner styles */
+#DeleteSpinner, #DeleteIngredientSpinner {
+    margin-left: 50%;   /* centered */
+}

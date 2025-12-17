@@ -1,3 +1,20 @@
+//Initialize functions
+document.addEventListener("DOMContentLoaded", function(){
+    const pageVars = document.getElementById("page-vars");
+    const isMainPage = pageVars.dataset.mainPage === "true";
+    const isDetailPage = pageVars.dataset.detailPage === "true";
+    const isNewItemPage = pageVars.dataset.newItemPage === "true";
+    if(isMainPage) {
+        initInfiniteScroll();
+    }else if(isDetailPage) {
+        ingredientFormularyValidation();
+        initDropArea("DropArea");
+    }else if(isNewItemPage){
+        recipeFormularyValidation();
+        initDropArea("DropArea");
+    }
+});
+
 //Images functions
 async function previewImage(event) {
     let file = event.target.files[0]; //event.target = input type file, files[0] first file selected 
@@ -35,22 +52,21 @@ async function DeleteImage() {
     editDeleteImage.value = "true";
 }
 
-//document.addEventListener("DOMContentLoaded", () => {
-async function initDropArea() {
+async function initDropArea(dropAreaId) {
     let dropArea = document.getElementById("DropArea");
-    let inputImg = document.getElementById("Image");
+    let imageInput = document.getElementById("Image");
 
-    dropArea.ondragover = (event) => event.preventDefault(); //execute this when u drag an img on the area, and the event.preventdefault forbide open the file
+    dropArea.ondragover = (event) => event.preventDefault(); //execute this when you drag an img on the area, and the event.preventdefault forbide open the file
 
-    dropArea.ondrop = (event) => {  //same but when u drop
+    dropArea.ondrop = (event) => {  //same but when you drop
         event.preventDefault();
 
-        inputImg.files = event.dataTransfer.files; //event.dataTransfer.files have the list of file that u drag, and the file go to image
+        imageInput.files = event.dataTransfer.files; //event.dataTransfer.files have the list of file that you drag, and the file go to image
         dropArea.style.display = "none"
-        previewImage({ target: inputImg }); //preview
+        previewImage({ target: imageInput }); //preview
+        imageInput.dispatchEvent(new Event("change"));
     };
 }
-//});
 
 // Infinite Scroll functions
 let numPage = 1;
@@ -81,7 +97,7 @@ async function loadMore() {
             recipeButton.className = "col-xs-12 col-sm-6 col-md-6 col-lg-4";
 
             recipeButton.innerHTML = `
-            <a href="/DetailPage.html/${recipe._id}" class="btn btn-primary" role="button">
+            <a href="/DetailPage/${recipe._id}" class="btn btn-primary" role="button">
                 <img class="img-fluid" src="/recipe/${recipe._id}/image" alt="${recipe.name}">
                 ${recipe.name}
             </a>
@@ -106,22 +122,6 @@ async function initInfiniteScroll(){
         }
     });
 }
-
-document.addEventListener("DOMContentLoaded", function(){
-    const pageVars = document.getElementById("page-vars");
-    const isMainPage = pageVars.dataset.mainPage === "true";
-    const isDetailPage = pageVars.dataset.detailPage === "true";
-    const isNewItemPage = pageVars.dataset.newItemPage === "true";
-    if(isMainPage) {
-        initInfiniteScroll();
-    }else if(isDetailPage) {
-        ingredientFormularyValidation();
-        initDropArea();
-    }else if(isNewItemPage){
-        recipeFormularyValidation();
-        initDropArea();
-    }
-});
 
 // Edit ingredient functions
 async function editIngredient(recipe_id, ingredient_id){
@@ -200,7 +200,7 @@ async function editIngredient(recipe_id, ingredient_id){
                     <label for="Image"><strong> Imagen: (opcional, si no se incluye o se selecciona una distinta se eliminará la anterior) </strong></label>
                     <input class="form-control" onchange="previewImage(event)" name="image" id="Image" type="file" accept="image/*">
                     <div id="DropArea" style="${ingredient.image ? "display: none;" : "display: block;"}">Arrastra la imagen aquí</div>
-                    <div id="ImagePreview"> ${ingredient.image ? `<img src='/uploads/${ingredient.image}' class='img-thumbnail' style='max-width:200px;'>` : ""} </div>
+                    <div id="ImagePreview"> ${ingredient.image ? `<img src='/ingredient/${recipe_id}/${ingredient_id}/image?${Date.now()}' class='img-thumbnail' style='max-width:200px;'>` : ""} </div>
                     <button type="button" onclick="DeleteImage()" class="btn btn-primary mx-auto mt-3" id="ImageButton"style="${ingredient.image ? "display:block;" : "display:none;"}"><i class="bi bi-floppy"></i> Eliminar la imagen seleccionada </button>
                     <input type="hidden" name="deleteImage" id="EditDeleteImage" value="false">
                     <div class="invalid-feedback" id="ImageError"></div> <!--bootstrap style-->
@@ -220,6 +220,7 @@ async function editIngredient(recipe_id, ingredient_id){
     `;
 
     ingredientFormularyValidation();
+    initDropArea();
 }
 
 // Validation functions
@@ -332,7 +333,6 @@ async function lettersDescription() {
         descriptionInput.classList.add("is-valid");
         return true;
     }
-
 }
 
 //steps validation
@@ -357,7 +357,6 @@ async function lettersSteps() {
         stepsInput.classList.add("is-valid");
         return true;
     }
-
 }
 
 //Dish, difficulty, length and image validations
@@ -377,7 +376,6 @@ async function valDish() {
         dishInput.classList.add("is-valid");
         return true;
     }
-
 }
 
 async function valLength() {
@@ -396,7 +394,6 @@ async function valLength() {
         lengthInput.classList.add("is-valid");
         return true;
     }
-
 }
 
 async function valImage() {
@@ -462,7 +459,6 @@ async function valPrice(){
 }
 
 //Recipe formulary validation
-//document.addEventListener("DOMContentLoaded", () => {
 async function recipeFormularyValidation() {
     //variables
     let nameInput = document.getElementById("Name") 
@@ -527,7 +523,7 @@ async function recipeFormularyValidation() {
         let result = await response.json();
 
         if (response.ok) {
-            window.location.href = `/DetailPage.html/${result.id}`;
+            window.location.href = `/DetailPage/${result.id}`;
         } else {
             if (result.errors && result.errors.length > 0) {
                 showAlert(result.errors);
@@ -535,7 +531,6 @@ async function recipeFormularyValidation() {
         }
     });
 }
-//});
 
 //Ingredient formulary validation
 async function ingredientFormularyValidation() {
@@ -587,7 +582,6 @@ async function ingredientFormularyValidation() {
         setTimeout(() => { //forced delay
             if (response.ok) {    
                 pageVars.dataset.ingredientId = "newIngredient"; //reset the variable of the ingredientId
-                showAlert("Ingrediente guardado correctamente");
                 let ingredientsList = document.getElementById("ingredientsList");
                 let ingredient = result.ingredient;
                 let ingredientDiv;
@@ -608,11 +602,10 @@ async function ingredientFormularyValidation() {
                     <p><strong> Precio: </strong> ${ingredient.price} </p>
                     <p><strong> Descripción: </strong> ${ingredient.description} </p>
                     <p><strong> Imagen del ingrediente: </strong></p>
-                    ${ingredient.image ? `<img class="img-fluid rounded" src="/uploads/${ingredient.image}" alt="${ingredient.name}">` : ""}
+                    ${ingredient.image ? `<img class="img-fluid rounded" src="/ingredient/${result.id}/${ingredient._id}/image?${Date.now()}" alt="${ingredient.name}">` : ""}
                     <div class="row p-3 justify-content-center">
                         <button onclick="deleteIngredient('/ingredient/${result.id}/${ingredient._id}/delete')" class="btn btn-primary" role="button"><i class="bi bi-trash"></i> Borrar </button>
-                        <a href="/ingredient/${result.id}/${ingredient._id}/edit" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </a>
-                        <button onclick="editIngredient('${result.id}', '${ingredient._id}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar AJAX </button>
+                        <button onclick="editIngredient('${result.id}', '${ingredient._id}')" class="btn btn-primary" role="button"><i class="bi bi-pencil-square"></i> Editar </button>
                     </div>
 
                     <!--Delete Ingredient Spinner-->
@@ -655,16 +648,28 @@ async function deleteRecipe(action){
     const result = await response.json();
 
     if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
-        showAlert("Receta borrada correctamente");
-        window.location.href = `/MainPage.html/1`;
+        setTimeout(() => { //forced delay
+            window.location.href = `/`;
+            spinner.style.display = "none";
+        }, 500); //end of the delay
     } else {
         if (result.errors && result.errors.length > 0) {
+            const alertContainer = document.getElementById("AlertContainer");
+
+            const onModalClose = () => {  //redirect function
+                window.location.href = `/`; 
+                spinner.style.display = "none";
+            };
+
+            alertContainer.addEventListener( //only redirect when the alert has been closed
+                'hidden.bs.modal',
+                onModalClose,
+                { once: true }
+            );
+
             showAlert(result.errors); 
         }
-        window.location.href = `/MainPage.html/1`;
-    }
-    
-    spinner.style.display = "none";
+    }   
 }
 
 //delete recipe with ajax
@@ -676,18 +681,30 @@ async function deleteIngredient(action){
     const result = await response.json();
 
     if (response.ok) {    //result.ok is true if the http of response is between 200 and 299, son is false when there are an error and return http 400
-        showAlert("Ingrediente borrado correctamente");
-        let ingredientId = result.ingredientId;
-        let ingredientDiv = document.getElementById("ingredient-" + ingredientId);
-        ingredientDiv.remove();
+        setTimeout(() => { //forced delay
+            let ingredientId = result.ingredientId;
+            let ingredientDiv = document.getElementById("ingredient-" + ingredientId);
+            ingredientDiv.remove();
+            spinner.style.display = "none";
+        }, 500); //end of the delay
     } else {
         if (result.errors && result.errors.length > 0) {
-            showAalert(result.errors);
+            const alertContainer = document.getElementById("AlertContainer");
+
+            const onModalClose = () => {  //redirect function
+                window.location.href = `/DetailPage/${result.recipeId}`;
+                spinner.style.display = "none";
+            };
+
+            alertContainer.addEventListener( //only redirect when the alert has been closed
+                'hidden.bs.modal',
+                onModalClose,
+                { once: true }
+            );
+
+            showAlert(result.errors);
         }
-        window.location.href = `/DetailPage.html/${result.recipeId}`;
     }
-    
-    spinner.style.display = "none";
 }
 
 function showAlert(messages) {
@@ -701,7 +718,7 @@ function showAlert(messages) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Errores en el formulario: </h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Errores detectados: </h5>
                 </div>
                 <div class="modal-body">
                     ${messages}
