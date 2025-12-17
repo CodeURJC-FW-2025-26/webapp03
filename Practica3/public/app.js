@@ -466,7 +466,7 @@ async function recipeFormularyValidation() {
     let stepsInput = document.getElementById("Steps")
     let dishInput = document.getElementById("Dish")
     let lengthInput = document.getElementById("Length")
-    let difficultyInput = document.getElementById("Difficulty")
+    let difficultyInput = document.getElementById("DifficultyGroup")
     let imageInput = document.getElementById("Image")
 
     //use of blur event
